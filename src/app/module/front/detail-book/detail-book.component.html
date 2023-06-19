@@ -1,0 +1,281 @@
+<nav class="background-color">
+  <div class="flex flex-wrap items-center justify-between mx-auto p-4 font-weight">
+    <a href="" class="flex items-center">
+        <img src="..//../../../assets/icon-technobanker.png" class="h-8 mr-3" alt="Flowbite Logo">
+        <span class="self-center whitespace-nowrap text-white">Technobankers</span>
+    </a>
+  <div class="flex md:order-2">
+      <button type="button" class="text-white border border-white rounded-lg text-sm px-5 py-1.5 text-center items-center">Register</button>
+  </div>
+  <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+    <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      <li>
+        <a href="" class="block py-2 pl-3 pr-4 text-white font-weight" aria-current="page">Home</a>
+      </li>
+      <li>
+        <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="flex justify-between w-full py-2 pl-3 pr-4 rounded block py-2 pl-3 pr-4 text-white font-weight">
+          Training 
+          <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
+            </path>
+          </svg>
+        </button>
+        <!-- Dropdown menu -->
+        <div id="dropdownHover" class="z-30 hidden font-normal w-44 background-color-dropdown">
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+            <li>
+              <a href="#" class="block px-4 py-2 hover text-white">Public Training</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover text-white">Company Training</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <button id="dropdownHoverButton1" data-dropdown-toggle="dropdownHover1" data-dropdown-trigger="hover" class="flex justify-between w-full py-2 pl-3 pr-4 rounded block py-2 pl-3 pr-4 text-white font-weight">
+          Events 
+          <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
+            </path>
+          </svg>
+        </button>
+        <!-- Dropdown menu -->
+        <div id="dropdownHover1" class="z-30 hidden font-normal divide-y divide-gray-100 w-44 background-color-dropdown dark:divide-gray-600">
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton1">
+            <li>
+              <a href="#" class="block px-4 py-2 hover text-white">Workshop</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover text-white">Other Events</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href="#" class="block py-2 pl-3 pr-4 text-white font-weight">Blog</a>
+      </li>
+      <li>
+        <a [routerLinkActive]="'active'" routerLink="our-library" href="#" class="block py-2 pl-3 pr-4 text-white font-weight">Our Library</a>
+      </li>
+      <li>
+        <a href="#" class="block py-2 pl-3 pr-4 text-white font-weight">About</a>
+      </li>
+      <li>
+        <a href="#" class="block py-2 pl-4 pr-4 text-white font-weight login">Login</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+
+
+<div class="banner1 height100p" id="home" loading="lazy">
+    <div class="pt-5 pl-20">
+        <button type="button" class="text-white"> Home / </button>
+        <button type="button" class="text-white"> Our Library / </button> 
+        <button type="button" class="text-white"> Detail Book</button>
+    </div>
+    <div class="grid grid-cols-2 gap-4" id="home" loading="lazy">
+        <img class="ml-20 pl-10 mt-10 image-home1" src="{{book.bookImage}}">       
+        <div class="position-section1">
+            <p class="text-color-yellow text-status">NEW RELEASE</p>
+            <p class="text-white text-author">By
+              <span *ngFor="let item of detailModel.authorOfBook" class="text-white text-author"> {{ item.bookAuthor }},</span>
+            </p> 
+            <h1 class="mt-20 text-color-yellow home-text-section-2 position-title-book">
+              {{book.bookTitle}}
+            </h1>
+            <div class="flex position-info-book" >
+              <p class="text-volume text-center pt-1 bg-slate-600 text-white">Vol.{{book.bookVolume}}</p>
+              <p  class="ml-3 bg-slate-600 text-series text-center pt-1 text-white" *ngIf="book.seriesName">{{book.seriesName}}</p>
+            </div>
+            <!-- <div class="flex position-info-book" *ngIf="book.bookType === 'Non Series'">
+              <p class="text-volume text-center pt-1 bg-slate-600 text-white">Vol.{{book.bookVolume}}</p>
+            </div> -->
+            <p class="sub-text-section-2 text-white position-text-desc">
+              {{book.bookDescription}}
+            </p>
+            <p class="text-white position-text-key">
+              Keywords : 
+              <span class="text-white" *ngFor="let item of detailModel.keywordOfBook"> {{item.keyword}}, </span>
+            </p>
+        </div>
+    </div>
+</div>
+
+<div class="flex background-color-section-2">
+  <h1 class="text-title-section2 text-white">Overview</h1>
+  <p class="text-p-section2 text-white text-center">Genre : {{book.bookGenre}}</p>
+  <p class="text-p2-section2 text-white text-center" *ngFor="let item of detailModel.roles">Relevant for roles : {{item.roles}}</p>
+</div>
+
+<div class="grid grid-cols-2 mb-20">
+    <div class="col-start-1 col-end-2">
+      <h2 class="text-color-gray text-title-section3">About This Edition</h2>
+      <div class="text-color-gray mt-10 ml-20 grid grid-cols-2">
+        <p class="mt-2">ISBN : {{book.bookIsbn}}</p>
+        <p class="mt-2">Language : {{book.bookLanguage}}</p>
+        <p class="mt-2">Released : {{book.bookReleased}}</p>
+        <p class="mt-2">Pages : {{book.bookPages}}</p>
+        <p class="mt-2">Publisher : {{book.bookPublisher}}</p>
+        <p class="mt-2">Author
+          <span *ngFor="let item of detailModel.authorOfBook"> {{ item.bookAuthor }},</span>
+        </p> 
+      </div>
+      <div class="mt-5 ml-20 text-color-gray paragraph">
+        <h1 class="mt-2">Brief Description</h1>
+        <p class="mt-5">{{book.bookBriefDesc}}</p>
+        <!-- <p class="mt-5">The Rust Programming Language is the official book on Rust: an open source systems programming language that helps you write faster, more reliable software. Rust offers control over low-level details (such as memory usage) in combination with high-level ergonomics, eliminating the hassle traditionally associated with low-level languages.</p>
+        <p class="mt-5">The authors of The Rust Programming Language, members of the Rust Core Team, share their knowledge and experience to show you how to take full advantage of Rust's features--from installation to creating robust and scalable programs. You'll begin with basics like creating functions, choosing data types, and binding variables and then move on to more advanced concepts, such as:</p> -->
+        <button data-modal-target="defaultModal" data-modal-toggle="defaultModal" type="button" class="mt-10 text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
+          Preview
+        </button>
+        <button data-modal-target="citationModal" data-modal-toggle="citationModal" type="button" class="mt-10 text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
+          Create Citation
+        </button>
+        <h1 class="mt-5 text-version">Available in Full Version</h1>
+        <button type="button" class="mt-5 items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 button">
+          Buy Book Now
+        </button>
+      </div>
+    </div>
+    <div class="mt-10 ml-20 box">
+      <h2 class="text-start-reading mt-10">Start Reading Now</h2>
+      <h1 class="mt-5 text-get-started text-color-gray">Get 1 FREE Chapter</h1>
+      <img class="ml-20 pl-20 mt-5" src="../../../../assets/image-logo.png">
+      <form [formGroup]="detailModel.formGroupEmail">
+        <div class="form-group">
+          <input formControlName="clientName" class="input-text mt-5 ml-7" type="text" placeholder="Your name">
+          <div *ngIf="f['clientName'] && (f['clientName'].touched || f['clientName'].dirty)  && !f['clientName'].valid">
+              <div *ngIf="f['clientName'].errors">
+                  <div class="pl-10 text-sm" *ngIf="!detailModel.formGroupEmail.controls['clientName'].valid">
+                      <span style="color: #EB5757;">A field is required</span>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <input formControlName="clientEmail" class="input-text mt-5 ml-7" type="text" placeholder="example@gmail.com" required>
+          <div *ngIf="f['clientEmail'] && (f['clientEmail'].touched || f['clientEmail'].dirty)  && 
+          !f['clientEmail'].valid">
+              <div *ngIf="f['clientEmail'].errors">
+                  <div class="pl-10 text-sm"
+                      *ngIf="!detailModel.formGroupEmail.controls['clientEmail'].valid">
+                      <span style="color: #EB5757;">A valid email is required</span>
+                  </div>
+              </div>
+          </div>
+        </div>
+        <div class="flex mt-5">
+          <div class="position-flag pl-8 pt-4">
+            <img class="" src="../../../../assets/flag.png">
+         </div>
+          <p class="pt-3 pl-3">+62 </p>
+          <input formControlName="clientNumber" class="input-text2 ml-2" type="text" placeholder="Phone (optional)">
+        </div>
+        <button (click)="toggleLoading()" (click)="submitEmail()" type="button" class="mt-5 items-center text-base font-medium text-white rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 button2">
+          <div class="flex pl-20 pl-20 ml-20">
+            <img *ngIf="isLoading" style="width : 25px" src="../../../../assets/loading.gif" />
+            <span class="">Send me free chapter</span>
+          </div>
+        </button>
+      </form>
+    </div>
+</div>
+
+<!-- Modal-Preview-Image -->
+<div id="defaultModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <div class="relative modal-preview">
+      <!-- Modal content -->
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <!-- Modal header -->
+          <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+              <h3 class="text-center text-xl text-color-gray font-weight-700 dark:text-white">
+                  Preview
+              </h3>
+              <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="defaultModal">
+                  <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  <span class="sr-only">Close modal</span>
+              </button>
+          </div>
+          <!-- Modal body -->
+          <div id="default-carousel" class="relative pl-20 pt-10 pb-10 pr-20 space-y-4 " data-carousel="static" >
+            <div class="overflow-hidden relative rounded-lg lg:h-64 xl:h-80 2xl:h-100 preview-book" >
+                <div class="hidden" data-carousel-item *ngFor="let item of detailModel.previewsOfBook">
+                  <div class="duration-700 ease-in-out ">
+                    <div  class="preview-book">
+                        <img src="http://54.251.83.205/technobanker/backend/bookPreview/{{item.imagePreview}}" alt="Book Preview" class="absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <!-- Slider indicators -->
+            <div class="flex absolute rounded-lg h-8 w-44 bottom-12 items-center left-1/2 z-30 space-x-3 -translate-x-1/2">
+              <div class="position-button-preview" *ngFor="let item of detailModel.previewsOfBook">
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="item"></button>
+              </div>
+            </div>
+        </div>    
+      </div>
+  </div>
+</div>
+
+<!-- Modal-Citation -->
+<div id="citationModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+  <div class="relative w-full max-w-2xl max-h-full">
+      <!-- Modal content -->
+      <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+          <!-- Modal header -->
+          <div class="flex items-start justify-between p-4 dark:border-gray-600">
+              <h3 class="text-xl font-semibold text-color-gray font-weight-700 dark:text-white">
+                  Citation
+              </h3>
+              <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="citationModal">
+                  <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                  <span class="sr-only">Close modal</span>
+              </button>
+          </div>
+          <!-- Modal body -->
+          <div class="space-y-6 p-5">
+            <div class="rounded-lg border border-gray-300 p-5 pt-5 pl-5">
+              <textarea #inputTarget class="text-citation rounded-lg focus:border-black text-color-gray2 dark:text-gray-400" value={{book.bookCitation}}></textarea>
+            </div>
+          </div>
+          <!-- Modal footer -->
+          <div class="citation-button p-5">
+            <button [ngxClipboard]="inputTarget" type="button" class="flex rounded-lg border border-gray-700 p-5 items-center px-5 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-white">
+              <svg aria-hidden="true" class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg"><path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z"></path><path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z"></path></svg>
+              <span class="text-sm font-medium">Copy</span>
+            </button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer grid grid-cols-3">
+    <div class="col-start-1 col-end-2 ml-20 ">
+      <div>
+        <img src="../../../../assets/Footer.png">
+        <h1 class="mb-10 text-white text2-title-footer">ABOUT US</h1>
+        <p class="mt-5 text-white subtext2-footer">We focus on developing the professional careers of digital talent or employees by providing various publication materials, workshops, and training that are equipped with a practical curriculum and are supported by experienced experts and facilitators.</p>
+      </div>
+    </div>
+    <div class="position-text-footer">
+      <h1 class="text-white text-title-footer">CONTACT US</h1>
+      <p class="mt-5 text-white subtext-footer">Cervino Village Unit H Mezzanine Level, Jl. KH Abdullah Syafei No.Kav. 27, RT.3/RW.1, West Tebet, Tebet, South Jakarta City, Jakarta 12810.</p>
+      <img src="../../../../assets/phone-number.png">
+      <img src="../../../../assets/Email.png">
+      <img src="../../../../assets/date-time.png">
+    </div>
+  </div>
+  <div class="footer2 grid grid-cols-3">
+    <img class="img-footer2" src="../../../../assets/Footer2.png">
+    <h1 class="position-h1 text-white">Developed by 
+      <span class="font-weight-footer">DIGIMASTER</span>
+    </h1>
+    <h1 class="position2-h1 text-white">Copyright ©2023 Technobankers. All Rights Reserved.</h1>
+  </div>
+</footer>

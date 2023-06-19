@@ -1,0 +1,318 @@
+<nav class="background-color">
+  <div class="flex flex-wrap items-center justify-between mx-auto p-4 font-weight">
+    <a href="" class="flex items-center">
+        <img src="..//../../../assets/icon-technobanker.png" class="h-8 mr-3" alt="Flowbite Logo">
+        <span class="self-center whitespace-nowrap text-white">Technobankers</span>
+    </a>
+  <div class="flex md:order-2">
+      <button type="button" class="text-white border border-white rounded-lg text-sm px-5 py-1.5 text-center items-center">Register</button>
+  </div>
+  <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+    <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+      <li>
+        <a href="" class="block py-2 pl-3 pr-4 text-white font-weight" aria-current="page">Home</a>
+      </li>
+      <li>
+        <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="flex justify-between w-full py-2 pl-3 pr-4 rounded block py-2 pl-3 pr-4 text-white font-weight">
+          Training 
+          <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
+            </path>
+          </svg>
+        </button>
+        <!-- Dropdown menu -->
+        <div id="dropdownHover" class="z-30 hidden font-normal w-44 background-color-dropdown">
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+            <li>
+              <a href="#" class="block px-4 py-2 hover text-white">Public Training</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover text-white">Company Training</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <button id="dropdownHoverButton1" data-dropdown-toggle="dropdownHover1" data-dropdown-trigger="hover" class="flex justify-between w-full py-2 pl-3 pr-4 rounded block py-2 pl-3 pr-4 text-white font-weight">
+          Events 
+          <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
+            </path>
+          </svg>
+        </button>
+        <!-- Dropdown menu -->
+        <div id="dropdownHover1" class="z-30 hidden font-normal divide-y divide-gray-100 w-44 background-color-dropdown dark:divide-gray-600">
+          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton1">
+            <li>
+              <a href="#" class="block px-4 py-2 hover text-white">Workshop</a>
+            </li>
+            <li>
+              <a href="#" class="block px-4 py-2 hover text-white">Other Events</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+      <li>
+        <a href="#" class="block py-2 pl-3 pr-4 text-white font-weight">Blog</a>
+      </li>
+      <li>
+        <a [routerLinkActive]="'active'" routerLink="our-library" href="#" class="block py-2 pl-3 pr-4 text-white font-weight">Our Library</a>
+      </li>
+      <li>
+        <a href="#" class="block py-2 pl-3 pr-4 text-white font-weight">About</a>
+      </li>
+      <li>
+        <a href="#" class="block py-2 pl-4 pr-4 text-white font-weight login">Login</a>
+      </li>
+    </ul>
+  </div>
+  </div>
+</nav>
+
+<!-- This is an example component -->
+<div class="height100p jumbotron mx-auto" >
+	<div id="default-carousel" class="relative" data-carousel="static" >
+        <!-- Carousel wrapper -->
+        <div class="overflow-hidden banner" >
+            <!-- Item 1 -->
+            <div class="hidden duration-700 ease-in-out" data-carousel-item *ngFor="let slider of homeModel.allDataSlider">
+              <div class="jumbotron jumbotron-fluid height100p banner1" id="home" loading="lazy">
+                <div class="container h100" >
+                    <div class="contentBox h100" >
+                        <div class="row" >
+                          <div class="dark:bg-gray-800 p-8 md:p-12 mb-8" >
+                            <p class="position text-white">{{slider.sliderSubTitle}}</p>
+                            <h1 class="title-text text-color">
+                              {{slider.sliderTitle}} 
+                              <span class="text-white"></span>
+                            </h1>
+                            <p class="text-white mb-6 sub-text">
+                              {{slider.sliderDesc}}</p>
+                            <a [routerLinkActive]="'active'" routerLink="{{slider.sliderSlug}}" class="item inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 button">
+                              {{ slider.buttonName }}
+                                <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                            </a>
+                          </div>
+                        </div>
+                        <div class="flex-col">
+                          <img class="image-book" src="{{slider.sliderImage}}" >
+                        </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- Slider indicators -->
+        <div class="flex absolute bottom-10 left-1/2 z-30 space-x-3 -translate-x-1/2">
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+            <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+        </div>
+        <!-- Slider controls -->
+        <button type="button" class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-prev>
+            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                <span class="hidden">Previous</span>
+            </span>
+        </button>
+        <button type="button" class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none" data-carousel-next>
+            <span class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                <span class="hidden">Next</span>
+            </span>
+        </button>
+    </div>
+</div>
+
+<div class="section-2" id="home" loading="lazy">
+    <div class="contentBox mt-10">
+      <img class="image-home1" src="../../../../assets/pictureHome1.png">
+      <div class="">
+        <p class="text-section2">What We Do</p>
+        <h1 class="home-text-section-2">
+          We Publish Content Daily to Upskill Talent, Build Capabilities, and Foster Collaboration.
+        </h1>
+        <p class="sub-text-section-2">
+          The capabilities of a company's human resources are crucial to the success of an organization or business. Technobankers are here to help you succeed.
+          Our comprehensive learning materials and industry-focused training programs will equip you and your team with the digital skills necessary to succeed in today's fast-paced industry. Whether you're a fresh graduate or professional, invest in yourself and join Technobankers community today!
+        </p>
+      </div>
+  </div>
+</div>
+
+<div class="grid grid-cols-2 gap-4 mt-10 ml-20">
+  <div class="col-start-1 col-end-2">
+    <p class="home-text">Join Our Community</p>
+    <h1 class="home-text-section-3">
+      Unlock Your Potential with Technobankers
+    </h1>
+    <img class="mb-4 image-home1" src="../../../../assets/pictureHome2.png">
+    <p class="mb-6 sub-text2">
+      Subscribe & get immediate access to our best resources including practical books, keynote speakers, training, workshops and other events.
+    </p>
+    <form>
+      <div class="position-form-email">
+        <input type="email" id="email" class="width-form p-2.5 text-sm text-gray-900 bg-white rounded-l-lg border-l-gray-100 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Email address" required>
+        <button type="button" class="button-submit-email text-white rounded-r-lg hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
+          Submit
+        </button>
+        <button type="button" class="mt-10 button-training text-white rounded-lg hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
+          See Our Training
+        </button>
+        <button type="button" class="mt-10 button-workshop text-white rounded-lg hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">
+          Recent Workshop
+        </button>
+      </div>
+    </form>
+  </div>
+  <div>
+    <div class="grid grid-cols-2 col-start-1 col-end-4">
+      <img class="mt-10" src="../../../../assets/Group-sec-3-1.png">
+      <img class="mt-10" src="../../../../assets/Group-sec-3-2.png">
+      <img class="mt-10" src="../../../../assets/Group-sec-3-3.png">
+      <img class="mt-10" src="../../../../assets/Group-sec-3-4.png">
+    </div>
+  </div>
+</div>
+
+<div class="grid grid-cols-2 position-sec-4">
+  <div class="col-start-1 col-end-2 background-color-sec-4">
+    <img class="position-line" src="../../../../assets/line.png">
+    <img class="position-book" src="../../../../assets/Our Book.png">
+    <img class="position-asset" src="../../../../assets/top-pick-book.png">
+    <p class="mt-3 text-white position-p-sec-4">The Most Read Series of Technobankers Press</p>
+    <h1 class="text-yellow position-h1-sec-4">Digital Banking Challenges</h1>
+    <p class="text-white position-p2-sec-4">
+      The first book in Technobankers series. This book investigates how traditional banks should modify their business strategies to change how they interact with customers, handle middle and back-office operations, be competitive, and be prepared for the future.
+    </p>
+    <a href="#" class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 button-sec-4">
+      Download free chapter here
+    </a>
+    <a href="#" class="ml-10 text-white border border-white rounded-lg py-2.5 px-5 text-base font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900 button2-sec-4">
+      or visit Our Library
+    </a>
+  </div>
+  <div class="background-color2-sec-4">
+  </div>
+</div>
+
+<div class="section-4" id="home" loading="lazy">
+  <div class="contentBox">
+    <img class="image-home1" src="../../../../assets/foto-bu-elisa.png">
+    <div class="">
+      <p class="text-section2">Meet Our Author</p>
+      <h1 class="home-text-section-2">
+        Expert Behind Technobankers
+      </h1>
+      <p class="sub-text-section-4">
+        Our Expert, Dr. Elisa Indriasari, is a practitioner and academician who concentrate on the study of information systems and particularly as it relates to emerging technologies and digital transformation. She is recognized as professional expert with more than 20 years of experience in banking industry who standout in bringing innovation to life through a big picture and out-of-the-box approach to business.
+      </p>
+      <button type="button" class="ml-8 text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
+        Learn more
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="section-5 mt-20" id="home" loading="lazy">
+  <div class="contentBox">
+    <img class="image-blog" src="../../../../assets/blog-icon.png">
+    <h1 class="ml-5 home-text-section-5">Get smarter on business and Tech</h1>
+    <p class="sub-text-section-5">Discover the new articles everyday</p>
+  </div>
+  <img class="ml-8" src="../../../../assets/line2.png">
+</div>
+
+<div class="mb-10 grid grid-cols-2 gap-4">
+  <div class="col-start-1 col-end-2">
+    <img class="mt-10 ml-10 pl-8 image-book2" src="../../../../assets/image-sec-6.png">
+    <button type="button" class="ml-20 mt-5 focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-normal rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+      Latest Issue
+    </button>
+    <h1 class="ml-20 h1-section5">Apple unveils first retail store in India</h1>
+    <p class="ml-20 p-section5">CEO Tim Cook had said in February that the iPhone maker was bullish on India.</p>
+    <div class="grid grid-cols-6 mt-5">
+      <img class="pl-10 ml-10 pb-10" src="../../../../assets/icon-author.png">
+      <p class="pl-6 p2-section5">Elisa Indriasari</p>
+      <img class="pr-10 mt-2" src="../../../../assets/point.png">
+      <p class="p2-section5 padding-date">6 April 2023</p>
+      <img class="mt-2 padding-point" src="../../../../assets/point.png">
+      <p class="padding-time">10 min read</p>
+    </div>
+  </div>
+  <div class="grid grid-cols-2 gap-4">
+    <img class="mt-10 image-book3" src="../../../../assets/image-sec-6.png">
+    <div class="mt-10 position-sec-5">
+      <h1 class="h1-section5">Apple unveils first retail store in India</h1>
+      <p class="p-section5">CEO Tim Cook had said in February that the iPhone maker was bullish on India.</p>
+      <div class="grid grid-cols-6 mt-5">
+        <img class="" src="../../../../assets/icon-author.png">
+        <p class="p2-section5">Elisa Indriasari</p>
+        <img class="pl-7 mt-2" src="../../../../assets/point.png">
+        <p class="p2-section5 ml-2">6 April 2023</p>
+        <img class="mt-2 pl-5" src="../../../../assets/point.png">
+        <p class="p2-section5">10 min read</p>
+      </div>
+    </div>
+    <img class="image-book3" src="../../../../assets/image-sec-6.png">
+    <div class="position-sec-5">
+      <h1 class="h1-section5">Apple unveils first retail store in India</h1>
+      <p class="p-section5">CEO Tim Cook had said in February that the iPhone maker was bullish on India.</p>
+      <div class="grid grid-cols-6 mt-5">
+        <img class="" src="../../../../assets/icon-author.png">
+        <p class="p2-section5">Elisa Indriasari</p>
+        <img class="pl-7 mt-2" src="../../../../assets/point.png">
+        <p class="p2-section5 ml-2">6 April 2023</p>
+        <img class="mt-2 pl-5" src="../../../../assets/point.png">
+        <p class="p2-section5">10 min read</p>
+      </div>
+    </div>
+    <img class="image-book3" src="../../../../assets/image-sec-6.png">
+    <div class="position-sec-5">
+      <h1 class="h1-section5">Apple unveils first retail store in India</h1>
+      <p class="p-section5">CEO Tim Cook had said in February that the iPhone maker was bullish on India.</p>
+      <div class="grid grid-cols-6 mt-5">
+        <img class="" src="../../../../assets/icon-author.png">
+        <p class="p2-section5">Elisa Indriasari</p>
+        <img class="pl-7 mt-2" src="../../../../assets/point.png">
+        <p class="p2-section5 ml-2">6 April 2023</p>
+        <img class="mt-2 pl-5" src="../../../../assets/point.png">
+        <p class="p2-section5">10 min read</p>
+      </div>
+      <button type="button" class="mt-10 px-5 py-2.5 mr-2 mb-2 text-gray-500 hover:text-white border hover:bg-blue-800 focus:ring-4 focus:outline-none font-medium rounded-xl text-sm text-center dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">
+        Explore more</button>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer grid grid-cols-3">
+    <div class="col-start-1 col-end-2 ml-20 ">
+      <div>
+        <img src="../../../../assets/Footer.png">
+        <h1 class="mb-10 text-white text2-title-footer">ABOUT US</h1>
+        <p class="mt-5 text-white subtext2-footer">We focus on developing the professional careers of digital talent or employees by providing various publication materials, workshops, and training that are equipped with a practical curriculum and are supported by experienced experts and facilitators.</p>
+      </div>
+    </div>
+    <div class="position-text-footer">
+      <h1 class="text-white text-title-footer">CONTACT US</h1>
+      <p class="mt-5 text-white subtext-footer">Cervino Village Unit H Mezzanine Level, Jl. KH Abdullah Syafei No.Kav. 27, RT.3/RW.1, West Tebet, Tebet, South Jakarta City, Jakarta 12810.</p>
+      <img src="../../../../assets/phone-number.png">
+      <img src="../../../../assets/Email.png">
+      <img src="../../../../assets/date-time.png">
+    </div>
+  </div>
+  <div class="footer2 grid grid-cols-3">
+    <img class="img-footer2" src="../../../../assets/Footer2.png">
+    <h1 class="position-h1 text-white">Developed by 
+      <span class="font-weight-footer">DIGIMASTER</span>
+    </h1>
+    <h1 class="position2-h1 text-white">Copyright ©2023 Technobankers. All Rights Reserved.</h1>
+  </div>
+</footer>
+  
+
+
+
+
+

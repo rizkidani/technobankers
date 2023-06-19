@@ -1,0 +1,32 @@
+.text-danger{ 
+    font-style: normal;
+    font-weight: 800;
+    font-size: 32px;
+    line-height: 48px;
+    text-align: center;
+    color: #E55353;
+}
+
+.text-desc {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+    text-align: center;
+    color: #4F4F4F;
+    width: 1000px;
+    height: 54px;
+}
+
+.shadow {
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    width: 180px;
+    height: 48px;
+}
+
+.image {
+    width: 220px;
+    height: 277px;
+    left: calc(50% - 220px/2);
+}
