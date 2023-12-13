@@ -22,7 +22,7 @@ import { ClipboardModule } from 'ngx-clipboard';
     HttpClientModule,
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
-    ClipboardModule
+    ClipboardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

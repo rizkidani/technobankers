@@ -29,6 +29,7 @@ export class HomeComponent {
     this.homeService.getSlider().subscribe(
       (response) => {
         this.homeModel.allDataSlider = response.data;
+        console.log(this.homeModel.allDataSlider)
       });
 
     this.bookService.getListBook().subscribe(
@@ -42,4 +43,5 @@ export class HomeComponent {
     this.router.navigate(["our-library"]);
   }
 
+  images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
 }

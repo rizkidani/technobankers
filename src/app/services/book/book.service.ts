@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { API_BASE_URL } from './../api.config';
 
 @Injectable({
   providedIn: 'root'
@@ -12,12 +13,12 @@ export class BookService {
   ) { }
 
   public getListBook(): Observable<any> {
-    const url = 'http://54.251.83.205:9091/api/technobanker/v1/backoffice/book/get-books';
+    const url = `${API_BASE_URL}/api/technobanker/v1/backoffice/book/get-books`;
     return this.http.get(url);
   }
 
   public getListBookPartly(): Observable<any> {
-    const url = 'http://54.251.83.205:9091/api/technobanker/v1/backoffice/book/get-books-partly';
+    const url = `${API_BASE_URL}/api/technobanker/v1/backoffice/book/get-books-partly`;
     return this.http.get(url);
   }
 
