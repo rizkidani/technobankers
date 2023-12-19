@@ -14,7 +14,8 @@ import { NgbModule, NgbCarouselModule, NgbSlide } from '@ng-bootstrap/ng-bootstr
     PdfNotFoundRoutingModule,
     NgbModule,
     NgbCarouselModule,
-    NgbSlide
+    NgbSlide,
+    
   ]
 })
 export class PdfNotFoundModule { }

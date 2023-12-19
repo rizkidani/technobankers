@@ -25,7 +25,6 @@ import { NgbModule, NgbCarouselModule, NgbSlide } from '@ng-bootstrap/ng-bootstr
     ClipboardModule,
     NgbModule,
     NgbCarouselModule,
-    NgbSlide
   ],
   providers: [],
   bootstrap: [AppComponent]
