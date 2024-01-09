@@ -58,10 +58,11 @@
           <a [routerLinkActive]="'active'" routerLink="our-library" href="#"
             class="block py-2 pl-3 pr-4 text-white font-weight">Our Library</a>
         </li>
+        <li>
+          <a [routerLinkActive]="'active'" routerLink="about"
+            class="block py-2 pl-3 pr-4 text-white font-weight">About</a>
+        </li>
         <!-- <li>
-        <a href="#" class="block py-2 pl-3 pr-4 text-white font-weight">About</a>
-      </li>
-      <li>
         <a href="#" class="block py-2 pl-4 pr-4 text-white font-weight login">Login</a>
       </li> -->
       </ul>
@@ -79,7 +80,7 @@
               <div class="col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 first">
                 <div class="left-side">
                   <h5>{{item.sliderSubTitle}}</h5>
-                  <h1 class="display-4 mt-2 mb-2">{{item.sliderTitle}}</h1>
+                  <h1 class="display-4 font-bold mt-2 mb-2">{{item.sliderTitle}}</h1>
                   <p class="mt-3">{{item.sliderDesc}}</p>
                   <p class="lead mt-5">
                     <a class="btn btn-slider btn-lg" href="{{item.sliderSlug}}" role="button">{{item.buttonName}}</a>
@@ -102,7 +103,8 @@
 </section>
 
 
-<div class="flex flex-row justify-center mx-10 px-10 my-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+
+<!-- <div class="flex flex-row justify-center mx-10 px-10 my-5 grid grid-cols-1 md:grid-cols-2 gap-4">
   <img class="md:w-3/4" src="../../../../assets/discuss.jpg" alt="Image Description">
   <div class="w-full">
     <p class="font-semibold text-2xl text-zinc-400 mb-3">What We Do</p>
@@ -117,50 +119,56 @@
       professional, invest in yourself and join Technobankers community today!
     </p>
   </div>
-</div>
+</div> -->
 
-
-<div class="grid grid-cols-1 gap-4 mt-10 mx-5" style="margin-bottom: 55px;">
-  <div class="col-start-1 col-end-2">
-    <p class="home-text">Join Our Community</p>
-    <h1 class="home-text-section-3">
-      Unlock Your Potential with Technobankers
-    </h1>
-  </div>
-  <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-    <div>
-      <div class="flex flex-wrap items-center mb-2">
-        <img class="icon" src="../../../../assets/sec-3-1.png">
-        <p class="text-zinc-400 font-bold">First</p>
-      </div>
-      <p class="font-bold text-xl text-indigo-800 mb-3">Obtain Up-to-date learning materials</p>
-      <p>Learning materials are adapted to current industry needs, such as digital banking, programming, agile
-        software development, co-creation, artificial intelligence, etc.</p>
+<div class="container">
+  <div class="grid grid-cols-1 gap-4 mt-10 mx-5" style="margin-bottom: 55px;">
+    <div class="col-start-1 col-end-2">
+      <p class="home-text font-medium mb-2">Explore the Series</p>
+      <h1 class="home-text-section-3">
+        Unlock Your Potential with Technobankers
+      </h1>
     </div>
-    <div>
-      <div class="flex flex-wrap items-center mb-2">
-        <img class="icon" src="../../../../assets/sec-3-2.png">
-        <p class="text-zinc-400 font-bold">Second</p>
+    <div class="flex flex-wrap">
+      <div class="basis-full md:basis-1/4 mb-3 md:px-3 sm:px-0">
+        <div class="flex flex-wrap items-center mb-2">
+          <img class="icon" src="../../../../assets/sec-3-1.png">
+          <p class="text-zinc-400 font-bold">First</p>
+        </div>
+        <p class="font-bold text-xl text-indigo-800 mb-3">Innovative Storytelling</p>
+        <p>"TechnoBanker" isn't just a book series; it's an immersive experience. Each instalment takes you on an
+          adventure filled with intrigue, technology, and the fast-paced world of finance. Get ready to be hooked from
+          the very first page!</p>
       </div>
-      <p class="font-bold text-xl text-indigo-800 mb-3">Experience New Learning Concept</p>
-      <p>We use innovative and creative approaches to deliver learning activities, such as workshops and training, allowing participants to readily grasp the learning information.</p>
-    </div>
-    <div>
-      <div class="flex flex-wrap items-center mb-2">
-        <img class="icon" src="../../../../assets/sec-3-3.png">
-        <p class="text-zinc-400 font-bold">Third</p>
+      <div class="basis-full md:basis-1/4 mb-3 md:px-3 sm:px-0">
+        <div class="flex flex-wrap items-center mb-2">
+          <img class="icon" src="../../../../assets/sec-3-2.png">
+          <p class="text-zinc-400 font-bold">Second</p>
+        </div>
+        <p class="font-bold text-xl text-indigo-800 mb-3">Fintech Unleashed</p>
+        <p>Dive deep into the realms of fintech, artificial intelligence, blockchain, and more. The series explores how
+          these technologies impact the financial landscape, shaping the destiny of characters navigating complex modern
+          finance after the pandemic Covid-19.</p>
       </div>
-      <p class="font-bold text-xl text-indigo-800 mb-3">End-to-End Transformation Process</p>
-      <p>We provide a learning experience that seeks to change from an unknowledgeable to a knowledgeable employee
-        by enhancing their ability to perform on the job.</p>
-    </div>
-    <div>
-      <div class="flex flex-wrap items-center mb-2">
-        <img class="icon" src="../../../../assets/sec-3-4.png">
-        <p class="text-zinc-400 font-bold">Fourth</p>
+      <div class="basis-full md:basis-1/4 mb-3 md:px-3 sm:px-0">
+        <div class="flex flex-wrap items-center mb-2">
+          <img class="icon" src="../../../../assets/sec-3-3.png">
+          <p class="text-zinc-400 font-bold">Third</p>
+        </div>
+        <p class="font-bold text-xl text-indigo-800 mb-3">Global Settings</p>
+        <p>Embark on a globe-trotting adventure as the characters traverse international financial hubs. From the US to
+          China and Indonesia, witness the convergence of finance and technology on a global stage.</p>
       </div>
-      <p class="font-bold text-xl text-indigo-800 mb-3">Learning Support from Our Experts</p>
-      <p>Learning directly from experts and professionals is the most effective way to perfect the skills gained. Discuss with our experts to gain insights on real-world events.</p>
+      <div class="basis-full md:basis-1/4 mb-3 md:px-3 sm:px-0">
+        <div class="flex flex-wrap items-center mb-2">
+          <img class="icon" src="../../../../assets/sec-3-4.png">
+          <p class="text-zinc-400 font-bold">Fourth</p>
+        </div>
+        <p class="font-bold text-xl text-indigo-800 mb-3">Thrilling Characters</p>
+        <p>Meet a diverse cast of characters - from brilliant tech prodigies to seasoned banking veterans, each with
+          their motivations and secrets. As their paths intertwine, a gripping narrative unfolds, keeping you on the
+          edge of your seat.</p>
+      </div>
     </div>
   </div>
 </div>
@@ -185,103 +193,204 @@
   </div>
 </div> -->
 
-<div class="w-full our-book">
-  <div class="flex flex-wrap">
-    <!-- First Div with 1/4 width -->
-    <div class="sm:w-1/2 my-auto">
-      <!-- <div class="flex items-center ">
-        <img class="img-book" src="../../../../assets/line.png">
-        <img class="img-book" src="../../../../assets/Our Book.png">
-      </div> -->
-      <div class="left-content" style="padding: 25px 75px;">
-        <img class="position-book mb-5" src="../../../../assets/Our Book.png">
+<div class="bg-[#22223C]">
+  <div class="container">
+    <div class="flex flex-wrap justify-center py-12">
+
+      <div class="basis-full md:basis-1/2 text-white px-3">
+        <img class="mb-2" src="../../../../assets/our-book.png">
         <img src="../../../../assets/toppick.gif">
-        <p class="mt-3 text-white">The Most Read Series of Technobankers Press</p>
-        <div class="flex items-center mt-7">
-          <button class="bg-indigo-600 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-2 rounded">
-            Download free chapter here
-          </button>
-          <button class="bg-transparen outline hover:bg-indigo-600 text-white font-bold py-2 px-4 rounded" (click)="goToOurLibrary()">
-            or visit Our Library
-          </button>
+        <p class="text-[18px]">The Most Read Series of Digi Optima Media Press</p>
+        <h5 class="text-[42px] font-bold mb-4">Technobanker</h5>
+        <p>The first book in Technobanker Series. This book present an overview of the competencies that are required
+          for the development of intelligent digital banking based on Our Expert experiences in the industry. The focus
+          is on the future of emerging technologies like Artificial Intelligence, Blockchain, Cloud Computing, Big Data,
+          and the Internet of Things (IoT), which are reshaping the banking sector by enabling sophisticated digital
+          banking systems.</p>
+        <div class="flex flex-wrap mt-12">
+          <div class="basis-full md:basis-1/2">
+            <button
+              class="border-2 border-indigo-600 bg-indigo-600 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded-xl w-full md:w-3/4">
+              Download free chapter here
+            </button>
+          </div>
+          <div class="basis-full md:basis-1/2">
+            <button class="border-2 hover:bg-indigo-600 text-white font-bold py-2 px-4 my-2 rounded-xl w-full md:w-3/4"
+              (click)="goToOurLibrary()">
+              or visit Our Library
+            </button>
+          </div>
         </div>
-        <!-- <button>
-          Download free chapter here
-        </button>
-        <button>
-          or visit Our Library
-        </button> -->
+      </div>
+
+      <div class="basis-full md:basis-1/2 py-6">
+        <img class="w-full" src="../../../../assets/buku-mockup.png">
+      </div>
+
+      <div class="basis-full md:basis-1/2 py-6 px-3">
+        <h5 class="text-[#FFD249] text-[42px] font-bold mb-3">Get Your Copy</h5>
+        <div class="rounded-[1.5rem] text-white w-100 p-6 bg-[#313157] flex flex-wrap content-center">
+          <div class="basis-full md:basis-2/3 px-2">
+            <p>Be among the first to experience the "TechnoBanker" series by pre-ordering your copy online. Limited
+              editions and special bundles will be available.</p>
+          </div>
+          <div class="basis-full md:basis-1/3 px-2 flex flex-col justify-center">
+            <button class="border-white bg-white hover:bg-white py-2 px-4 my-2 rounded-2xl flex justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="150" height="32" viewBox="0 0 150 32" fill="none">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                  d="M79.0474 21.686C77.6238 23.1217 75.9205 23.8433 73.9483 23.8433C72.3521 23.8433 70.9956 23.5199 69.6123 22.7206V19.428C70.7261 20.1785 72.1252 20.8933 73.5062 20.8933C76.3856 20.8933 78.0977 18.9243 78.0977 16.1348C78.0977 13.3422 76.3253 11.3146 73.444 11.3146C72.1576 11.3146 71.1148 11.7742 70.3004 12.6954C69.4273 13.6932 68.976 15.1194 68.976 17.0053V30H68.759C67.172 30 65.8866 28.722 65.8866 27.1456V16.5171C65.8866 12.0056 68.6611 8.3653 73.4288 8.3653C75.7835 8.3653 77.6961 9.16553 79.1469 10.7728C80.5102 12.2748 81.1859 14.1791 81.1859 16.4673C81.1859 18.5053 80.4729 20.2475 79.0483 21.6841L79.0474 21.686ZM112.485 21.576C111.067 23.0886 109.242 23.8434 107.029 23.8434C104.693 23.8434 102.791 23.0431 101.34 21.4359C99.9774 19.9154 99.3014 18.01 99.3014 15.7413C99.3014 11.7239 102.422 8.36638 106.529 8.36638C108.113 8.36638 109.488 8.69856 110.878 9.45588V12.7809C109.765 12.0304 108.366 11.3157 106.984 11.3157C104.105 11.3157 102.39 13.2844 102.39 16.0774C102.39 18.8307 104.204 20.8976 107.043 20.8976C108.329 20.8976 109.387 20.4188 110.234 19.4548C111.075 18.4966 111.512 17.0889 111.512 15.1969V4.85442C111.512 3.27737 112.799 2 114.385 2H114.602V15.6838C114.602 18.0936 113.9 20.0652 112.484 21.5799L112.485 21.576ZM121.209 6.90731C120.885 7.2681 120.42 7.43419 119.853 7.43419C118.793 7.43419 118.034 6.65704 118.034 5.61109C118.034 4.54077 118.778 3.81822 119.853 3.81822C120.887 3.81822 121.673 4.58009 121.673 5.61109C121.673 6.12106 121.522 6.55823 121.209 6.90731ZM136.906 15.1956C136.906 13.9852 136.445 13.0273 135.52 12.3012C134.686 11.6479 133.645 11.3157 132.377 11.3157C129.581 11.3157 127.786 13.4879 127.786 16.1652C127.786 18.743 129.689 20.8944 132.348 20.8944C134.197 20.8944 135.186 19.8208 136.242 18.4833V22.3381C135.704 22.7383 135.086 23.1745 134.455 23.4306C133.789 23.7068 132.994 23.8411 132.076 23.8411C127.629 23.8411 124.697 20.1812 124.697 15.9526C124.697 13.7807 125.376 11.984 126.743 10.5863C128.193 9.10257 130.097 8.3667 132.425 8.3667C136.84 8.3667 140 10.886 140 15.4394V23.5424H139.784C138.196 23.5424 136.91 22.2644 136.91 20.6876L136.906 15.1956ZM94.6264 14.3261C94.2361 13.1261 93.7468 12.5359 92.6208 11.9112C89.9436 10.4245 87.3089 11.6902 86.084 14.3144L94.6264 14.3261ZM92.2691 23.7975C90.2956 24.2142 88.3588 23.893 86.4692 22.8436C84.626 21.821 83.392 20.3002 82.775 18.2899C81.5243 14.227 84.0863 9.69608 88.2082 8.60072C90.2507 8.05727 92.2102 8.30326 94.0703 9.33627C97.1606 11.0531 98.2885 13.7079 98.0887 17.1305L85.6406 17.1058C85.8241 18.5011 86.6945 19.5929 87.9183 20.2719C89.1589 20.9606 90.2996 21.1254 91.357 20.7991C92.5324 20.4325 93.4854 19.4795 94.2606 18.5925L96.7974 20.4289C95.7628 22.2686 94.3543 23.3574 92.2681 23.7995L92.2691 23.7975ZM118.321 8.67061H121.411V23.5408H121.193C119.608 23.5408 118.322 22.2627 118.322 20.686L118.321 8.67061ZM13.5227 23.5408C10.5009 23.5408 9 21.4983 9 18.6458V7.82553C9 6.2488 10.2864 4.97111 11.8731 4.97111H12.0901V8.67321H17.3103V11.6219H12.0901V18.9903C12.0901 20.243 12.6527 20.595 13.8572 20.595H17.309V23.5434L13.5227 23.5408ZM31.4662 21.6614C29.9401 23.1156 28.1061 23.844 25.9741 23.844C23.8627 23.844 22.0376 23.1146 20.5115 21.6614C18.9801 20.202 18.2167 18.3461 18.2167 16.1067C18.2167 11.7382 21.5735 8.36768 25.9718 8.36768C28.0838 8.36768 29.9116 9.10257 31.4476 10.5665C32.9887 12.035 33.7584 13.8883 33.7584 16.105C33.7584 18.3435 32.994 20.2004 31.4626 21.6598L31.4662 21.6614ZM45.9121 12.2485C45.4588 13.0039 45.1074 13.5454 44.8601 13.8727C44.5876 14.2286 44.3185 14.5127 44.0519 14.7094C46.1989 15.3984 46.9987 16.8767 46.9987 19.0778V23.5404H46.7818C45.1954 23.5404 43.9086 22.2624 43.9086 20.6857V19.382C43.9086 17.9561 43.2651 16.9888 41.7449 16.9888H38.9392V23.5414H38.7223C37.1359 23.5414 35.8505 22.2634 35.8505 20.6867V4.85442C35.8505 3.27737 37.1356 2 38.7223 2H38.9392V14.0131H39.8523C40.8557 14.0131 41.515 13.6722 41.8936 13.027L44.4886 8.67483L48.0092 8.67135L45.9121 12.2485ZM61.8611 21.6614C60.3343 23.1156 58.501 23.844 56.369 23.844C54.258 23.844 52.4325 23.1146 50.9064 21.6614C49.375 20.202 48.6116 18.3461 48.6116 16.1067C48.6116 11.7382 51.9684 8.36768 56.3667 8.36768C58.4794 8.36768 60.3065 9.10257 61.8424 10.5665C63.3836 12.035 64.1529 13.8883 64.1529 16.105C64.1529 18.3435 63.3889 20.2004 61.8575 21.6598L61.8611 21.6614ZM59.6312 12.6451C58.7794 11.76 57.6983 11.3157 56.3687 11.3157C53.5257 11.3157 51.823 13.3754 51.823 16.1067C51.823 18.7989 53.5653 20.8976 56.3687 20.8976C59.1724 20.8976 60.9143 18.8002 60.9143 16.1067C60.9143 14.6772 60.4817 13.5301 59.6312 12.6451ZM29.2396 12.6451C28.3881 11.76 27.3067 11.3157 25.9774 11.3157C23.1344 11.3157 21.4317 13.3754 21.4317 16.1067C21.4317 18.7989 23.174 20.8976 25.9774 20.8976C28.7808 20.8976 30.523 18.8002 30.523 16.1067C30.523 14.6772 30.0911 13.5301 29.2402 12.6451H29.2396Z"
+                  fill="#42B549" />
+              </svg>
+            </button>
+            <button
+              class="border-2 border-indigo-600 bg-indigo-600 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded-xl">
+              Pre Order Now
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="basis-full md:basis-1/2 py-6 px-3">
+        <h5 class="text-[#FFD249] text-[42px] font-bold mb-3">Join Launch Event</h5>
+        <div class="rounded-[1.5rem] text-white w-100 p-6 bg-[#313157] flex flex-wrap content-center">
+          <div class="basis-full md:basis-2/3 px-2">
+            <h5 class="text-[#FFD249] text-[18px] font-semibold">Book Signing</h5>
+            <p class="text-white text-[14px]">get limited editions & exclusive signed by the author</p>
+            <h5 class="text-[#FFD249] text-[18px] font-semibold mt-4">Panel Discussion</h5>
+            <p class="text-white text-[14px]">with experts in the fields of technology and finance</p>
+          </div>
+          <div class="basis-full md:basis-1/3 px-2 flex flex-col justify-center">
+            <button
+              class="border-2 border-[#5656C6] bg-[#5656C6] hover:bg-[#5656C6] py-2 px-4 my-2 rounded-2xl flex justify-center">
+              <h5 class="text-[#FFD249] text-[24px] font-bold">16 Feb 2024</h5>
+            </button>
+            <button
+              class="border-2 border-indigo-600 bg-indigo-600 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded-xl">
+              Register Here
+            </button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="flex flex-col">
+    <div class="basis-full flex flex-wrap justify-center py-12">
+      <div class="basis-full md:basis-1/2">
+        <img class="" src="../../../../assets/foto-bu-elisa.png">
+      </div>
+      <div class="basis-full md:basis-1/2 mt-2">
+        <p class="font-semibold text-2xl text-zinc-400 mb-2">Meet the Author</p>
+        <h1 class="font-bold text-[42px] text-indigo-800 mb-8">DR. Elisa Indriasari</h1>
+        <p>Our Expert Behind "TechnoBanker.", <b>Dr. Elisa</b>, has been a practician in IT industries for 25 years, she
+          is also a researcher in Information Systems and Computer Sciences. She master storyteller with a passion for
+          weaving tales that blend the excitement of technology in the financial world. Get to know the mind behind the
+          series and the inspiration that led to this groundbreaking storytelling experience.</p>
       </div>
     </div>
+    <div class="basis-full flex flex-wrap justify-center py-12">
+      <div class="basis-full md:basis-1/2">
+        <img class="" src="../../../../assets/home-banner-2.png">
+      </div>
+      <div class="basis-full md:basis-1/2 mt-2">
+        <p class="font-semibold text-2xl text-zinc-400 mb-2">Be the Next Level of Digital Talent</p>
+        <h1 class="font-bold text-[42px] text-indigo-800 mb-8">We Offer Intensive Training for Upskilling Talent
+          Capabilities, and Fostering Collaboration</h1>
+        <button
+          class="border-2 border-[#303096] bg-[#303096] hover:bg-[#303096] text-white font-bold py-2 px-4 my-2 rounded-xl">
+          See Our Training
+        </button>
+      </div>
+    </div>
+    <div class="basis-full flex flex-wrap justify-center py-12">
+      <div class="basis-full">
+        <div class="rounded-[1.5rem] text-white w-100 md:p-16 p-8 bg-[#22223C] flex flex-wrap">
+          <div class="px-3 my-2 basis-full md:basis-1/2 flex flex-col justify-start">
+            <h1 class="font-bold text-[32px] text-[#F2C94C] mb-4">Join Our Community</h1>
+            <p class="font-normal">Subscribe to our newsletter for exclusive updates, special offers, and bonus content
+              related to the "TechnoBanker" series. Be part of our community of readers shaping the future of
+              storytelling in the digital age.</p>
+          </div>
+          <div class="px-3 my-2 basis-full md:basis-1/2 flex flex-col justify-center">
+            <div class="bg-[#EFEFFF] border border-gray-200 rounded-[1.5rem] shadow">
+              <a href="#">
+                <img class="rounded-t-lg w-full" src="../../../../assets/home-subscribe.png" alt="" />
+              </a>
+              <div class="p-3">
+                <form class="mx-auto">
+                  <div class="flex flex-wrap">
+                    <div class="basis-full md:basis-1/2 px-1 my-1">
+                      <div class="inset-y-0 start-0 flex items-center ps-3.5 pointer-events-none">
+                      </div>
+                      <input type="text" id="email-address-icon" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-[1rem] focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Email address">
+                    </div>
+                    <div class="basis-full md:basis-1/2 px-1 my-1">
+                      <button class="border-2 border-indigo-600 bg-indigo-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-xl w-full">
+                        Send Me Newsletter
+                    </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
 
-    <!-- Second Div with 3/4 width -->
-    <div class="sm:w-1/2 w-full">
-      <img src="../../../../assets/Buku technobankers mockup-01.jpg">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-
-
-<div class="mx-4 mb-10">
-
-  <div class="flex">
-    <!-- First Div with 1/4 width -->
-    <div class="w-1/3">
-      <img class="image-home1" src="../../../../assets/foto-bu-elisa.png">
-    </div>
-
-    <!-- Second Div with 3/4 width -->
-    <div class="w-2/3 px-4">
-      <p class="font-semibold text-2xl text-zinc-400 mb-3">Meet Our Author</p>
-      <h1 class="font-bold text-3xl text-indigo-800 mb-8">
-        Expert Behind Technobankers
-      </h1>
-      <p>
-        Our Expert, Dr. Elisa Indriasari, is a practitioner and academician who concentrate on the study of information
-        systems and particularly as it relates to emerging technologies and digital transformation. She is recognized as
-        professional expert with more than 20 years of experience in banking industry who standout in bringing
-        innovation to life through a big picture and out-of-the-box approach to business.
-      </p>
-    </div>
-  </div>
-</div>
-
-
-<!-- First Div with 1/4 width -->
-<div class="w-full bg-neutral-900" style="padding-bottom: 30px;">
-  <div class="flex">
-    <div class="w-1/2 px-6 py-4">
-      <p class="font-semibold text-2xl text-white mb-3">About us</p>
-      <p class="text-white text-sm">
-        We focus on developing the professional careers of digital talent or employees by providing various publication
-        materials, workshops, and training that are equipped with a practical curriculum and are supported by
-        experienced experts and facilitators.
-      </p>
-    </div>
-
-    <!-- Second Div with 3/4 width -->
-    <div class="w-1/2 px-6 py-4">
-      <p class="font-semibold text-2xl text-white mb-3">CONTACT US</p>
-      <p class="text-white text-sm mb-2">
-        Cervino Village Unit H Mezzanine Level, Jl. KH Abdullah Syafei No.Kav. 27, RT.3/RW.1, West Tebet, Tebet, South
-        Jakarta City, Jakarta 12810.
-      </p>
-      <p class="text-white text-xs">&#x2022; +62812-1072-837</p>
-      <p class="text-white text-xs">&#x2022; info@digimaster.id</p>
-      <p class="text-white text-xs">&#x2022; Monday - Friday (08:30-17:00)</p>
+<!-- Footer -->
+<div class="bg-[#1D1D27] text-[0.9rem]">
+  <div class="container">
+    <div class="basis-full py-10 flex flex-row flex-wrap justify-evenly">
+      <div class="basis-full md:basis-1/3 text-white md:my-0 my-3">
+        <h5 class="text-[18px] font-bold mb-4">ABOUT US</h5>
+        <h5 class="text-[18px] font-bold mb-2">PT DIGI OPTIMA MEDIA</h5>
+        <p>We specialize in publishing hands-on books covering diverse subjects, complemented by keynote speakers and workshops. We aim to support companies in nurturing the professional growth of their digital talents. We achieve this by offering training programs with practical curricula, guided by seasoned experts and facilitators.</p>
+      </div>
+      <div class="basis-full md:basis-1/3 text-white">
+      </div>
+      <div class="basis-full md:basis-1/3 text-white md:my-0 my-3">
+        <h5 class="text-[18px] font-bold mb-4">CONTACT US</h5>
+        <p class="mb-3">Cervino Village Unit H Mezzanine Level, Jl. KH Abdullah Syafei No.Kav. 27, RT.3/RW.1, West Tebet, Tebet, South Jakarta City, Jakarta 12810</p>
+        <p class="flex flex-wrap mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M11 3.5C6.85775 3.5 3.5 6.85775 3.5 11C3.5 12.4175 3.89375 13.745 4.5785 14.876L3.9095 17.15C3.87109 17.2806 3.86856 17.4191 3.90218 17.5509C3.93581 17.6828 4.00434 17.8032 4.10057 17.8994C4.1968 17.9957 4.31719 18.0642 4.44906 18.0978C4.58094 18.1314 4.71944 18.1289 4.85 18.0905L7.124 17.4215C8.29301 18.1288 9.63367 18.5019 11 18.5C15.1423 18.5 18.5 15.1423 18.5 11C18.5 6.85775 15.1423 3.5 11 3.5ZM9.3035 12.6972C10.8207 14.2137 12.269 14.414 12.7805 14.4327C13.5582 14.4612 14.3157 13.8673 14.6105 13.178C14.6477 13.0923 14.6612 12.9981 14.6496 12.9053C14.638 12.8126 14.6017 12.7247 14.5445 12.6508C14.1335 12.1258 13.5778 11.7485 13.0347 11.3735C12.9214 11.2951 12.7821 11.2637 12.646 11.2858C12.51 11.3079 12.3877 11.3818 12.305 11.492L11.855 12.1783C11.8313 12.2151 11.7945 12.2416 11.7519 12.2522C11.7094 12.2628 11.6645 12.2567 11.6263 12.2353C11.321 12.0605 10.8763 11.7635 10.5568 11.444C10.2373 11.1245 9.95825 10.7 9.8015 10.4142C9.78207 10.3779 9.77645 10.3358 9.78569 10.2957C9.79493 10.2556 9.8184 10.2202 9.85175 10.196L10.5447 9.6815C10.6436 9.59551 10.7075 9.47615 10.7241 9.34615C10.7407 9.21615 10.7089 9.08458 10.6347 8.9765C10.2987 8.4845 9.90725 7.859 9.3395 7.44425C9.26623 7.39115 9.1804 7.35804 9.09045 7.34818C9.0005 7.33832 8.90954 7.35204 8.8265 7.388C8.1365 7.6835 7.5395 8.441 7.568 9.22025C7.58675 9.73175 7.787 11.18 9.3035 12.6972Z" fill="white"/>
+          </svg> 
+          &nbsp; +62813-1945-5814
+        </p>
+        <p class="flex flex-wrap mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+            <path d="M3.551 6.11158L10.2072 12.7686C10.4042 12.9656 10.6672 13.0826 10.9454 13.0969C11.2236 13.1112 11.4972 13.0217 11.7133 12.8458L11.7987 12.7686L18.4505 6.11608C18.4722 6.19858 18.4865 6.28258 18.494 6.36883L18.5 6.50008V15.5001C18.5001 15.8785 18.3572 16.243 18.0999 16.5205C17.8426 16.798 17.4899 16.9679 17.1125 16.9963L17 17.0001H5C4.62157 17.0002 4.25708 16.8573 3.97959 16.6C3.7021 16.3426 3.53213 15.9899 3.50375 15.6126L3.5 15.5001V6.50008C3.5 6.41008 3.5075 6.32308 3.5225 6.23758L3.551 6.11158ZM17 5.00008C17.0907 5.00008 17.18 5.00758 17.2662 5.02333L17.3937 5.05258L11.0037 11.4426L4.6115 5.05108C4.694 5.02858 4.7795 5.01358 4.8665 5.00608L5 5.00008H17Z" fill="white"/>
+          </svg>
+          &nbsp; digioptima.media@gmail.com
+        </p>
+        <p class="flex flex-wrap mb-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M14 4.25C14.1989 4.25 14.3897 4.32902 14.5303 4.46967C14.671 4.61032 14.75 4.80109 14.75 5V5.75H16.25C16.6478 5.75 17.0294 5.90804 17.3107 6.18934C17.592 6.47064 17.75 6.85218 17.75 7.25V16.25C17.75 16.6478 17.592 17.0294 17.3107 17.3107C17.0294 17.592 16.6478 17.75 16.25 17.75H5.75C5.35218 17.75 4.97064 17.592 4.68934 17.3107C4.40804 17.0294 4.25 16.6478 4.25 16.25V7.25C4.25 6.85218 4.40804 6.47064 4.68934 6.18934C4.97064 5.90804 5.35218 5.75 5.75 5.75H7.25V5C7.25 4.80109 7.32902 4.61032 7.46967 4.46967C7.61032 4.32902 7.80109 4.25 8 4.25C8.19891 4.25 8.38968 4.32902 8.53033 4.46967C8.67098 4.61032 8.75 4.80109 8.75 5V5.75H13.25V5C13.25 4.80109 13.329 4.61032 13.4697 4.46967C13.6103 4.32902 13.8011 4.25 14 4.25ZM8.0075 14H8C7.80884 14.0002 7.62498 14.0734 7.48597 14.2046C7.34697 14.3359 7.26332 14.5152 7.25212 14.706C7.24092 14.8969 7.30301 15.0848 7.4257 15.2314C7.54839 15.378 7.72243 15.4722 7.91225 15.4948L8.0075 15.5C8.20641 15.5 8.39718 15.421 8.53783 15.2803C8.67848 15.1397 8.7575 14.9489 8.7575 14.75C8.7575 14.5511 8.67848 14.3603 8.53783 14.2197C8.39718 14.079 8.20641 14 8.0075 14ZM11.0075 14H11C10.8088 14.0002 10.625 14.0734 10.486 14.2046C10.347 14.3359 10.2633 14.5152 10.2521 14.706C10.2409 14.8969 10.303 15.0848 10.4257 15.2314C10.5484 15.378 10.7224 15.4722 10.9123 15.4948L11.0075 15.5C11.2064 15.5 11.3972 15.421 11.5378 15.2803C11.6785 15.1397 11.7575 14.9489 11.7575 14.75C11.7575 14.5511 11.6785 14.3603 11.5378 14.2197C11.3972 14.079 11.2064 14 11.0075 14ZM14.0075 14H14C13.8088 14.0002 13.625 14.0734 13.486 14.2046C13.347 14.3359 13.2633 14.5152 13.2521 14.706C13.2409 14.8969 13.303 15.0848 13.4257 15.2314C13.5484 15.378 13.7224 15.4722 13.9123 15.4948L14.0075 15.5C14.2064 15.5 14.3972 15.421 14.5378 15.2803C14.6785 15.1397 14.7575 14.9489 14.7575 14.75C14.7575 14.5511 14.6785 14.3603 14.5378 14.2197C14.3972 14.079 14.2064 14 14.0075 14ZM8.0075 11H8C7.80884 11.0002 7.62498 11.0734 7.48597 11.2046C7.34697 11.3359 7.26332 11.5152 7.25212 11.706C7.24092 11.8969 7.30301 12.0848 7.4257 12.2314C7.54839 12.378 7.72243 12.4722 7.91225 12.4948L8.0075 12.5C8.20641 12.5 8.39718 12.421 8.53783 12.2803C8.67848 12.1397 8.7575 11.9489 8.7575 11.75C8.7575 11.5511 8.67848 11.3603 8.53783 11.2197C8.39718 11.079 8.20641 11 8.0075 11ZM11.0075 11H11C10.8088 11.0002 10.625 11.0734 10.486 11.2046C10.347 11.3359 10.2633 11.5152 10.2521 11.706C10.2409 11.8969 10.303 12.0848 10.4257 12.2314C10.5484 12.378 10.7224 12.4722 10.9123 12.4948L11.0075 12.5C11.2064 12.5 11.3972 12.421 11.5378 12.2803C11.6785 12.1397 11.7575 11.9489 11.7575 11.75C11.7575 11.5511 11.6785 11.3603 11.5378 11.2197C11.3972 11.079 11.2064 11 11.0075 11ZM14.0075 11H14C13.8088 11.0002 13.625 11.0734 13.486 11.2046C13.347 11.3359 13.2633 11.5152 13.2521 11.706C13.2409 11.8969 13.303 12.0848 13.4257 12.2314C13.5484 12.378 13.7224 12.4722 13.9123 12.4948L14.0075 12.5C14.2064 12.5 14.3972 12.421 14.5378 12.2803C14.6785 12.1397 14.7575 11.9489 14.7575 11.75C14.7575 11.5511 14.6785 11.3603 14.5378 11.2197C14.3972 11.079 14.2064 11 14.0075 11ZM16.25 7.25H5.75V8.75H16.25V7.25Z" fill="white"/>
+          </svg>
+          &nbsp; Monday - Friday (08:30-17:00)
+        </p>
+      </div>
     </div>
   </div>
 </div>
-<div class="w-full bg-black">
-  <div class="flex">
-    <div class="w-1/2 px-6 py-4">
-      <p class="font-semibold text-md text-white mb-3">Developed by DIGIMASTER</p>
-    </div>
-
-    <!-- Second Div with 3/4 width -->
-    <div class="w-1/2 px-6 py-4">
-      <p class="font-semibold text-md text-white mb-3">Copyright ©2023 Technobankers. All Rights Reserved.</p>
+<div class="bg-[#171721]">
+  <div class="container">
+    <div class="py-3  flex flex-row flex-wrap justify-evenly">
+      <div class="basis-full md:basis-1/3 text-white">
+        <p>Developed by <b>DIGIMASTER</b></p>
+      </div>
+      <div class="basis-full md:basis-1/3 text-white">
+      </div>
+      <div class="basis-full md:basis-1/3 text-white">
+        <p>Copyright ©2024 Technobankers. All Rights Reserved.</p>
+      </div>
     </div>
   </div>
 </div>

@@ -1,7 +1,8 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import 'bootstrap/js/dist/util';
 import 'bootstrap/js/dist/dropdown';
 import 'bootstrap';
+import { initFlowbite } from 'flowbite';
 
 @Component({
   selector: 'app-root',
@@ -9,10 +10,14 @@ import 'bootstrap';
   styleUrls: ['./app.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'technobanker';
 
   onActivate(_event: any) {
     window.scroll(0, 0);
+  }
+
+  ngOnInit(): void {
+    initFlowbite();
   }
 }
