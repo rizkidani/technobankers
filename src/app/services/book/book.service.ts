@@ -29,13 +29,13 @@ export class BookService {
       .set('clientEmail', body.clientEmail)
       .set('clientNumber', body.clientNumber);
 
-    return this.http.post('http://54.251.83.205:9091/api/technobanker/v1/backoffice/book/send-email', params);
+    return this.http.post(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/send-email`, params);
   }
   
   public getDetailBook(body: any): Observable<unknown> {
     const params = new HttpParams()
       .set('bookId', body.bookId);
-    return this.http.get('http://54.251.83.205:9091/api/technobanker/v1/backoffice/book/get-detailed-book', { params: params });
+    return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/get-detailed-book`, { params: params });
   }
 
   saveEmailData(userData: any) {
@@ -45,7 +45,7 @@ export class BookService {
   public previewImage(body: any): Observable<unknown> {
     const params = new HttpParams()
       .set('bookId', body.bookId);
-    return this.http.get('http://54.251.83.205:9091/api/technobanker/v1/backoffice/book/get-detailed-book/book-preview', { params: params });
+    return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/get-detailed-book/book-preview`, { params: params });
   }
 
 }
