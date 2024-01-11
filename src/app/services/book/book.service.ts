@@ -8,9 +8,20 @@ import { API_BASE_URL } from './../api.config';
 })
 export class BookService {
 
+  index = 0;
+
   constructor(
     private http: HttpClient
   ) { }
+
+  public setIndex(index: number) {
+    this.index = index;
+  }
+
+  public getIndex() {
+    return this.index;
+  }
+
 
   public getListBook(): Observable<any> {
     const url = `${API_BASE_URL}/api/technobanker/v1/backoffice/book/get-books`;
@@ -46,6 +57,12 @@ export class BookService {
     const params = new HttpParams()
       .set('bookId', body.bookId);
     return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/get-detailed-book/book-preview`, { params: params });
+  }
+
+  public updateViewCount(body: any): Observable<any>{
+    const formData = new FormData();
+    formData.append("bookId", body.bookId)
+    return this.http.patch(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/count-views`, formData);
   }
 
 }

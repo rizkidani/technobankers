@@ -71,7 +71,7 @@
 </nav>
 
 <div class="bg-gradient-to-r from-[#060623] to-[#474790]">
-  <div class="container md:h-[77vh] h-[100%]">
+  <div class="container h-[100%]">
     <div class="flex flex-wrap justify-center py-10">
 
       <div class="basis-full mb-6">
@@ -173,10 +173,12 @@
         </button>
       </div>
       <h1 class="text-[20px] sm:text-center md:text-start font-semibold mt-4">Available in Full Version</h1>
-      <button type="button"
-        class="mt-4 md:w-fit sm:w-100 items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-blue-300 button">
-        Buy Book Now
-      </button>
+      <a href="{{book.bookLink}}" target="_blank">
+        <button type="button"
+          class="mt-4 md:w-fit sm:w-100 items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg focus:ring-4 focus:ring-blue-300 button">
+          Buy Book Now
+        </button>
+      </a>
     </div>
 
     <div class="md:basis-1/3 basis-full flex flex-col justify-center text-center px-6 py-3">
@@ -225,7 +227,7 @@
 <!-- Modal-Preview-Image -->
 <div id="defaultModal" tabindex="-1" aria-hidden="true"
   class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
-  <div class="relative modal-preview">
+  <div class="relative">
     <!-- Modal content -->
     <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
       <!-- Modal header -->
@@ -246,13 +248,13 @@
         </button>
       </div>
       <!-- Modal body -->
-      <div id="default-carousel" class="relative pl-20 pt-10 pb-10 pr-20 space-y-4 " data-carousel="static">
+      <div id="default-carousel" class="relative md:px-10 sm:px-0 pt-10 pb-10 space-y-4 " data-carousel="static">
         <div class="overflow-hidden relative rounded-lg lg:h-64 xl:h-80 2xl:h-100 preview-book">
-          <div class="hidden" data-carousel-item *ngFor="let item of detailModel.previewsOfBook">
+          <div class="" data-carousel-item *ngFor="let item of detailModel.previewsOfBook">
             <div class="duration-700 ease-in-out ">
-              <div class="preview-book">
-                <img src="https://technobankers.net/backend/bookPreview/{{item.imagePreview}}"
-                  alt="Book Preview" class="absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
+              <div class="">
+                <img src="{{item.imagePreview}}"
+                  alt="Book Preview" class="px-3 absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2">
               </div>
             </div>
           </div>
@@ -292,17 +294,10 @@
           <span class="sr-only">Close modal</span>
         </button>
       </div>
-      <!-- Modal body -->
-      <div class="space-y-6 p-5">
-        <div class="rounded-lg border border-gray-300 p-5 pt-5 pl-5">
-          <textarea #inputTarget class="text-citation rounded-lg focus:border-black text-color-gray2 dark:text-gray-400"
-            value={{book.bookCitation}}></textarea>
-        </div>
-      </div>
-      <!-- Modal footer -->
-      <div class="citation-button p-5">
-        <button [ngxClipboard]="inputTarget" type="button"
-          class="flex rounded-lg border border-gray-700 p-5 items-center px-5 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-white">
+      <div class="p-4 flex flex-col">
+        <textarea #inputTarget class="w-100 rounded-lg focus:border-black text-color-gray2 dark:text-gray-400" value={{book.bookCitation}}></textarea>
+
+        <button [ngxClipboard]="inputTarget" type="button" class="flex justify-items-end w-fit rounded-lg border border-gray-700 mt-3 px-5 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 hover:text-gray-900 dark:hover:text-white">
           <svg aria-hidden="true" class="w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg">
             <path d="M7 9a2 2 0 012-2h6a2 2 0 012 2v6a2 2 0 01-2 2H9a2 2 0 01-2-2V9z"></path>
             <path d="M5 3a2 2 0 00-2 2v6a2 2 0 002 2V5h8a2 2 0 00-2-2H5z"></path>
