@@ -121,6 +121,9 @@ SOFTWARE.
 ngx-clipboard
 MIT
 
+ngx-pagination
+MIT
+
 ngx-toastr
 MIT
 The MIT License (MIT)

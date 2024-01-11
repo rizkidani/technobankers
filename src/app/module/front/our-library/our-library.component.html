@@ -5,7 +5,7 @@
 <div class="ml-10 mr-10 mt-3">
   <div class="flex">
       <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 w-44 pl-1 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">
-        All <svg aria-hidden="true" class="w-4 h-4 ml-20 ml-20 position-icon-dropdown" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        All <svg aria-hidden="true" class="w-4 h-4 ml-20 position-icon-dropdown" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
       </button>
       <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
           <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
@@ -105,7 +105,7 @@
             <div class="mt-5 flex">
               <img class="icon-eye " src="../../../../assets/icon-eye.png">
               <p class="subtext-book ml-2 mt-1"><a  [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}">{{book.bookViews == null ? 0 : book.bookViews}} views</a></p>
-              <p class="text-blue-500 ml-20 ml-20"><a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}">Read more</a></p>
+              <p class="text-blue-500 ml-20"><a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}">Read more</a></p>
             </div>
           </div>
         </div>
