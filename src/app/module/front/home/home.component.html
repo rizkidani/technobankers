@@ -55,12 +55,12 @@
         <a href="#" class="block py-2 pl-3 pr-4 text-white font-weight">Blog</a>
       </li> -->
         <li>
-          <a [routerLinkActive]="'active'" routerLink="our-library" href="#"
-            class="block py-2 pl-3 pr-4 text-white font-weight">Our Library</a>
+          <!-- <a [routerLinkActive]="'active'" routerLink="our-library" href="/our-library" -->
+            <a href="/our-library" class="block py-2 pl-3 pr-4 text-white font-weight">Our Library</a>
         </li>
         <li>
-          <a [routerLinkActive]="'active'" routerLink="about"
-            class="block py-2 pl-3 pr-4 text-white font-weight">About</a>
+          <!-- <a [routerLinkActive]="'active'" routerLink="about" -->
+            <a href="/about" class="block py-2 pl-3 pr-4 text-white font-weight">About</a>
         </li>
         <!-- <li>
         <a href="#" class="block py-2 pl-4 pr-4 text-white font-weight login">Login</a>
@@ -242,10 +242,12 @@
                   fill="#42B549" />
               </svg>
             </button>
-            <button
-              class="border-2 border-indigo-600 bg-indigo-600 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded-xl">
-              Pre Order Now
-            </button>
+            <a href="https://www.tokopedia.com/digioptimamedia" target="_blank">
+              <button
+                class="border-2 border-indigo-600 bg-indigo-600 hover:bg-blue-700 text-white font-bold py-2 px-4 my-2 rounded-xl w-full">
+                Pre Order Now
+              </button>
+            </a>
           </div>
         </div>
       </div>
