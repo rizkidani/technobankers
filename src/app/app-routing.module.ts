@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'about',
     loadChildren: () => import('../app/module/front/about/about.module').then((x) => x.AboutModule)
   },
+  {
+    path: 'event',
+    loadChildren: () => import('../app/module/front/event/event.module').then((x) => x.EventModule)
+  },
 ];
 
 @NgModule({

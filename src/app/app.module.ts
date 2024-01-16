@@ -10,11 +10,13 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ClipboardModule } from 'ngx-clipboard';
 import { NgbModule, NgbCarouselModule, NgbSlide } from '@ng-bootstrap/ng-bootstrap';
+import { EventDetailComponent } from './module/front/event-detail/event-detail.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,
