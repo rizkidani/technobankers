@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EventDetailComponent } from './event-detail.component';
+import { EventDetailOrderComponent } from '../event-detail-order/event-detail-order.component';
 
 const routes: Routes = [
   {
