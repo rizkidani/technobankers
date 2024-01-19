@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+import { EventDetailModel } from 'src/app/model/event-detail.model';
+import { EventService } from 'src/app/services/event/event.service';
 
 @Component({
   selector: 'app-event-detail',
@@ -7,4 +11,23 @@ import { Component } from '@angular/core';
 })
 export class EventDetailComponent {
 
+  detailModel = new EventDetailModel();
+
+  constructor(
+    private readonly router: Router,
+    private activatedRoute: ActivatedRoute,
+    private toastr: ToastrService,
+    private readonly eventService: EventService,
+  ) {}
+
+  ngOnInit(): void {
+    this.activatedRoute.paramMap.subscribe((data: any) => {
+      let eventId = data.params.id;
+
+      this.eventService.getDetailEvent(eventId).subscribe(
+        (response: any) => {
+          this.detailModel.eventDetail = response.data;
+      })
+    })
+  }
 }

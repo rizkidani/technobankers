@@ -15,8 +15,7 @@ import { EventDetailComponent } from './module/front/event-detail/event-detail.c
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent,
-    EventDetailComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
