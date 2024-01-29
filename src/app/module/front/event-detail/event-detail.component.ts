@@ -12,7 +12,7 @@ import { EventService } from 'src/app/services/event/event.service';
 export class EventDetailComponent {
 
   detailModel = new EventDetailModel();
-
+  eventId = "";
   constructor(
     private readonly router: Router,
     private activatedRoute: ActivatedRoute,
@@ -23,6 +23,7 @@ export class EventDetailComponent {
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((data: any) => {
       let eventId = data.params.id;
+      this.eventId = eventId;
 
       this.eventService.getDetailEvent(eventId).subscribe(
         (response: any) => {
