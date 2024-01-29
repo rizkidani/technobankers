@@ -7,6 +7,18 @@ const routes: Routes = [
     loadChildren: () => import('../app/module/front/home/home.module').then((x) => x.HomeModule)
   },
   {
+    path:'public-training',
+    loadChildren: () => import('../app/module/front/training/training.module').then((x) => x.TrainingModule)
+  },
+  {
+    path:'corporate-training',
+    loadChildren: () => import('../app/module/front/corporate-training/corporate-training.module').then((x) => x.CorporateTrainingModule)
+  },
+  {
+    path:'list-corporate-training',
+    loadChildren: () => import('../app/module/front/list-corporate-training/list-corporate-training.module').then((x) => x.ListCorporateTrainingModule)
+  },
+  {
     path: 'our-library',
     loadChildren: () => import('../app/module/front/our-library/our-library.module').then((x) => x.OurLibraryModule)
   },

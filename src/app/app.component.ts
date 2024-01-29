@@ -12,6 +12,7 @@ import { initFlowbite } from 'flowbite';
 })
 export class AppComponent implements OnInit {
   title = 'technobanker';
+  isTrainingExpanded = false;
 
   onActivate(_event: any) {
     window.scroll(0, 0);
@@ -19,5 +20,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     initFlowbite();
+  }
+
+  toggleTraining() {
+    this.isTrainingExpanded = !this.isTrainingExpanded;
   }
 }

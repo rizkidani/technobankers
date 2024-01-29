@@ -1,0 +1,45 @@
+.yellow-background {
+    background-color: #FFD249;
+    border-radius: 16px;
+    height: 250px;
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.z-100 {
+    z-index: 100;
+}
+
+.z-1000 {
+    z-index: 1000;
+}
+
+.height {
+    height: 286px;
+}
+
+.image-1 {
+    width: 260px;
+    height: 160px;
+}
+
+@media (min-width: 768px) {
+    .mt-10 {
+        margin-top: 100px;
+    }
+}
+
+.image-list {
+    border-radius: 10px 10px 0px 0px;
+    width: 290px;
+    height: 180px;
+}
+
+.margin-top {
+    margin-top: 40px;
+}
+
+.button-find-more {
+    font-weight: 600;
+    outline-color: #2F80ED;
+}
