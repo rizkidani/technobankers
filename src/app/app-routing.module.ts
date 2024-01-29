@@ -18,6 +18,14 @@ const routes: Routes = [
     path: 'pdf-not-found',
     loadChildren: () => import('../app/module/front/pdf-not-found/pdf-not-found.module').then((x) => x.PdfNotFoundModule)
   },
+  {
+    path: 'about',
+    loadChildren: () => import('../app/module/front/about/about.module').then((x) => x.AboutModule)
+  },
+  {
+    path: 'event',
+    loadChildren: () => import('../app/module/front/event/event.module').then((x) => x.EventModule)
+  },
 ];
 
 @NgModule({

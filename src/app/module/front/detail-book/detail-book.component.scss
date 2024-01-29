@@ -1,3 +1,11 @@
+.text-gray {
+    color: #4F4F4F;
+}
+
+.pointer-events-auto {
+    cursor: pointer;
+}
+
 .background-color {
     background-color: #1C1C28;
 }
@@ -10,10 +18,6 @@
     font-weight: 600;
 }
 
-.font-weight-700 {
-    font-weight: 700;
-}
-
 .border-white {
     border-radius: 8px;
     border-color: white;
@@ -22,261 +26,6 @@
 .login {
     position: relative;
     left: 130px;
-}
-
-@media (min-width: 1200px) {
-    .banner1 {
-        background-image: url(/assets/jumbotron.png);
-        position: relative;
-        width: 100%;
-        height: 90vh;
-        background-size: cover;
-        margin-bottom: 0;
-    }
-}
-
-.text-color-yellow {
-    color: #FFD249;
-}
-
-.position-section1 {
-    position: relative;
-    right: 200px;
-    top: 40px;
-}
-
-.home-text-section-2 {
-    position: relative;
-    bottom: 30px;
-    width: 727px;
-    height: 96px;
-    font-weight:700;
-    font-size: 32px;
-}
-
-.image-home1 {
-    border-radius: 24px;
-    width: 350px;
-    height: 440px;
-}
-
-.text-status {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 36px;
-}
-
-.text-author {
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
-}
-
-.position-title-book {
-    position: relative;
-    bottom: 55px;
-}
-
-.position-info-book {
-    position: relative;
-    bottom: 90px;
-}
-
-.text-volume {
-    border-radius: 8px;
-    width: 70px;
-    height: 34px;
-}
-
-.text-series {
-    border-radius: 8px;
-    width: 208px;
-    height: 34px;
-}
-
-.position-text-desc {
-    position: relative;
-    bottom: 75px;
-}
-
-.position-text-key {
-    position: relative;
-    bottom: 40px;
-}
-
-.background-color-section-2 {
-    background-color: #22223C;
-    width: 100%;
-    height: 101px;
-}
-
-.text-title-section2 {
-    position: relative;
-    top: 30px;
-    left: 80px;
-    width: 180px;
-    height: 42px;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 28px;
-    line-height: 42px;
-}
-
-.text-p-section2 {
-    position: relative;
-    width: 120px;
-    height: 54px;
-    left: 400px;
-    top: 25px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-.text-p2-section2 {
-    position: relative;
-    width: 180px;
-    left: 750px;
-    height: 54px;
-    top: 25px;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-.text-color-gray {
-    color: #4F4F4F;
-}
-
-.text-color-gray2 {
-    color: #333333;
-}
-
-.text-citation {
-    width: 590px;
-    height: 42px;
-    left: 420px;
-    top: calc(50% - 42px/2 + 197px);
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 21px;
-    border-color: transparent;
-}
-
-.citation-button {
-    position: relative;
-    left: 500px;
-}
-
-.text-title-section3 {
-    position: relative;
-    width: 730px;
-    height: 30px;
-    left: 80px;
-    top: 40px;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
-}
-
-.paragraph {
-    width: 730px;
-}
-
-.button {
-    position: relative;
-    background-color: #5656C6;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-.button2 {
-    position: relative;
-    width: 454px;
-    height: 62px;
-    left: 30px;
-    text-align: center;
-    background-color: #5656C6;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) 
-    drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-}
-
-.position-loading {
-    position: relative;
-    left: 100px;
-    top: 16px;
-}
-
-
-.text-version{
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 30px;
-}
-
-.box {
-    position: relative;
-    left: 70px;
-    width: 510px;
-    height: 722px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 8px 1px rgba(0, 0, 0, 0.25);
-    border-radius: 16px;
-}
-
-.input-text {
-    width: 454px;
-    height: 48px;
-    left: 878px;
-    top: 437px;
-    background: #FFFFFF;
-    border: 1px solid #CECECE;
-    border-radius: 8px;
-}
-
-.input-text2 {
-    width: 370px;
-    height: 48px;
-    left: 878px;
-    top: 437px;
-    background: #FFFFFF;
-    border: 1px solid #CECECE;
-    border-radius: 8px;
-}
-
-.text-start-reading {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 36px;
-    text-align: center;
-    color: #5656C6;
-}
-
-.text-get-started {
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 68px;
-    text-align: center;
-}
-
-.modal-preview {
-    width: 500px;
-    height: 562px;
-    border-radius: 24px;
-}
-
-.preview-book {
-    width: 330px;
-    height: 425px;
-    border-radius: 24px;
-}
-
-.position-button-preview {
-    position: relative;
-    left: 70px;
 }
 
 .footer {
@@ -334,7 +83,6 @@
     top: 30px;
 }
 
-
 .position-h1 {
     position: relative;
     right: 370px;
@@ -352,5 +100,115 @@
 }
 
 .font-weight-footer {
+    font-weight: 600;
+}
+
+.background-color-yellow {
+    background: #FFD249;
+    border-radius: 16px;
+    width: 1300px;
+    height: 109px;
+}
+
+.title-text {
+    width: 730px;
+    height: 48px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 48px;
+    color: #4F4F4F;
+}
+
+.sub-text {
+    width: 1280px;
+    height: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4F4F4F;
+}
+
+.sub-text2 {
+    width: 640px;
+    height: 48px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #4F4F4F;
+}
+
+.title-text2 {
+    width: 400px;
+    height: 30px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 30px;
+    color: #4F4F4F;
+}
+
+.position-text-book {
+    position: relative;
+    right: 120px;
+}
+
+.title-book {
+    position: relative;
+    width: 414px;
+    height: 27px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 27px;
+    color: #4F4F4F;
+}
+
+.subtext-book {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    color: #4F4F4F;
+}
+
+.position-icon-dropdown {
+    position: relative;
+    left: 50px;
+}
+
+.position-flag {
+    position: relative;
+    left: 100px;
+}
+
+.icon-eye {
+    position: relative;
+    top: 5px;
+    height: 18px;
+}
+
+.imageList {
+    width: 160px;
+    height: 200px;
+    border-radius: 6px;
+}
+
+.search-result {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #4F4F4F;
+}
+
+.search-result2 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #4F4F4F;
+}
+
+.text-weight {
     font-weight: 600;
 }

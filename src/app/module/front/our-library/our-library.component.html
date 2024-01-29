@@ -1,154 +1,68 @@
-<nav class="background-color">
-  <div class="flex flex-wrap items-center justify-between mx-auto p-4 font-weight">
-    <a href="" class="flex items-center">
-        <img src="..//../../../assets/icon-technobanker.png" class="h-8 mr-3" alt="Flowbite Logo">
-        <span class="self-center whitespace-nowrap text-white">Technobankers</span>
-    </a>
-  <div class="flex md:order-2">
-      <button type="button" class="text-white border border-white rounded-lg text-sm px-5 py-1.5 text-center items-center">Register</button>
+<div class="container my-10">
+  <div class="my-3">
+    <h1 class="text-[#4F4F4F] text-[32px] font-bold">Technobankers Library</h1>
+    <p class="mt-2">Open and trusted collection of practical books and research paper written by our Experts</p>
   </div>
-  <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-    <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-      <li>
-        <a href="" class="block py-2 pl-3 pr-4 text-white font-weight" aria-current="page">Home</a>
-      </li>
-      <li>
-        <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="flex justify-between w-full py-2 pl-3 pr-4 rounded block py-2 pl-3 pr-4 text-white font-weight">
-          Training 
-          <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
-            </path>
-          </svg>
+
+  <div class="my-3">
+    <div class="flex">
+        <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 w-44 pl-1 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">
+          All <svg aria-hidden="true" class="w-4 h-4 ml-20 position-icon-dropdown" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </button>
-        <!-- Dropdown menu -->
-        <div id="dropdownHover" class="z-30 hidden font-normal w-44 background-color-dropdown">
-          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-            <li>
-              <a href="#" class="block px-4 py-2 hover text-white">Public Training</a>
-            </li>
-            <li>
-              <a href="#" class="block px-4 py-2 hover text-white">Company Training</a>
-            </li>
-          </ul>
+        <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
+              <li>
+                  <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">All</button>
+              </li>
+              <li>
+                  <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Book</button>
+              </li>
+              <li>
+                  <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Research Paper</button>
+              </li>
+            </ul>
         </div>
-      </li>
-      <li>
-        <button id="dropdownHoverButton1" data-dropdown-toggle="dropdownHover1" data-dropdown-trigger="hover" class="flex justify-between w-full py-2 pl-3 pr-4 rounded block py-2 pl-3 pr-4 text-white font-weight">
-          Events 
-          <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
-            </path>
-          </svg>
+        <div class="relative w-full">
+          <input type="search" [(ngModel)]="enteredSearchValue" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Enter keywords here" required>
+          <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" (click)="search()">
+            <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <span class="sr-only">Search</span>
+          </button>
+        </div>
+    </div>
+    <div class="grid grid-cols-2 gap-4" *ngIf="onSearch">
+      <div class="mt-10" >
+        <h1 class="search-result">Search Result</h1>
+        <h2 class="search-result2"> {{this.homeModel.allListBook?.length}} found for search 
+          <span class="text-weight">“{{ enteredSearchValue }}” </span>
+        </h2>
+      </div>
+      <div class="col-end-7 col-span-2 mt-10">
+        <button (click)="goToLibrary()" class="relative inline-flex items-center justify-center p-0.5 mb-2 mr-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br from-cyan-500 to-blue-500 group-hover:from-cyan-500 group-hover:to-blue-500 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-cyan-200 dark:focus:ring-cyan-800">
+          <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+              View All
+          </span>
         </button>
-        <!-- Dropdown menu -->
-        <div id="dropdownHover1" class="z-30 hidden font-normal divide-y divide-gray-100 w-44 background-color-dropdown dark:divide-gray-600">
-          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton1">
-            <li>
-              <a href="#" class="block px-4 py-2 hover text-white">Workshop</a>
-            </li>
-            <li>
-              <a href="#" class="block px-4 py-2 hover text-white">Other Events</a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li>
-        <a href="#" class="block py-2 pl-3 pr-4 text-white font-weight">Blog</a>
-      </li>
-      <li>
-        <a [routerLinkActive]="'active'" routerLink="our-library" href="#" class="block py-2 pl-3 pr-4 text-white font-weight">Our Library</a>
-      </li>
-      <li>
-        <a href="#" class="block py-2 pl-3 pr-4 text-white font-weight">About</a>
-      </li>
-      <li>
-        <a href="#" class="block py-2 pl-4 pr-4 text-white font-weight login">Login</a>
-      </li>
-    </ul>
-  </div>
-  </div>
-</nav>
-
-
-<div class="mt-10">
-  <h1 class="ml-10 title-text">Technobankers Library</h1>
-  <p class="ml-10 mt-2">Open and trusted collection of practical books and research paper written by our Experts</p>
-</div>
-<form class="ml-10 mr-10 mt-3">
-  <div class="flex">
-      <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 w-44 pl-1 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">
-        All <svg aria-hidden="true" class="w-4 h-4 ml-20 ml-20 position-icon-dropdown" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-      </button>
-      <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-          <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-            <li>
-                <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">All</button>
-            </li>
-            <li>
-                <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Book</button>
-            </li>
-            <li>
-                <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Research Paper</button>
-            </li>
-          </ul>
       </div>
-      <div class="relative w-full">
-          <input type="search" id="search-dropdown" class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-r-lg border-l-gray-50 border-l-2 border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-l-gray-700  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-blue-500" placeholder="Enter keywords here" required>
-          <button type="submit" class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-              <svg aria-hidden="true" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
-              <span class="sr-only">Search</span>
-          </button>
-      </div>
+    </div>
   </div>
-</form>
 
-<div class="background-color-yellow grid grid-cols-2 gap-4 mt-10 ml-10 mr-10">
-  <div class="col-start-1 col-end-2">
-    <p class="ml-10 pl-4 mt-7 sub-text2">Get ready to follow a better career. By selecting books based on your current job position or your interest, you can enhance your knowledge.</p>
-  </div>
-  <div>
-    <form class="mt-7 ml-2">
-      <div class="flex">
-          <button id="dropdown-button" data-dropdown-toggle="dropdown" class="flex-shrink-0 z-10 inline-flex items-center py-2.5 w-44 pl-1 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600" type="button">
-            Select roles<svg aria-hidden="true" class="w-4 h-4 ml-20 ml-20 ml-10" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-          </button>
-          <div id="dropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
-              <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-              <li>
-                  <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Agile Coach</button>
-              </li>
-              <li>
-                  <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Back End Developer</button>
-              </li>
-              <li>
-                  <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Business Analyst</button>
-              </li>
-              <li>
-                  <button type="button" class="inline-flex w-full px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Data Analyst</button>
-              </li>
-              </ul>
+  <div class="mb-20">
+    <h1 class="text-[20px] font-bold my-3" *ngIf="hide">All Collection</h1>
+
+    <div class="flex">
+      <div class="basis-full md:basis-1/2 border border-gray-300 rounded-lg p-2" *ngFor="let book of homeModel.allListBook | paginate: { itemsPerPage: pageSize, currentPage: p }">
+        <div class="flex flex-wrap">
+          <div class="md:basis-1/4 basis-full px-2 py-2 md:py-0">
+            <img class="pointer-events-auto w-full border-lg" src="{{book.bookImage}}">
           </div>
-          <div>
-              <button type="submit" class="absolute p-2.5 text-sm font-medium text-white bg-blue-700 rounded-r-lg border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                Find
-              </button>
-          </div>
-      </div>
-    </form>
-  </div>
-</div>
-
-<div class="ml-10 mt-10 mb-20" >
-  <h1 class="title-text2" >All Collection</h1>
-      <div class="grid grid-cols-2 gap-4 col-start-1 col-end-2  pl-2 pb-2 pt-2 pr-10" >
-        <div class="border border-gray-300 grid grid-cols-2 gap-4 rounded-lg pl-2 pb-2 pt-2" *ngFor="let book of homeModel.allListBook">
-          <img  class="pointer-events-auto imageList" src="{{book.bookImage}}">
-          <div class="pointer-events-auto position-text-book">
-            <div class="flex"> 
-              <p *ngIf="book.new === true" class="bg-green-500 text-white items-center p-2 w-20 h-10 text-center round rounded-lg">New</p>
-              <p class="text-gray pt-2">Book</p>
+          <div class="md:basis-3/4 basis-full px-2 py-2 md:py-0">
+            <div class="flex items-center mb-2"> 
+              <span *ngIf="book.new === true" class="text-white bg-green-500 text-sm font-normal me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">New</span>
+              <p class="text-gray">Book</p>
             </div>
-            
             <h1><a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}" class="title-book">{{book.bookTitle}} </a></h1>
             <p class="subtext-book" > By 
               <a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}"> 
@@ -157,38 +71,28 @@
             </p>
             <p class="mt-5 pt-2 subtext-book"><a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}">Language : <span>{{book.bookLanguage}}</span></a></p>
             <p class="subtext-book"><a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}">Pages : <span>{{book.bookPages}}</span></a></p>
-            <div class="mt-5 flex">
-              <img class="icon-eye " src="../../../../assets/icon-eye.png">
-              <p class="subtext-book ml-2 mt-1"><a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}">150 views</a></p>
-              <p class="text-blue-500 ml-20 ml-20"><a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}">Read more</a></p>
+            <div class="mt-5 mb-2 flex items-center">
+              <img class="mr-1" src="../../../../assets/icon-eye.png">
+              <p class="subtext-book"><a  [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}">{{book.bookViews == null ? 0 : book.bookViews}} views</a></p>
             </div>
+            <p class="flex justify-end text-blue-500"><a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}">Read more</a></p>
           </div>
         </div>
       </div>
-</div>
+    </div>
 
-<footer>
-  <div class="footer grid grid-cols-3">
-    <div class="col-start-1 col-end-2 ml-20 ">
-      <div>
-        <img src="../../../../assets/Footer.png">
-        <h1 class="mb-10 text-white text2-title-footer">ABOUT US</h1>
-        <p class="mt-5 text-white subtext2-footer">We focus on developing the professional careers of digital talent or employees by providing various publication materials, workshops, and training that are equipped with a practical curriculum and are supported by experienced experts and facilitators.</p>
+    <div class="flex items-center my-5">  
+      <!-- Pagination controls -->
+      <pagination-controls (pageChange)="p = $event" ></pagination-controls>
+        <div class="mx-2 mb-3">
+          <label for="pageSizeSelect">Items per page:</label>&nbsp;
+          <select id="pageSizeSelect" [(ngModel)]="pageSize" name="pageSizeSelect">
+            <option value="6">6</option>
+            <option value="10">10</option>
+            <option value="16">16</option>
+          </select>
+        </div>
       </div>
-    </div>
-    <div class="position-text-footer">
-      <h1 class="text-white text-title-footer">CONTACT US</h1>
-      <p class="mt-5 text-white subtext-footer">Cervino Village Unit H Mezzanine Level, Jl. KH Abdullah Syafei No.Kav. 27, RT.3/RW.1, West Tebet, Tebet, South Jakarta City, Jakarta 12810.</p>
-      <img src="../../../../assets/phone-number.png">
-      <img src="../../../../assets/Email.png">
-      <img src="../../../../assets/date-time.png">
-    </div>
   </div>
-  <div class="footer2 grid grid-cols-3">
-    <img class="img-footer2" src="../../../../assets/Footer2.png">
-    <h1 class="position-h1 text-white">Developed by 
-      <span class="font-weight-footer">DIGIMASTER</span>
-    </h1>
-    <h1 class="position2-h1 text-white">Copyright ©2023 Technobankers. All Rights Reserved.</h1>
-  </div>
-</footer>
+
+</div>

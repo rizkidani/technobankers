@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { OurLibraryRoutingModule } from './our-library-routing.module';
 import { OurLibraryComponent } from './our-library.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +13,9 @@ import { OurLibraryComponent } from './our-library.component';
   ],
   imports: [
     CommonModule,
-    OurLibraryRoutingModule
+    OurLibraryRoutingModule,
+    NgxPaginationModule,
+    FormsModule 
   ]
 })
 export class OurLibraryModule { }
