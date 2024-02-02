@@ -1,0 +1,13 @@
+.carousel-item {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .carousel-item .px-5 {
+    width: 30%; /* 3 items per view */
+  }
+
+  .sticky-sidebar {
+    position: sticky;
+    top: 0;
+}
