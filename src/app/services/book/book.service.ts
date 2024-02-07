@@ -42,6 +42,17 @@ export class BookService {
 
     return this.http.post(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/send-email`, params);
   }
+
+  public addReview(body:any): Observable<any> {
+    const params = new HttpParams()
+    .set('bookId', body.bookId)
+    .set('bookReviewName', body.bookReviewName)
+    .set('bookReviewEmail', body.bookReviewEmail)
+    .set('bookReviewRating', body.bookReviewRating)
+    .set('bookReviewText', body.bookReviewText);
+
+    return this.http.post(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/get-detailed-book/add-review`, params)
+  }
   
   public getDetailBook(body: any): Observable<unknown> {
     const params = new HttpParams()

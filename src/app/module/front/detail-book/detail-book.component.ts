@@ -1,10 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DetailBookModel } from './model/detail-book.model';
 import { ToastrService } from 'ngx-toastr';
 import { AbstractControl } from '@angular/forms';
 import { BookService } from 'src/app/services/book/book.service';
 import 'flowbite';
+import {
+  Rating,
+  initTE,
+} from "tw-elements";
 
 @Component({
   selector: 'app-detail-book',
@@ -19,6 +23,7 @@ export class DetailBookComponent {
   previewsOfBook: any = {};
   isLoading = false;
   authorOfBook: any = {};
+  ratingLength!:number
   // Series: any;
 
   toggleLoading = () => {
@@ -29,12 +34,19 @@ export class DetailBookComponent {
     }, 3000)
   };
 
+  @Input() maxRating: number = 5;
+  currentRating: number = 0;
+  stars: number[] = [];
+
+
   constructor(
     private readonly router: Router,
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
     private readonly bookService: BookService,
-  ) {}
+  ) {
+    this.stars = Array(this.maxRating).fill(0).map((x, i) => i + 1);
+  }
 
   ngOnInit(): void {
     this.activatedRoute.paramMap.subscribe((data: any) => {
@@ -52,6 +64,7 @@ export class DetailBookComponent {
           this.detailModel.keywordOfBook = response.data.keywordOfBook;
           this.detailModel.previewsOfBook = response.data.previewsOfBook;
           this.previewsOfBook = this.detailModel.previewsOfBook;
+          this.ratingLength = this.book.bookReviewList.length
         })
     })
   }
@@ -81,6 +94,30 @@ export class DetailBookComponent {
           )
         })
       }
+
+   rate(star: number): void {
+    this.currentRating = star;
+    this.detailModel.formGroupRating.controls['bookReviewRating'].setValue(this.currentRating); // Mengatur nilai FormControl sesuai dengan bintang yang diklik
+  }
+
+
+      submitRating() {
+      this.activatedRoute.paramMap.subscribe((data: any ) => {
+        let id = data.params.id
+          this.detailModel.formGroupRating.controls['bookId'].setValue(id);
+          this.bookService.addReview(this.detailModel.formGroupRating.value).subscribe(
+            (response) => {
+              this.toastr.success('Rating successfully created!', 'Success');
+              setTimeout(() => {
+                window.location.reload();
+              }, 2000); // Atur waktu delay sebelum reload halaman, dalam milidetik (di sini 2000ms atau 2 detik)
+            },
+            (error) => {
+            }
+            )
+          })
+        }
+  
 
   goToLibrary() {
     this.router.navigate(["our-library"]);

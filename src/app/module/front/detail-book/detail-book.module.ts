@@ -15,7 +15,7 @@ import { ClipboardModule } from 'ngx-clipboard';
     DetailBookRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    ClipboardModule
+    ClipboardModule,
   ]
 })
 export class DetailBookModule { }
