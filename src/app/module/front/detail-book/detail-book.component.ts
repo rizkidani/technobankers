@@ -5,10 +5,6 @@ import { ToastrService } from 'ngx-toastr';
 import { AbstractControl } from '@angular/forms';
 import { BookService } from 'src/app/services/book/book.service';
 import 'flowbite';
-import {
-  Rating,
-  initTE,
-} from "tw-elements";
 
 @Component({
   selector: 'app-detail-book',
