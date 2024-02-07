@@ -43,9 +43,18 @@ export class DiaComponent {
     }
 }
 
-
   scrollToSelectionTest() {
     const selectionTestElement = this.el.nativeElement.querySelector('#selection-test');
+    if (selectionTestElement) {
+      const yOffset = -100;
+      const y = selectionTestElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }
+
+  
+  scrollToNextSchedule() {
+    const selectionTestElement = this.el.nativeElement.querySelector('#next-schedule');
     if (selectionTestElement) {
       const yOffset = -100;
       const y = selectionTestElement.getBoundingClientRect().top + window.pageYOffset + yOffset;
