@@ -15,6 +15,10 @@ const routes: Routes = [
     loadChildren: () => import('../app/module/front/corporate-training/corporate-training.module').then((x) => x.CorporateTrainingModule)
   },
   {
+    path:'dia',
+    loadChildren: () => import('../app/module/front/dia/dia.module').then((x) => x.DiaModule)
+  },
+  {
     path:'detail-corporate-training',
     loadChildren: () => import('../app/module/front/detail-corporate-training/detail-corporate-training.module').then((x) => x.DetailCorporateTrainingModule)
   },

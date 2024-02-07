@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import 'bootstrap/js/dist/util';
+import 'bootstrap/js/dist/dropdown';
+import 'bootstrap';
+import 'flowbite';
 
 @Component({
   selector: 'app-corporate-training',

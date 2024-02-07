@@ -4,6 +4,7 @@ import { DetailBookModel } from './model/detail-book.model';
 import { ToastrService } from 'ngx-toastr';
 import { AbstractControl } from '@angular/forms';
 import { BookService } from 'src/app/services/book/book.service';
+import 'flowbite';
 
 @Component({
   selector: 'app-detail-book',
@@ -53,10 +54,15 @@ export class DetailBookComponent {
           this.previewsOfBook = this.detailModel.previewsOfBook;
         })
     })
-
   }
 
   submitEmail() {
+      // Menambahkan observer untuk perubahan nilai clientNumber
+      this.detailModel.formGroupEmail.controls['clientNumber'].valueChanges.subscribe(value => {
+        if (value && !value.startsWith('62')) {
+          this.detailModel.formGroupEmail.controls['clientNumber'].setValue('62' + value);
+        }
+      });
     this.activatedRoute.paramMap.subscribe((data: any ) => {
       let id = data.params.id,
         params = {

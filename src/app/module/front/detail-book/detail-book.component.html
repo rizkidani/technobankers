@@ -84,7 +84,7 @@
 <div class="container">
   <div class="flex flex-wrap justify-center items-center py-6">
     <div class="md:basis-2/3 basis-full flex flex-col justify-start px-6 py-3">
-      <h5 class="text-[20px] font-semibold">About This Edition</h5>
+      <h5 class="text-[20px] text-[#4F4F4F] font-semibold">About This Edition</h5>
       <div class="flex flex-wrap justify-start mt-3">
         <p class="md:basis-1/2 basis-full mt-2">ISBN : {{book.bookIsbn}}</p>
         <p class="md:basis-1/2 basis-full mt-2">Language : {{book.bookLanguage}}</p>
@@ -95,7 +95,7 @@
           <span *ngFor="let item of detailModel.authorOfBook"> {{ item.bookAuthor }}, </span>
         </p>
       </div>
-      <h5 class="text-[20px] font-semibold mt-12 mb-2">Brief Description</h5>
+      <h5 class="text-[20px] font-semibold mt-12 mb-2 text-[#4F4F4F]">Brief Description</h5>
       <p class="">{{book.bookBriefDesc}}</p>
       <div class="flex flex-row gap-2">
         <button data-modal-target="default-modal" data-modal-toggle="default-modal" type="button"
@@ -107,7 +107,7 @@
           Create Citation
         </button>
       </div>
-      <h1 class="text-[20px] sm:text-center md:text-start font-semibold mt-4">Available in Full Version</h1>
+      <h1 class="text-[20px] text-[#4F4F4F] sm:text-center md:text-start font-semibold mt-4">Available in Full Version</h1>
       <a href="{{book.bookLink}}" target="_blank">
         <button type="button"
           class="mt-4 md:w-fit sm:w-100 items-center py-2.5 px-5 text-base font-medium text-center bg-[#5656C6] text-white rounded-lg focus:ring-4 focus:ring-blue-300 button">
@@ -117,7 +117,6 @@
     </div>
 
     <div class="md:basis-1/3 basis-full flex flex-col justify-center text-center px-6 py-3">
-
       <div class="w-full p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-6 md:p-8">
         <form class="space-y-6" [formGroup]="detailModel.formGroupEmail">
             <h5 class="text-[24px] font-bold text-[#5656C6]">Start Reading Now</h5>
@@ -135,7 +134,7 @@
               </div>
             </div>
             
-            <input formControlName="clientName" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="example@gmail.com" required>
+            <input formControlName="clientEmail" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="example@gmail.com" required>
             <div *ngIf="f['clientEmail'] && (f['clientEmail'].touched || f['clientEmail'].dirty)  && 
               !f['clientEmail'].valid">
               <div *ngIf="f['clientEmail'].errors">
@@ -144,20 +143,111 @@
                 </div>
               </div>
             </div>
-
             <div class="flex flex-row items-center">
-              <img class="h-fit" src="../../../../assets/flag.png">
-              <p class="mx-1.5">+62</p>
-              <input formControlName="clientNumber" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="Phone (optional)" required>
+              <!-- <img class="h-fit" src="../../../../assets/flag.png">
+              <p class="mx-1.5">+62</p> -->
+              <input formControlName="clientNumber" type="number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" placeholder="example : 62812345678 (optional)" required>
             </div>
-
             <button (click)="toggleLoading()" (click)="submitEmail()" type="button" class="w-full text-white text-[18px] bg-[#5656C6] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center">Send me free chapter</button>
         </form>
       </div>
-
     </div>
   </div>
 </div>
+
+<!-- <div class="container">
+  <div class="flex flex-wrap justify-center items-center">
+    <div class="basis-full flex flex-col justify-start">
+      <div class="flex flex-wrap justify-start px-4">
+        <h5 class="text-[24px] font-semibold text-[#4F4F4F] me-2">Reviews</h5>
+        <div class="mb-5">
+          <p class="text-[16px] font-semibold text-[#303096] bg-[#F4F4FF] px-3 py-1 rounded-lg">10</p>
+        </div>
+        <div class="md:ps-10 ps-3">
+          <button type="button" class="bg-gradient-to-r from-[#FFB649] to-[#FCCB4E] focus:outline-none text-white hover:bg-gradient-to-br 
+          focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-md px-3 py-2 me-2 mb-2 dark:focus:ring-yellow-900">
+            Leave Review
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="w-full bg-white md:px-20">
+    <ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 border-b border-gray-200 rounded-t-lg bg-gray-50 dark:border-gray-700 dark:text-gray-400 dark:bg-gray-800" id="defaultTab" data-tabs-toggle="#defaultTabContent" role="tablist">
+        <li class="me-2">
+            <button id="all-tab" data-tabs-target="#all" type="button" role="tab" aria-controls="about" aria-selected="true" class="inline-block p-4 text-blue-600 rounded-ss-lg hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-blue-500">
+              All
+            </button>
+        </li>
+        <li class="me-2">
+            <button id="best-tab" data-tabs-target="#best" type="button" role="tab" aria-controls="services" aria-selected="false" class="inline-block p-4 hover:text-gray-600 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-gray-300">
+              Best
+            </button>
+        </li>
+    </ul>
+    <div id="defaultTabContent">
+        <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="all" role="tabpanel" aria-labelledby="all-tab">
+            <h5 class="text-[18px] text-[#4F4F4F] font-semibold my-2">Sri Wulandari</h5>
+            <p class="text-[14px] text-[#4F4F4F]">Februari 15, 2024 08:45 PM</p>
+            <div class="flex flex-wrap my-2">
+              <p class="text-[14px] text-[#4F4F4F]">Book Rate</p>
+              <div class="flex items-center">
+                <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
+                <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
+                <svg class="w-4 h-4 text-gray-300 me-1 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                    <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+                </svg>
+                <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">4/5</p>
+              </div>
+            </div>
+            <p class="text-[16px] text-[#4F4F4F] mb-4">This is an excellent book and beautifully written. </p>
+            <svg xmlns="http://www.w3.org/2000/svg" height="2" viewBox="0 0 1282 2" fill="none" class="w-full">
+              <path d="M1 1H1281" stroke="#DEDEDE" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="hidden p-4 bg-white rounded-lg md:p-8 dark:bg-gray-800" id="best" role="tabpanel" aria-labelledby="best-tab">
+          <h5 class="text-[18px] text-[#4F4F4F] font-semibold my-2">Sri</h5>
+          <p class="text-[14px] text-[#4F4F4F]">Februari 15, 2024 08:45 PM</p>
+          <div class="flex flex-wrap my-2">
+            <p class="text-[14px] text-[#4F4F4F]">Book Rate</p>
+            <div class="flex items-center">
+              <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+              </svg>
+              <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+              </svg>
+              <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+              </svg>
+              <svg class="w-4 h-4 text-yellow-300 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+              </svg>
+              <svg class="w-4 h-4 text-gray-300 me-1 dark:text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20">
+                  <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+              </svg>
+              <p class="ms-1 text-sm font-medium text-gray-500 dark:text-gray-400">4/5</p>
+            </div>
+          </div>
+          <p class="text-[16px] text-[#4F4F4F] mb-4">This is an excellent book and beautifully written. </p>
+          <svg xmlns="http://www.w3.org/2000/svg" width="1282" height="2" viewBox="0 0 1282 2" fill="none">
+            <path d="M1 1H1281" stroke="#DEDEDE" stroke-linecap="round"/>
+          </svg>
+      </div>
+    </div>
+  </div> -->
 
 <!-- Main modal -->
 <div id="default-modal" tabindex="-1" aria-hidden="true" class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
