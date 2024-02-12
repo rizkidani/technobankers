@@ -63,19 +63,19 @@
               <span *ngIf="book.new === true" class="text-white bg-green-500 text-sm font-normal me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">New</span>
               <p class="text-gray">Book</p>
             </div>
-            <h1><a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}" class="title-book">{{book.bookTitle}} </a></h1>
+            <h1><a href="detail-book/{{book.bookId}}" class="title-book">{{book.bookTitle}} </a></h1>
             <p class="subtext-book" > By 
-              <a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}"> 
+              <a href="detail-book/{{book.bookId}}"> 
                 <span *ngFor="let item of book.authorOfBook">{{item.bookAuthor}}, </span>
               </a>
             </p>
-            <p class="mt-5 pt-2 subtext-book"><a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}">Language : <span>{{book.bookLanguage}}</span></a></p>
-            <p class="subtext-book"><a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}">Pages : <span>{{book.bookPages}}</span></a></p>
+            <p class="mt-5 pt-2 subtext-book"><a href="detail-book/{{book.bookId}}">Language : <span>{{book.bookLanguage}}</span></a></p>
+            <p class="subtext-book"><a href="detail-book/{{book.bookId}}">Pages : <span>{{book.bookPages}}</span></a></p>
             <div class="mt-5 mb-2 flex items-center">
               <img class="mr-1" src="../../../../assets/icon-eye.png">
-              <p class="subtext-book"><a  [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}">{{book.bookViews == null ? 0 : book.bookViews}} views</a></p>
+              <p class="subtext-book"><a href="detail-book/{{book.bookId}}">{{book.bookViews == null ? 0 : book.bookViews}} views</a></p>
             </div>
-            <p class="flex justify-end text-blue-500"><a [routerLinkActive]="'active'" routerLink="detail-book/{{book.bookId}}">Read more</a></p>
+            <p class="flex justify-end text-blue-500"><a href="detail-book/{{book.bookId}}">Read more</a></p>
           </div>
         </div>
       </div>

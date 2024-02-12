@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { DetailBookModel } from './model/detail-book.model';
 import { ToastrService } from 'ngx-toastr';
 import { AbstractControl } from '@angular/forms';
