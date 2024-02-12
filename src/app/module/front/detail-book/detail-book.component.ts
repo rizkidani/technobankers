@@ -96,23 +96,22 @@ export class DetailBookComponent {
     this.detailModel.formGroupRating.controls['bookReviewRating'].setValue(this.currentRating); // Mengatur nilai FormControl sesuai dengan bintang yang diklik
   }
 
-
-      submitRating() {
-      this.activatedRoute.paramMap.subscribe((data: any ) => {
-        let id = data.params.id
-          this.detailModel.formGroupRating.controls['bookId'].setValue(id);
-          this.bookService.addReview(this.detailModel.formGroupRating.value).subscribe(
-            (response) => {
-              this.toastr.success('Rating successfully created!', 'Success');
-              setTimeout(() => {
-                window.location.reload();
-              }, 2000); // Atur waktu delay sebelum reload halaman, dalam milidetik (di sini 2000ms atau 2 detik)
-            },
-            (error) => {
-            }
-            )
-          })
+  submitRating() {
+  this.activatedRoute.paramMap.subscribe((data: any ) => {
+    let id = data.params.id
+      this.detailModel.formGroupRating.controls['bookId'].setValue(id);
+      this.bookService.addReview(this.detailModel.formGroupRating.value).subscribe(
+        (response) => {
+          this.toastr.success('Rating successfully created!', 'Success');
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000); // Atur waktu delay sebelum reload halaman, dalam milidetik (di sini 2000ms atau 2 detik)
+        },
+        (error) => {
         }
+        )
+      })
+    }
   
 
   goToLibrary() {

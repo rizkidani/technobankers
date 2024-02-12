@@ -164,10 +164,12 @@
           <p class="text-[16px] font-semibold text-[#303096] bg-[#F4F4FF] px-3 py-1 rounded-lg">{{ratingLength}}</p>
         </div>
         <div class="md:ps-10 ps-3">
-          <button data-modal-target="ratingModal" data-modal-toggle="ratingModal" type="button" class="bg-gradient-to-r from-[#FFB649] to-[#FCCB4E] focus:outline-none text-white hover:bg-gradient-to-br 
-          focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-md px-3 py-2 me-2 mb-2 dark:focus:ring-yellow-900">
-            Leave Review
-          </button>
+          <a href="leave-review/{{book.bookId}}">
+            <button type="button" class="bg-gradient-to-r from-[#FFB649] to-[#FCCB4E] focus:outline-none text-white hover:bg-gradient-to-br 
+            focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-md px-3 py-2 me-2 mb-2 dark:focus:ring-yellow-900">
+              Leave Review
+            </button>
+          </a>
         </div>
       </div>
     </div>

@@ -46,6 +46,14 @@ const routes: Routes = [
     path: 'event',
     loadChildren: () => import('../app/module/front/event/event.module').then((x) => x.EventModule)
   },
+  {
+    path:'upcoming-event',
+    loadChildren: () => import('../app/module/front/upcoming-event/upcoming-event.module').then((x) => x.UpcomingEventModule)
+  },
+  {
+    path:'leave-review/:id',
+    loadChildren: () => import('../app/module/front/leave-review/leave-review.module').then((x) => x.LeaveReviewModule)
+  }
 ];
 
 @NgModule({

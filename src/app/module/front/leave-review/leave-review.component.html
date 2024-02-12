@@ -1,0 +1,50 @@
+<div class="w-full relative bg-white rounded-lg shadow dark:bg-gray-700 p-4 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div class="p-6 bg-[#F4F4FF] rounded-lg ">
+        <div class="flex items-start justify-between p-4 dark:border-gray-600">
+            <h3 class="text-xl font-semibold text-color-gray font-weight-700 dark:text-white">
+                What do you think about this book?
+            </h3>
+        </div>
+        <div class="px-4 flex flex-col">
+        <p class="text-[#4F4F4F] text-[16px]">Your email address will not be published. Required fields are marked *</p>
+        <form action="" [formGroup]="detailModel.formGroupRating">
+            <div class="flex flex-wrapv py-3">
+                <p class="text-[#4F4F4F] text-[14px]">Book Rate*</p>
+                <!-- rating-star.component.html -->
+                <div class="flex items-center ps-2">
+                    <span *ngFor="let star of stars" (click)="rate(star)" [class]="star <= currentRating ? 'text-yellow-300' : 'text-gray-300'">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 cursor-pointer" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M19.805 7.624l-5.86-.854L10.507 1.23a1.132 1.132 0 0 0-2.014 0l-3.437 5.54-5.86.854a1.132 1.132 0 0 0-.623 1.929l4.23 4.121-1 6.177a1.132 1.132 0 0 0 1.642 1.191l5.231-2.756 5.23 2.756a1.132 1.132 0 0 0 1.642-1.19l-.999-6.177 4.229-4.121a1.132 1.132 0 0 0-.622-1.929z" clip-rule="evenodd"/>
+                        </svg>
+                    </span>
+                </div>
+            </div>
+            <div class="pb-3">
+                <label for="large-input" class="block mb-2 text-[14px] font-medium text-[#4F4F4F] dark:text-white font-semibold">Review*</label>
+                <input formControlName="bookReviewText" type="text" id="large-input" class="block w-full h-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-white sm:text-md dark:placeholder-gray-400">
+            </div>
+            <div class="grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                <div class="sm:col-span-3">
+                    <label for="name" class="block mb-2 text-[14px] font-medium text-[#4F4F4F] dark:text-white font-semibold">Name*</label>
+                    <div class="mt-2">
+                    <input formControlName="bookReviewName" type="text" id="name" autocomplete="given-name" class="block w-full rounded-md border-0  py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+                    </div>
+                </div>
+                <div class="sm:col-span-3">
+                    <label for="email" class="block mb-2 text-[14px] font-medium text-[#4F4F4F] dark:text-white font-semibold">Email*</label>
+                    <div class="mt-2">
+                    <input type="email" formControlName="bookReviewEmail" id="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 sm:text-sm sm:leading-6">
+                    </div>
+                </div>
+            </div>
+            <div class="py-3">
+                <button (click)="submitRating()" type="submit" class="bg-gradient-to-r from-[#303096] to-[#5656C6] focus:outline-none text-white hover:bg-gradient-to-br 
+                font-medium rounded-lg text-md px-3 py-2 me-2 mb-2">
+                    Submit
+                </button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
