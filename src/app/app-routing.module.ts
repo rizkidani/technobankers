@@ -53,6 +53,10 @@ const routes: Routes = [
   {
     path:'leave-review/:id',
     loadChildren: () => import('../app/module/front/leave-review/leave-review.module').then((x) => x.LeaveReviewModule)
+  },
+  {
+    path:'detail-book-read',
+    loadChildren: () => import('../app/module/front/detail-book-read/detail-book-read.module').then((x) => x.DetailBookReadModule)
   }
 ];
 

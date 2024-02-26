@@ -34,6 +34,7 @@
     "ng-image-slider": "^7.0.1",
     "ngx-bootstrap": "^10.2.0",
     "ngx-clipboard": "^16.0.0",
+    "ngx-extended-pdf-viewer": "^18.1.14",
     "ngx-pagination": "^6.0.3",
     "ngx-toastr": "^16.2.0",
     "rxjs": "~7.5.0",
