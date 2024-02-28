@@ -24,6 +24,10 @@ const routes: Routes = [
         loadChildren: () => import('../module/front/dia/dia.module').then((x) => x.DiaModule)
       },
       {
+        path:'e-book',
+        loadChildren: () => import('../module/front/e-book/e-book.module').then((x) => x.EBookModule)
+      },
+      {
         path:'detail-corporate-training',
         loadChildren: () => import('../module/front/detail-corporate-training/detail-corporate-training.module').then((x) => x.DetailCorporateTrainingModule)
       },

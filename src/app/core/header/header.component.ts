@@ -17,6 +17,7 @@ export class HeaderComponent {
   ngOnInit():void{
     if (this.authService.isLogin()) {
       this.userData = this.authService.loadUserData()
+      console.log(this.userData)
     }
   }
 

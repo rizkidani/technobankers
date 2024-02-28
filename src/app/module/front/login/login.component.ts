@@ -24,7 +24,7 @@ export class LoginComponent {
   onLogin() {
     this.authService.loginUser(this.registerModel.formGroupRegister.value).subscribe(
       (response) => {
-        this.route.navigate([''])
+        this.route.navigate(['e-book'])
       },
       (error) => {
         this.toastr.error(error.error.message, 'Failed')
