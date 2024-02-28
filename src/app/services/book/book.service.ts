@@ -22,7 +22,6 @@ export class BookService {
     return this.index;
   }
 
-
   public getListBook(): Observable<any> {
     const url = `${API_BASE_URL}/api/technobanker/v1/backoffice/book/get-books`;
     return this.http.get(url);
