@@ -72,22 +72,30 @@
                     </div>
                     <div>
                         <h5 class="pt-4 w-full text-[#333] text-[20px] font-bold">
-                            Technobanker - Capabilities and Skills for the Next Generation of Digital Banking
+                           {{checkoutData.data.bookName}}
                         </h5>
                         <p class="text-[14px] text-[#333] pt-3">
                             EBook
                         </p>
                         <div class="md:flex pt-5">
                             <h5 class="basis-2/5 text-[14px] text-[#333] font-bold pt-2">E-Book Price</h5>
-                            <div class="basis-3/5 flex items-center text-right pt-2 md:pt-0">
-                                <span class="bg-[#E55353] text-white text-xs font-medium me-2 px-2.5 py-1.5 rounded">50%</span>
-                                <p class="text-[#BDBDBD] line-through">IDR 150.000</p>
-                                <p class="text-[#333] font-bold text-[18px] ps-2">IDR 75.000</p>
+                            <div *ngIf="checkoutData.data.bookDiscount != 0" class="basis-3/5 flex items-center text-right pt-2 md:pt-0">
+                                <span class="bg-[#E55353] text-white text-xs font-medium me-2 px-2.5 py-1.5 rounded">
+                                    {{checkoutData.data.bookDiscount}}%
+                                </span>
+                                <p class="text-[#BDBDBD] line-through">
+                                    IDR {{checkoutData.data.bookPrice | currency:' ':'symbol':'1.0'}}
+                                </p>
+                                <p class="text-[#333] font-bold text-[18px] ps-2">
+                                    IDR {{checkoutData.data.bookPriceTotal | currency:' ':'symbol':'1.0'}}
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <p class="text-[#333] text-[14px] pt-28 ps-4 pb-3 font-semibold">Notes : Special price valid until 29 February 2024</p>
+                <p class="text-[#333] text-[14px] pt-28 ps-4 pb-3 font-semibold">
+                    Notes : Special price valid until {{ formatDate(checkoutData.data.bookPriceEndDate) }}
+                </p>
                 <div class="bg-[#F5F6F8] rounded-b-xl">
                     <div class="flex justify-between p-4">
                         <h1 class="text-[#333] text-[16px] font-semibold">
@@ -95,7 +103,7 @@
                             <span class="bg-[#FFD249] text-[12px] px-2 py-1 rounded-lg">Qty 1</span>
                         </h1>
                         <h1 class="text-[#333] text-[16px] font-bold">
-                            IDR 75.000
+                            IDR {{checkoutData.data.bookPriceTotal | currency:' ':'symbol':'1.0'}}
                         </h1>
                     </div>
                 </div>
@@ -111,15 +119,17 @@
                 </div>
                 <div class="flex justify-between px-3 pt-4">
                     <p class="text-[#333] text-[16px] font-semibold">Total Price : Qty 1</p>
-                    <p class="text-[#333] text-[16px] font-bold">IDR 150.000</p>
+                    <p class="text-[#333] text-[16px] font-bold">IDR {{checkoutData.data.bookPrice | currency:' ':'symbol':'1.0'}}</p>
                 </div>
                 <div class="flex justify-between p-3">
                     <p class="text-[#FF5656] text-[16px] font-semibold">Purchase Discount</p>
-                    <p class="text-[#FF5656] text-[16px] font-bold">-IDR 75.000</p>
+                    <p class="text-[#FF5656] text-[16px] font-bold">
+                        -IDR {{ checkoutData.data.bookPrice * (checkoutData.data.bookDiscount / 100) | currency:' ':'symbol':'1.0'}}
+                    </p>
                 </div>
                 <div class="flex justify-between pt-16 px-3">
                     <p class="text-[#333] text-[16px] font-bold">Total Charge</p>
-                    <p class="text-[#333] text-[20px] font-bold">IDR 75.000</p>
+                    <p class="text-[#333] text-[20px] font-bold">IDR {{checkoutData.data.bookPriceTotal | currency:' ':'symbol':'1.0'}}</p>
                 </div>
                 <div class="flex justify-center py-4">
                     <button type="button" class="focus:outline-none bg-[#FFC439] hover:bg-yellow-400 focus:ring-4 shadow text-[16px]
