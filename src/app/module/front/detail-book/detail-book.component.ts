@@ -35,8 +35,6 @@ export class DetailBookComponent {
   currentRating: number = 0;
   stars: number[] = [];
 
-  userData = this.authService.loadUserData()
-
   constructor(
     private readonly router: Router,
     private activatedRoute: ActivatedRoute,
@@ -130,20 +128,27 @@ export class DetailBookComponent {
   }
 
   buyEbook() {
-    this.activatedRoute.paramMap.subscribe((data: any ) => {
-      let id = data.params.id
-        this.detailModel.formBuyBook.controls['bookId'].setValue(id)
-        this.detailModel.formBuyBook.controls['userId'].setValue(this.userData.userId)
-        this.detailModel.formBuyBook.controls['bookQuantity'].setValue('1')
+    if (this.authService.isLogin()) {
+      let userData = this.authService.loadUserData();
+      this.activatedRoute.paramMap.subscribe((data: any ) => {
+        let id = data.params.id;
+        this.detailModel.formBuyBook.controls['bookId'].setValue(id);
+        this.detailModel.formBuyBook.controls['userId'].setValue(userData.userId);
+        this.detailModel.formBuyBook.controls['bookQuantity'].setValue('1');
         this.bookService.checkOutBook(this.detailModel.formBuyBook.value).subscribe(
-          (response:any) => {
-            this.router.navigate(["transaction-checkout"])
+          (response: any) => {
+            this.router.navigate(["transaction-checkout"]);
             setTimeout(() => {
               window.location.reload();
             }, 2000);
           }
-        )
-    })
+        );
+      });
+    } else {
+      // Jika pengguna belum login, arahkan ke halaman login
+      this.router.navigate(['login']);
+    }
   }
+  
 
 }
