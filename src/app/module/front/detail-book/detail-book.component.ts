@@ -5,6 +5,7 @@ import { ToastrService } from 'ngx-toastr';
 import { AbstractControl } from '@angular/forms';
 import { BookService } from 'src/app/services/book/book.service';
 import 'flowbite';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-detail-book',
@@ -34,12 +35,14 @@ export class DetailBookComponent {
   currentRating: number = 0;
   stars: number[] = [];
 
+  userData = this.authService.loadUserData()
 
   constructor(
     private readonly router: Router,
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
     private readonly bookService: BookService,
+    public authService: AuthService
   ) {
     this.stars = Array(this.maxRating).fill(0).map((x, i) => i + 1);
   }
@@ -72,11 +75,8 @@ export class DetailBookComponent {
           this.detailModel.formGroupEmail.controls['clientNumber'].setValue('62' + value);
         }
       });
-    this.activatedRoute.paramMap.subscribe((data: any ) => {
-      let id = data.params.id,
-        params = {
-          bookId: id,
-        }
+      this.activatedRoute.paramMap.subscribe((data: any ) => {
+       let id = data.params.id
         this.detailModel.formGroupEmail.controls['bookId'].setValue(id);
         this.bookService.submitEmail(this.detailModel.formGroupEmail.value).subscribe(
           (response) => {
@@ -120,6 +120,30 @@ export class DetailBookComponent {
 
   get f(): { [key: string]: AbstractControl } {
     return this.detailModel.formGroupEmail.controls;
+  }
+
+  routeToPaymentEbook() {
+    this.router.navigate(["transaction-checkout"])
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  }
+
+  buyEbook() {
+    this.activatedRoute.paramMap.subscribe((data: any ) => {
+      let id = data.params.id
+        this.detailModel.formBuyBook.controls['bookId'].setValue(id)
+        this.detailModel.formBuyBook.controls['userId'].setValue(this.userData.userId)
+        this.detailModel.formBuyBook.controls['bookQuantity'].setValue('1')
+        this.bookService.checkOutBook(this.detailModel.formBuyBook.value).subscribe(
+          (response:any) => {
+            this.router.navigate(["transaction-checkout"])
+            setTimeout(() => {
+              window.location.reload();
+            }, 2000);
+          }
+        )
+    })
   }
 
 }

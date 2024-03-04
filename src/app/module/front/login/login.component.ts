@@ -24,7 +24,13 @@ export class LoginComponent {
   onLogin() {
     this.authService.loginUser(this.registerModel.formGroupRegister.value).subscribe(
       (response) => {
+        this.authService.saveUserData(response.data)
         this.route.navigate(['e-book'])
+        .then(() => {
+          setTimeout(() => {
+            window.location.reload();
+          }, 500); // Menunggu 500ms sebelum me-refresh halaman
+        });
       },
       (error) => {
         this.toastr.error(error.error.message, 'Failed')

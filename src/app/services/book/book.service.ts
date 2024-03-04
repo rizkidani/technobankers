@@ -75,4 +75,13 @@ export class BookService {
     return this.http.patch(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/count-views`, formData);
   }
 
+  public checkOutBook(body:any): Observable<any> {
+    const params = new HttpParams()
+    .set('userId', body.userId)
+    .set('bookId', body.bookId)
+    .set('bookQuantity', body.bookQuantity);
+
+    return this.http.post(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/book-checkout`, params)
+  }
+
 }

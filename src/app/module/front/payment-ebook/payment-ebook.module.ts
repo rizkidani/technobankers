@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { EBookRoutingModule } from './e-book-routing.module';
-import { EBookComponent } from './e-book.component';
+import { PaymentEbookRoutingModule } from './payment-ebook-routing.module';
+import { PaymentEbookComponent } from './payment-ebook.component';
 import { SharedModule } from 'src/app/shared/shared/shared.module';
 
 
 @NgModule({
   declarations: [
-    EBookComponent
+    PaymentEbookComponent
   ],
   imports: [
     CommonModule,
-    EBookRoutingModule,
+    PaymentEbookRoutingModule,
     SharedModule
   ]
 })
-export class EBookModule { }
+export class PaymentEbookModule { }

@@ -18,6 +18,10 @@ const routes: Routes = [
     path: 'email-verification',
     loadChildren: () => import('../app/module/front/verification-email/verification-email.module').then((x) => x.VerificationEmailModule)
   },
+  {
+    path: 'transaction-checkout',
+    loadChildren: () => import('../app/module/front/payment-ebook/payment-ebook.module').then((x) => x.PaymentEbookModule)
+  },
 ];
 
 @NgModule({

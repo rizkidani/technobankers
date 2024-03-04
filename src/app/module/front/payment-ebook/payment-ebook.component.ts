@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-payment-ebook',
+  templateUrl: './payment-ebook.component.html',
+  styleUrls: ['./payment-ebook.component.scss']
 })
-export class HeaderComponent {
+export class PaymentEbookComponent {
 
   userData: any = {}
 
@@ -23,6 +23,10 @@ export class HeaderComponent {
 
   logout() {
     this.authService.logOut()
+  }
+
+  goBack(): void {
+    window.history.back();
   }
 
 }

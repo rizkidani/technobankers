@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { API_BASE_URL } from '../api.config';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,8 @@ import { API_BASE_URL } from '../api.config';
 export class AuthService {
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router
   ) { }
 
   saveRegisterData(userData: any) {
@@ -27,8 +29,8 @@ export class AuthService {
     return this.http.post(`${API_BASE_URL}/api/technobanker/v1/user/register`, params);
   }
 
-  saveUserData(userData: any) {
-    localStorage.setItem('login', JSON.stringify(userData))
+  saveUserData(data: any) {
+    localStorage.setItem('login', JSON.stringify(data))
   }
 
   isLogin() {
@@ -47,5 +49,10 @@ export class AuthService {
       .set('userPassword', body.userPassword)
 
     return this.http.post(`${API_BASE_URL}/api/technobanker/v1/user/login`, params);
+  }
+
+  logOut() {
+    localStorage.clear()
+    this.router.navigate([''])
   }
 }
