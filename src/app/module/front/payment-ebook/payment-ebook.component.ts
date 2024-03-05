@@ -53,6 +53,9 @@ export class PaymentEbookComponent {
 
   goBack(): void {
     window.history.back();
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
   }
 
 }

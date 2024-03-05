@@ -22,6 +22,10 @@ const routes: Routes = [
     path: 'transaction-checkout',
     loadChildren: () => import('../app/module/front/payment-ebook/payment-ebook.module').then((x) => x.PaymentEbookModule)
   },
+  {
+    path: 'register-invalid',
+    loadChildren: () => import('../app/module/front/register-expired/register-expired.module').then((x) => x.RegisterExpiredModule)
+  },
 ];
 
 @NgModule({

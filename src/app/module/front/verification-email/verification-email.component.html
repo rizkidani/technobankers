@@ -50,8 +50,12 @@
                         </defs>
                     </svg>
                 </div>
-                <h3 class="text-center text-[#333] text-[24px] font-bold pt-4 pb-3">Check Your Email for Verification</h3>
-                <p class="text-center text-[#333] text-[16px] font-semibold">E-mail verification has been sent to hyuniechan@mail.com</p>
+                <h3 class="text-center text-[#333] text-[24px] font-bold pt-4 pb-3">
+                    Check Your Email for Verification
+                </h3>
+                <p class="text-center text-[#333] text-[16px] font-semibold">
+                    E-mail verification has been sent to {{ registerModel.formGroupRegister.controls['userEmail'] }}
+                </p>
                 <a href="" class="text-[#006EFF] text-[14px] font-semibold underline underline-offset-3">
                     <h5 class="text-center pt-3">
                         I have not received a verification e-mail

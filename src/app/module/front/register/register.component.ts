@@ -26,7 +26,7 @@ export class RegisterComponent {
     this.authService.registerUser(this.registerModel.formGroupRegister.value).subscribe(
       (response) => {
         this.authService.saveRegisterData(response.data)
-        this.route.navigate(['email-verification'])
+        this.route.navigate(['email-verification'], { queryParams: { data: this.registerModel.formGroupRegister.controls['userEmail'].value } })
        },
       (error) => {
         this.toastr.error(error.error.message, 'Failed')
