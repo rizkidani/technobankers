@@ -54,16 +54,21 @@
                     </h3>
                     <h2 class="pb-3 text-[#333] text-[16px] font-semibold"> Please do this:</h2>
                     <ul class="max-w-md space-y-1 list-disc list-inside text-[#333] text-[16px] font-semibold">
-                        <li>
-                            Check your connection
+                        <li class="relative" style="margin-bottom: 10px; padding-left: 20px;">
+                            <span class="absolute left-0 top-1/2 transform -translate-y-1/2 h-2 w-2 bg-black rounded-full"></span>
+                            <span class="ml-2">Check your connection</span>
                         </li>
-                        <li>
-                            Check your e-mail once again, click the link at the bottom of e-mail
+                        <li class="relative" style="margin-bottom: 10px; padding-left: 20px;">
+                            <span class="absolute left-0 top-1/2 transform -translate-y-1/2 h-2 w-2 bg-black rounded-full"></span>
+                            <span class="ml-2">Check your e-mail once again, click the link at the bottom of e-mail</span>
                         </li>
-                        <li>
-                            Refresh this page
+                        <li class="relative" style="margin-bottom: 10px; padding-left: 20px;">
+                            <span class="absolute left-0 top-1/2 transform -translate-y-1/2 h-2 w-2 bg-black rounded-full"></span>
+                            <span class="ml-2">Refresh this page</span>
                         </li>
                     </ul>
+                    
+                                     
                     <button (click)="refreshPage()" type="button" class="mt-5 btn 
                     border-[#303096] hover:border-[#303096] text-[#303096] hover:text-[#303096] border-[1.5px] font-semibold rounded-xl hover:bg-gray-100 px-4 py-2 text-center">
                         Refresh Page

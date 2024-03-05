@@ -1,0 +1,12 @@
+li span:first-child {
+    margin-right: 0.5em; /* Sesuaikan ukuran spasi sesuai kebutuhan Anda */
+}
+
+li {
+    display: flex;
+    align-items: center;
+}
+
+li > span:first-child {
+    margin-right: 0.5em;
+}
