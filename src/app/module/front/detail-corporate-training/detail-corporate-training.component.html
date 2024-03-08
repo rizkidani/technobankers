@@ -57,14 +57,14 @@
                             -10%
                         </p>
                         <p class="font-bold text-[#BDBDBD] text-[12px] mt-1 ms-1.5 line-through">
-                            IDR 500.000
+                            IDR 6.000.000
                         </p>
                     </div>
                     <p class="mb-2 mt-2 md:mt-0 md:text-[24px] text-[16px] font-bold tracking-tight text-[#4F4F4F] dark:text-white">
-                        IDR 4.500.000
+                        IDR 5.500.000
                     </p>
                 </div>
-                <p class="text-[#2F80ED] font-semibold md:text-[14px] text-[12px]">Special Price Apply until 31 March 2024</p>
+                <p class="text-[#2F80ED] font-semibold md:text-[14px] text-[12px]">Special Price Apply until 21 April 2024</p>
                 <p class="text-[#4F4F4F] font-semibold md:text-[16px] text-[14px] mt-2 md:w-96 w-44">
                     Feel free to set training schedule or venue that best suits your needs
                 </p>
@@ -79,6 +79,55 @@
   </div>
 
 <div class="container">
+    <div class="flex flex-wrap justify-center md:justify-between pt-5 md:pb-0">
+        <h1 class="text-[#303096] text-[28px] md:text-[32px] ps-3 mb-3" style="font-weight: 700;">
+            Upcoming Schedule
+        </h1>
+        <div class="flex flex-wrap mb-3">
+            <button aria-label="slide backward" class="cursor-pointer pe-3" (click)="goPrev()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <g clip-path="url(#clip0_3834_6043)">
+                    <path d="M18.0002 36C27.9253 36 35.9998 27.9251 35.9998 17.9999C35.9998 8.07487 27.9253 0 18.0002 0C8.07519 0 0.000488281 8.07487 0.000488281 17.9999C0.000488281 27.9251 8.07519 36 18.0002 36ZM18.0002 2.46405C26.5666 2.46405 33.5358 9.43339 33.5359 17.9999C33.5359 26.5664 26.5668 33.5358 18.0002 33.5359C9.43387 33.5358 2.46471 26.5665 2.46471 17.9998C2.46471 9.43355 9.43387 2.46405 18.0002 2.46405Z" fill="#828282"/>
+                    <path d="M15.5829 25.7089C15.814 25.9399 16.1274 26.0696 16.4541 26.0696C16.7808 26.0696 17.0941 25.9399 17.3252 25.7089C17.4396 25.5945 17.5304 25.4587 17.5924 25.3092C17.6543 25.1597 17.6862 24.9994 17.6861 24.8376C17.6861 24.6758 17.6542 24.5156 17.5923 24.3661C17.5303 24.2166 17.4395 24.0807 17.325 23.9664L12.5908 19.2323L26.3003 19.2309C26.627 19.2309 26.9404 19.1011 27.1714 18.87C27.4024 18.639 27.5322 18.3256 27.5322 17.9988C27.5322 17.6721 27.4024 17.3587 27.1713 17.1277C26.9402 16.8966 26.6268 16.7669 26.3001 16.7669L12.5901 16.7682L17.3255 12.0331C17.5566 11.802 17.6864 11.4887 17.6864 11.1619C17.6865 10.8351 17.5567 10.5217 17.3256 10.2906C17.0945 10.0595 16.7811 9.9297 16.4544 9.92969C16.1276 9.92967 15.8142 10.0595 15.5831 10.2905L8.74469 17.1288C8.63025 17.2431 8.53947 17.3789 8.47754 17.5284C8.41562 17.6779 8.38376 17.8381 8.38379 17.9999C8.38395 18.3267 8.51381 18.6402 8.74486 18.8714L15.5829 25.7089Z" fill="#828282"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_3834_6043">
+                        <rect width="36" height="36" fill="white"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+            </button>
+            <button aria-label="slide forward" class="cursor-pointer" (click)="goNext()">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36" fill="none">
+                    <g clip-path="url(#clip0_3834_6047)">
+                    <path d="M17.9998 0C8.07471 0 0.000167847 8.07487 0.000167847 18.0001C0.000167847 27.9251 8.07471 36 17.9998 36C27.9248 36 35.9995 27.9251 35.9995 18.0001C35.9995 8.07487 27.9248 0 17.9998 0ZM17.9998 33.5359C9.43339 33.5359 2.46423 26.5666 2.46406 18.0001C2.46406 9.43355 9.43323 2.46422 17.9998 2.46405C26.5661 2.46422 33.5353 9.43355 33.5353 18.0002C33.5353 26.5665 26.5661 33.5359 17.9998 33.5359Z" fill="#828282"/>
+                    <path d="M20.4171 10.2911C20.186 10.0601 19.8726 9.93039 19.5459 9.93039C19.2192 9.93039 18.9059 10.0601 18.6748 10.2911C18.5604 10.4055 18.4696 10.5413 18.4076 10.6908C18.3457 10.8403 18.3138 11.0006 18.3139 11.1624C18.3139 11.3242 18.3458 11.4844 18.4077 11.6339C18.4697 11.7834 18.5605 11.9193 18.675 12.0336L23.4092 16.7677L9.69974 16.7691C9.37299 16.7691 9.05963 16.8989 8.82859 17.13C8.59756 17.361 8.46778 17.6744 8.4678 18.0012C8.46782 18.3279 8.59764 18.6413 8.82871 18.8723C9.05977 19.1034 9.37315 19.2331 9.69991 19.2331L23.4099 19.2318L18.6745 23.9669C18.4434 24.198 18.3136 24.5113 18.3136 24.8381C18.3135 25.1649 18.4433 25.4783 18.6744 25.7094C18.9055 25.9405 19.2189 26.0703 19.5456 26.0703C19.8724 26.0703 20.1858 25.9405 20.4169 25.7095L27.2553 18.8712C27.3698 18.7569 27.4605 18.6211 27.5225 18.4716C27.5844 18.3221 27.6162 18.1619 27.6162 18.0001C27.616 17.6733 27.4862 17.3598 27.2551 17.1286L20.4171 10.2911Z" fill="#828282"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_3834_6047">
+                        <rect width="36" height="36" fill="white" transform="matrix(-1 0 0 -1 36 36)"/>
+                    </clipPath>
+                    </defs>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="flex items-center justify-center w-full h-full pb-5 sm:py-8 px-5">
+        <div class="w-full relative flex items-center justify-center">
+            <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+                <div id="slider" class="h-full flex lg:gap-8 md:gap-6 gap-14 items-center justify-start transition ease-out duration-700">
+                    <div class="flex flex-shrink-0 relative sm:w-auto">
+                        <div class="bg-[#FFF] rounded-xl p-3 w-80 h-36" style="border: 1.5px solid #DEDEDE;">
+                            <h1 class="text-[20px] font-bold mt-2 mb-2 text-[#4F4F4F]">Batch 1 - 2024</h1>
+                            <h5 class="text-[14px] font-semibold mt-2 mb-2 text-[#4F4F4F]">Open for registration until 21 April 2024</h5>
+                            <span class="bg-gray-100 text-blue-500 text-xs font-bold me-2 px-2.5 py-0.5 rounded">Full Day</span>
+                            <span class="text-blue-500 text-xs font-bold">22 April - 26 April 2024</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="flex flex-wrap justify-center md:justify-between pt-5 md:pb-0">
         <h1 class="text-[#303096] text-[28px] md:text-[32px] ps-3 mb-3" style="font-weight: 700;">
             Support for Your Team
