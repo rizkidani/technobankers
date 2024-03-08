@@ -108,12 +108,18 @@
         </button>
       </div>
       <h1 class="text-[20px] text-[#4F4F4F] sm:text-center md:text-start font-semibold mt-4">Available in Full Version</h1>
-      <a href="{{book.bookLink}}" target="_blank">
-        <button type="button"
-          class="mt-4 md:w-fit sm:w-100 items-center py-2.5 px-5 text-base font-medium text-center bg-[#5656C6] text-white rounded-lg focus:ring-4 focus:ring-blue-300 button">
-          Buy Book Now
+      <div class="flex flex-row gap-2">
+        <a href="{{book.bookLink}}" target="_blank">
+          <button type="button"
+            class="mt-4 md:w-fit sm:w-100 items-center py-2.5 px-5 text-base font-medium text-center bg-[#5656C6] text-white rounded-lg focus:ring-4 focus:ring-blue-300 button">
+            Buy via Online Store
+          </button>
+        </a>
+        <button type="button" (click)="buyEbook()"
+          class="mt-4 md:w-fit sm:w-100 items-center py-2.5 px-5 text-base font-medium text-center bg-[#303096] text-white rounded-lg focus:ring-4 focus:ring-blue-300 button">
+          Buy E-Book
         </button>
-      </a>
+      </div>
     </div>
 
     <div class="md:basis-1/3 basis-full flex flex-col justify-center text-center px-6 py-3">

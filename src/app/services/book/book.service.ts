@@ -22,7 +22,6 @@ export class BookService {
     return this.index;
   }
 
-
   public getListBook(): Observable<any> {
     const url = `${API_BASE_URL}/api/technobanker/v1/backoffice/book/get-books`;
     return this.http.get(url);
@@ -74,6 +73,15 @@ export class BookService {
     const formData = new FormData();
     formData.append("bookId", body.bookId)
     return this.http.patch(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/count-views`, formData);
+  }
+
+  public checkOutBook(body:any): Observable<any> {
+    const params = new HttpParams()
+    .set('userId', body.userId)
+    .set('bookId', body.bookId)
+    .set('bookQuantity', body.bookQuantity);
+
+    return this.http.post(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/book-checkout`, params)
   }
 
 }

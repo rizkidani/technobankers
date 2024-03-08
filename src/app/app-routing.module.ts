@@ -3,28 +3,28 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path: '',
-    loadChildren: () => import('../app/module/front/home/home.module').then((x) => x.HomeModule)
+    path:'',
+    loadChildren: () => import('../app/core/core.module').then((x) => x.CoreModule)
   },
   {
-    path:'public-training',
-    loadChildren: () => import('../app/module/front/training/training.module').then((x) => x.TrainingModule)
+    path:'login',
+    loadChildren: () => import('../app/module/front/login/login.module').then((x) => x.LoginModule)
   },
   {
-    path:'corporate-training',
-    loadChildren: () => import('../app/module/front/corporate-training/corporate-training.module').then((x) => x.CorporateTrainingModule)
+    path: 'register',
+    loadChildren: () => import('../app/module/front/register/register.module').then((x) => x.RegisterModule)
   },
   {
-    path:'dia',
-    loadChildren: () => import('../app/module/front/dia/dia.module').then((x) => x.DiaModule)
+    path: 'email-verification',
+    loadChildren: () => import('../app/module/front/verification-email/verification-email.module').then((x) => x.VerificationEmailModule)
   },
   {
-    path:'detail-corporate-training',
-    loadChildren: () => import('../app/module/front/detail-corporate-training/detail-corporate-training.module').then((x) => x.DetailCorporateTrainingModule)
+    path: 'transaction-checkout',
+    loadChildren: () => import('../app/module/front/payment-ebook/payment-ebook.module').then((x) => x.PaymentEbookModule)
   },
   {
-    path:'list-corporate-training',
-    loadChildren: () => import('../app/module/front/list-corporate-training/list-corporate-training.module').then((x) => x.ListCorporateTrainingModule)
+    path: 'register-invalid',
+    loadChildren: () => import('../app/module/front/register-expired/register-expired.module').then((x) => x.RegisterExpiredModule)
   },
   {
     path: 'our-library',
