@@ -83,5 +83,10 @@ export class BookService {
 
     return this.http.post(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/book-checkout`, params)
   }
+  public getEBook(body: any): Observable<unknown> {
+    const params = new HttpParams()
+      .set('userId', body.userId);
+    return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/book-user`, { params: params });
+  }
 
 }

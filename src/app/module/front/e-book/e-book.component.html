@@ -11,17 +11,21 @@
             </div>
         </div>
     </div>
-    <!-- <div class="container">
+    <div class="container">
         <div class="p-4">
             <h3 class="text-[#303096] text-[32px] font-bold">My E-Books</h3>
             <p class="text-[#4F4F4F] text-[16px] font-normal pt-3">2 books found</p>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
-                <div class="pt-3 flex flex-col justify-center">
-                    <img src="../../../../assets/technobanker book.png" alt="">
-                    <h3 class="text-[#303096] text-[16px] font-bold py-3 text-center">Technobanker - Capabilities and Skills for the Next Generation of Digital Banking</h3>
-                    <p class="text-[#333] text-[14px] font-normal px-5 md:px-0 text-center">by Dr. Elisa Indriasari</p>
+                <div *ngFor="let ebook of dataEbook" class="pt-3 flex flex-col justify-center">
+                    <img [src]="ebook.bookImage" class="rounded-2xl" alt="">
+                    <h3 class="text-[#303096] text-[16px] font-bold py-3 text-center">
+                        {{ebook.bookTitle}}
+                    </h3>
+                    <p *ngFor="let item of ebook.authorOfBook" class="text-[#333] text-[14px] font-normal px-5 md:px-0 text-center">
+                        by {{item.bookAuthor}}
+                    </p>
                 </div>
-                <div class="pt-3 flex flex-col justify-center">
+                <!-- <div class="pt-3 flex flex-col justify-center">
                     <img src="../../../../assets/technobanker book.png" alt="">
                     <h3 class="text-[#303096] text-[16px] font-bold py-3 text-center">Technobanker - Agile team</h3>
                     <p class="text-[#333] text-[14px] font-normal px-5 md:px-0 text-center">by Dr. Elisa Indriasari</p>
@@ -35,12 +39,12 @@
                     <img src="../../../../assets/technobanker book.png" alt="">
                     <h3 class="text-[#303096] text-[16px] font-bold py-3 text-center">Technobanker - Agile team</h3>
                     <p class="text-[#333] text-[14px] font-normal px-5 md:px-0 text-center">by Dr. Elisa Indriasari</p>
-                </div> 
+                </div>  -->
             </div>
         </div>
-    </div> -->
+    </div>
 
-    <div class="container">
+    <!-- <div class="container">
         <div class="p-4">
             <h3 class="text-[#303096] text-[32px] font-bold">My E-Books</h3>
             <div class="flex flex-col items-center py-5">
@@ -101,5 +105,5 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 </div>
