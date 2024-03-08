@@ -26,4 +26,10 @@ export class DetailBookModel {
         bookReviewRating: new FormControl(0),
         bookReviewText: new FormControl("")
     });
+
+    formBuyBook = new FormGroup({
+        bookId: new FormControl(""),
+        userId: new FormControl(""),
+        bookQuantity: new FormControl(""),
+    });
 }

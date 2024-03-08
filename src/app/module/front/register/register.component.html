@@ -1,0 +1,128 @@
+<div style="background-image: url('../../../../assets/background-login.png');">
+      <div class="flex flex-wrap justify-left">
+        <div class="basis-full md:basis-1/2 w-1/2">
+            <div class="w-full bg-white px-4 pt-5 md:p-10">
+                <div class="container px-10">
+                    <form [formGroup]="registerModel.formGroupRegister" class="space-y-6 py-2">
+                        <div class="flex flex-wrap">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48" fill="none">
+                                <path d="M34.1947 2.125C42.2655 5.94801 48 14.2312 48 24.0011C48 37.1692 37.1682 48.0011 24 48.0011C19.9647 48.0011 16.1416 46.9391 12.9558 45.24C14.2301 45.4524 15.7169 45.6648 16.9912 45.6648C24 45.6648 30.1593 42.9037 34.8319 38.2312C39.2921 33.771 42.0531 27.3993 42.0531 20.6029C42.0531 13.594 39.2921 7.43473 34.8319 2.76217C34.6195 2.54978 34.4071 2.33739 34.1947 2.125Z" fill="url(#paint0_linear_4770_16930)"/>
+                                <path d="M38.6548 28.0359C37.3805 31.4342 35.6814 34.4076 33.1327 36.7439C29.0973 40.7793 23.3628 43.328 16.9911 43.328C13.5929 43.328 10.1947 42.6908 7.22123 41.2041C2.97345 37.1687 0.212389 31.4342 0 25.0625C0.849557 26.3368 1.69911 27.3988 2.76106 28.4607C7.22123 33.1333 13.5929 35.8944 20.6018 35.8944C27.3982 35.8944 33.7699 33.1333 38.2301 28.4607C38.4424 28.4607 38.4424 28.2483 38.6548 28.0359Z" fill="url(#paint1_linear_4770_16930)"/>
+                                <path d="M24 0C24.8495 0 25.6991 0 26.5487 0C21.4513 1.06195 16.9911 3.39823 13.3805 7.00884C8.92035 11.469 6.15929 17.8407 6.15929 24.6371C6.15929 26.1239 6.15929 27.3982 6.58407 28.8849C5.73451 28.2478 5.09734 27.6106 4.24778 26.9734C2.54867 25.2743 1.27434 23.1504 0 21.0265C1.48672 9.13273 11.6814 0 24 0Z" fill="url(#paint2_linear_4770_16930)"/>
+                                <defs>
+                                  <linearGradient id="paint0_linear_4770_16930" x1="47.897" y1="47.8981" x2="30.3633" y2="25.2326" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#5656C6"/>
+                                    <stop offset="1" stop-color="#303096"/>
+                                  </linearGradient>
+                                  <linearGradient id="paint1_linear_4770_16930" x1="19.2443" y1="43.1934" x2="3.54113e-07" y2="25.232" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#FFD249"/>
+                                    <stop offset="1" stop-color="#F9B115"/>
+                                  </linearGradient>
+                                  <linearGradient id="paint2_linear_4770_16930" x1="0" y1="0" x2="10.4775" y2="13.2572" gradientUnits="userSpaceOnUse">
+                                    <stop stop-color="#5656C6"/>
+                                    <stop offset="1" stop-color="#303096"/>
+                                  </linearGradient>
+                                </defs>
+                            </svg>
+                            <h5 class="text-[32px] font-bold text-[#22223C] ps-3 pb-3">
+                                Technobanker
+                            </h5>
+                        </div>
+                        <div class="mb-3">
+                            <label for="firstName" class="block mb-2 text-[16px] font-medium text-[#000]">First Name</label>
+                            <input formControlName="userFirstName" type="text" id="firstName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your name" required />
+                            <div *ngIf="f['userFirstName'] && (f['userFirstName'].touched || f['userFirstName'].dirty)  && 
+                            !f['userFirstName'].valid">
+                                <div *ngIf="f['userFirstName'].errors">
+                                    <div class="text-three" *ngIf="!registerModel.formGroupRegister.controls['userFirstName'].valid">
+                                        <span style="color: #EB5757;">A field is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="lastName" class="block mb-2 text-[16px] font-medium text-[#000]">Last Name</label>
+                            <input formControlName="userLastName" type="text" id="lastName" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Your name" required />
+                            <div *ngIf="f['userLastName'] && (f['userLastName'].touched || f['userLastName'].dirty)  && 
+                            !f['userLastName'].valid">
+                                <div *ngIf="f['userLastName'].errors">
+                                    <div class="text-three" *ngIf="!registerModel.formGroupRegister.controls['userLastName'].valid">
+                                        <span style="color: #EB5757;">A field is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="block mb-2 text-[16px] font-medium text-[#000]">Email</label>
+                            <input  *ngIf="registerModel.formGroupRegister.controls['userEmail']" formControlName="userEmail" type="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="name@flowbite.com" required />
+                            <div *ngIf="f['userEmail'] && (f['userEmail'].touched || f['userEmail'].dirty) && !f['userEmail'].valid">
+                                <div *ngIf="f['userEmail'].errors">
+                                    <div class="text-three" *ngIf="!registerModel.formGroupRegister.controls['userEmail'].valid">
+                                        <span style="color: #EB5757;" *ngIf="f['userEmail'].errors['email']">Incorrect email. Please check and try again!</span>
+                                        <span style="color: #EB5757;" *ngIf="f['userEmail'].errors['required']">A field is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3 relative">
+                            <label for="password" class="block mb-2 text-[16px] font-medium text-[#000]">Password</label>
+                            <input formControlName="userPassword"
+                                   pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"
+                                   type="{{ showPassword ? 'text' : 'password' }}"
+                                   id="password"
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                   placeholder="example123"
+                                   required />
+                                   <button type="button" (click)="togglePasswordVisibility()" class="absolute inset-y-12 right-0 flex items-center pr-3 pt-1 focus:outline-none">
+                                        <ng-container *ngIf="showPassword; else hidePasswordIcon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                                <path d="M13.9993 10.5C13.0711 10.5 12.1809 10.8687 11.5245 11.5251C10.8681 12.1815 10.4993 13.0717 10.4993 14C10.4993 14.9283 10.8681 15.8185 11.5245 16.4749C12.1809 17.1313 13.0711 17.5 13.9993 17.5C14.9276 17.5 15.8178 17.1313 16.4742 16.4749C17.1306 15.8185 17.4993 14.9283 17.4993 14C17.4993 13.0717 17.1306 12.1815 16.4742 11.5251C15.8178 10.8687 14.9276 10.5 13.9993 10.5ZM13.9993 19.8333C12.4523 19.8333 10.9685 19.2188 9.87456 18.1248C8.7806 17.0308 8.16602 15.5471 8.16602 14C8.16602 12.4529 8.7806 10.9692 9.87456 9.87521C10.9685 8.78125 12.4523 8.16667 13.9993 8.16667C15.5464 8.16667 17.0302 8.78125 18.1241 9.87521C19.2181 10.9692 19.8327 12.4529 19.8327 14C19.8327 15.5471 19.2181 17.0308 18.1241 18.1248C17.0302 19.2188 15.5464 19.8333 13.9993 19.8333ZM13.9993 5.25C8.16602 5.25 3.18435 8.87833 1.16602 14C3.18435 19.1217 8.16602 22.75 13.9993 22.75C19.8327 22.75 24.8144 19.1217 26.8327 14C24.8144 8.87833 19.8327 5.25 13.9993 5.25Z" fill="#4F5D73"/>
+                                            </svg>
+                                        </ng-container>
+                                        <ng-template #hidePasswordIcon>
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+                                                <path d="M13.9993 10.5C13.0711 10.5 12.1809 10.8687 11.5245 11.5251C10.8681 12.1815 10.4993 13.0717 10.4993 14C10.4993 14.9283 10.8681 15.8185 11.5245 16.4749C12.1809 17.1313 13.0711 17.5 13.9993 17.5C14.9276 17.5 15.8178 17.1313 16.4742 16.4749C17.1306 15.8185 17.4993 14.9283 17.4993 14C17.4993 13.0717 17.1306 12.1815 16.4742 11.5251C15.8178 10.8687 14.9276 10.5 13.9993 10.5ZM13.9993 19.8333C12.4523 19.8333 10.9685 19.2188 9.87456 18.1248C8.7806 17.0308 8.16602 15.5471 8.16602 14C8.16602 12.4529 8.7806 10.9692 9.87456 9.87521C10.9685 8.78125 12.4523 8.16667 13.9993 8.16667C15.5464 8.16667 17.0302 8.78125 18.1241 9.87521C19.2181 10.9692 19.8327 12.4529 19.8327 14C19.8327 15.5471 19.2181 17.0308 18.1241 18.1248C17.0302 19.2188 15.5464 19.8333 13.9993 19.8333ZM13.9993 5.25C8.16602 5.25 3.18435 8.87833 1.16602 14C3.18435 19.1217 8.16602 22.75 13.9993 22.75C19.8327 22.75 24.8144 19.1217 26.8327 14C24.8144 8.87833 19.8327 5.25 13.9993 5.25Z" fill="#4F5D73"/>
+                                                <path d="M6 6l16 16" stroke="#4F5D73" stroke-width="3" stroke-linecap="round"/>
+                                            </svg>                                                                              
+                                        </ng-template>
+                                    </button>
+                                    <div *ngIf="f['userPassword'] && (f['userPassword'].touched || f['userPassword'].dirty) && !f['userPassword'].valid">
+                                        <div *ngIf="f['userPassword'].errors">
+                                            <div class="text-three" *ngIf="!registerModel.formGroupRegister.controls['userPassword'].valid">
+                                                <span style="color: #EB5757;" *ngIf="f['userPassword'].errors['pattern']">Password must contain at least 8 characters including both letters and numbers</span>
+                                                <span style="color: #EB5757;" *ngIf="f['userPassword'].errors['required']">A field is required</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="telepon" class="block mb-2 text-[16px] font-medium text-[#000]">No. Handphone (Active Whatsapp)</label>
+                            <input formControlName="userPhone" 
+                                   type="number" 
+                                   id="telepon" 
+                                   pattern="^[0-9]{8,}$"
+                                   class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                                   placeholder="example: 0812345678" 
+                                   required />
+                            <div *ngIf="f['userPhone'] && (f['userPhone'].touched || f['userPhone'].dirty) && !f['userPhone'].valid">
+                                <div *ngIf="f['userPhone'].errors">
+                                    <div class="text-three" *ngIf="!registerModel.formGroupRegister.controls['userPhone'].valid">
+                                        <span style="color: #EB5757;" *ngIf="f['userPhone'].errors['pattern']">Invalid phone number format</span>
+                                        <span style="color: #EB5757;" *ngIf="f['userPhone'].errors['required']">A field is required</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button (click)="registerUser()" type="button" class="w-full text-white text-[18px] bg-[#5656C6] hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 text-center">
+                            Register
+                        </button>
+                        <h5 class="md:text-[18px] text-[14px] text-center font-semibold pb-3">Already have an account?
+                            <a href="/login" class="text-[#303096] font-bold">LOGIN NOW</a>
+                        </h5>
+                    </form>
+                </div>
+            </div>
+      </div>
+    </div>
+  </div>

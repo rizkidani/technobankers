@@ -1,70 +1,150 @@
-<nav class="background-color">
-    <div class="flex flex-wrap items-center justify-between mx-auto p-4 font-weight">
-      <a href="" class="flex items-center">
-          <img src="assets/logo.png" class="h-8 mr-3" alt="Flowbite Logo">
-          <span class="self-center whitespace-nowrap text-white">Technobankers</span>
+<nav class="bg-[#1C1C28] sticky w-full z-20 top-0 start-0 border-b border-[#1C1C28] text-white">
+  <div class="flex flex-wrap items-center justify-between mx-auto px-4 pt-5 pb-4">
+      <a href="" class="flex items-center space-x-3 rtl:space-x-reverse md:ps-5">
+          <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 48 48" fill="none">
+              <path d="M34.1947 2.125C42.2655 5.94801 48 14.2312 48 24.0011C48 37.1692 37.1682 48.0011 24 48.0011C19.9647 48.0011 16.1416 46.9391 12.9558 45.24C14.2301 45.4524 15.7169 45.6648 16.9912 45.6648C24 45.6648 30.1593 42.9037 34.8319 38.2312C39.2921 33.771 42.0531 27.3993 42.0531 20.6029C42.0531 13.594 39.2921 7.43473 34.8319 2.76217C34.6195 2.54978 34.4071 2.33739 34.1947 2.125Z" fill="url(#paint0_linear_4770_16930)"/>
+              <path d="M38.6548 28.0359C37.3805 31.4342 35.6814 34.4076 33.1327 36.7439C29.0973 40.7793 23.3628 43.328 16.9911 43.328C13.5929 43.328 10.1947 42.6908 7.22123 41.2041C2.97345 37.1687 0.212389 31.4342 0 25.0625C0.849557 26.3368 1.69911 27.3988 2.76106 28.4607C7.22123 33.1333 13.5929 35.8944 20.6018 35.8944C27.3982 35.8944 33.7699 33.1333 38.2301 28.4607C38.4424 28.4607 38.4424 28.2483 38.6548 28.0359Z" fill="url(#paint1_linear_4770_16930)"/>
+              <path d="M24 0C24.8495 0 25.6991 0 26.5487 0C21.4513 1.06195 16.9911 3.39823 13.3805 7.00884C8.92035 11.469 6.15929 17.8407 6.15929 24.6371C6.15929 26.1239 6.15929 27.3982 6.58407 28.8849C5.73451 28.2478 5.09734 27.6106 4.24778 26.9734C2.54867 25.2743 1.27434 23.1504 0 21.0265C1.48672 9.13273 11.6814 0 24 0Z" fill="url(#paint2_linear_4770_16930)"/>
+              <defs>
+                <linearGradient id="paint0_linear_4770_16930" x1="47.897" y1="47.8981" x2="30.3633" y2="25.2326" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#5656C6"/>
+                  <stop offset="1" stop-color="#303096"/>
+                </linearGradient>
+                <linearGradient id="paint1_linear_4770_16930" x1="19.2443" y1="43.1934" x2="3.54113e-07" y2="25.232" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#FFD249"/>
+                  <stop offset="1" stop-color="#F9B115"/>
+                </linearGradient>
+                <linearGradient id="paint2_linear_4770_16930" x1="0" y1="0" x2="10.4775" y2="13.2572" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#5656C6"/>
+                  <stop offset="1" stop-color="#303096"/>
+                </linearGradient>
+              </defs>
+          </svg>
+          <span class="self-center text-md font-semibold whitespace-nowrap">Technobankers</span>
       </a>
-    <div class="flex md:order-2">
-        <button type="button" class="text-white border border-white rounded-lg text-sm px-5 py-1.5 text-center items-center">Register</button>
-    </div>
+      <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+          <button data-collapse-toggle="navbar-sticky" type="button"
+              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              aria-controls="navbar-sticky" aria-expanded="false">
+              <span class="sr-only">Open main menu</span>
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                  viewBox="0 0 17 14">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M1 1h15M1 7h15M1 13h15" />
+              </svg>
+          </button>
+      </div>
     <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
-      <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium md:flex-row md:space-x-8 md:mt-0 md:border-0 dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-        <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-white font-weight" aria-current="page">Home</a>
-        </li>
-        <li>
-          <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="flex justify-between w-full py-2 pl-3 pr-4 rounded block py-2 pl-3 pr-4 text-white font-weight">
-            Training 
-            <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
-              </path>
-            </svg>
-          </button>
-          <!-- Dropdown menu -->
-          <div id="dropdownHover" class="z-30 font-normal w-44 background-color-dropdown">
-            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
-              <li>
-                <a href="#" class="block px-4 py-2 hover text-white">Public Training</a>
-              </li>
-              <li>
-                <a href="#" class="block px-4 py-2 hover text-white">Company Training</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <button id="dropdownHoverButton1" data-dropdown-toggle="dropdownHover1" data-dropdown-trigger="hover" class="flex justify-between w-full py-2 pl-3 pr-4 rounded block py-2 pl-3 pr-4 text-white font-weight">
-            Events 
-            <svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-              <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd">
-              </path>
-            </svg>
-          </button>
-          <!-- Dropdown menu -->
-          <div id="dropdownHover1" class="z-30 hidden font-normal divide-y divide-gray-100 w-44 background-color-dropdown dark:divide-gray-600">
-            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton1">
-              <li>
-                <a href="#" class="block px-4 py-2 hover text-white">Workshop</a>
-              </li>
-              <li>
-                <a href="#" class="block px-4 py-2 hover text-white">Other Events</a>
-              </li>
-            </ul>
-          </div>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-white font-weight">Blog</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-white font-weight">Our Library</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pl-3 pr-4 text-white font-weight">About</a>
-        </li>
-        <li>
-          <a href="#" class="block py-2 pl-4 pr-4 text-white font-weight login">Login</a>
-        </li>
-      </ul>
+        <ul class="flex flex-col font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 text-white">
+            <li>
+                <a href=""
+                    class="block py-2 px-3 rounded hover:text-[#FFD249] md:hover:bg-transparent md:p-0">Home</a>
+            </li>
+            <li>
+                <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 px-3 rounded hover:text-[#FFD249] md:hover:bg-transparent md:p-0">
+                    Training 
+                    <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                </button>
+                <div id="dropdownNavbar" class="z-10 hidden font-normal bg-white items-center divide-gray-100 shadow w-full">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-400 flex flex-col md:flex-row md:space-x-8">
+                        <div class="flex flex-col md:flex-row justify-center bg-[#FFF] shadow-[0px 1px 4px 0px rgba(0, 0, 0, 0.15)] w-full">
+                            <div class="m-3 ms-5 ps-5 pt-3">
+                                <h3 class="text-[#4F4F4F] text-[16px] mb-2" style="font-weight: 700;">More Information?</h3>
+                                <p class="text-[#4F4F4F] text-[13px] mb-2" style="width: 230px; font-weight: 400;">We drive talent capabilities and provide the best training access.</p>
+                                <a href="https://api.whatsapp.com/send?phone=6281188873873" target="_blank">
+                                    <button type="button" class="text-white bg-[#219653] hover:bg-green-500 focus:outline-none font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center">
+                                        Free Consultation &nbsp;
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                            <path d="M19.05 4.91006C18.1332 3.98399 17.0412 3.24973 15.8377 2.75011C14.6341 2.25049 13.3432 1.99552 12.04 2.00006C6.58005 2.00006 2.13005 6.45006 2.13005 11.9101C2.13005 13.6601 2.59005 15.3601 3.45005 16.8601L2.05005 22.0001L7.30005 20.6201C8.75005 21.4101 10.38 21.8301 12.04 21.8301C17.5 21.8301 21.9501 17.3801 21.9501 11.9201C21.9501 9.27006 20.92 6.78006 19.05 4.91006ZM12.04 20.1501C10.56 20.1501 9.11005 19.7501 7.84005 19.0001L7.54005 18.8201L4.42005 19.6401L5.25005 16.6001L5.05005 16.2901C4.2278 14.977 3.79119 13.4593 3.79005 11.9101C3.79005 7.37006 7.49005 3.67006 12.03 3.67006C14.23 3.67006 16.3 4.53006 17.85 6.09006C18.6175 6.85402 19.2257 7.76272 19.6394 8.76348C20.0531 9.76425 20.2641 10.8372 20.26 11.9201C20.2801 16.4601 16.58 20.1501 12.04 20.1501ZM16.56 13.9901C16.31 13.8701 15.09 13.2701 14.87 13.1801C14.64 13.1001 14.48 13.0601 14.31 13.3001C14.14 13.5501 13.67 14.1101 13.53 14.2701C13.39 14.4401 13.24 14.4601 12.99 14.3301C12.74 14.2101 11.94 13.9401 11 13.1001C10.26 12.4401 9.77005 11.6301 9.62005 11.3801C9.48005 11.1301 9.60005 11.0001 9.73005 10.8701C9.84005 10.7601 9.98005 10.5801 10.1 10.4401C10.22 10.3001 10.27 10.1901 10.35 10.0301C10.43 9.86006 10.39 9.72006 10.33 9.60006C10.27 9.48006 9.77005 8.26006 9.57005 7.76006C9.37005 7.28006 9.16005 7.34006 9.01005 7.33006H8.53005C8.36005 7.33006 8.10005 7.39006 7.87005 7.64006C7.65005 7.89006 7.01005 8.49006 7.01005 9.71006C7.01005 10.9301 7.90005 12.1101 8.02005 12.2701C8.14005 12.4401 9.77005 14.9401 12.25 16.0101C12.84 16.2701 13.3 16.4201 13.66 16.5301C14.25 16.7201 14.79 16.6901 15.22 16.6301C15.7 16.5601 16.69 16.0301 16.89 15.4501C17.1 14.8701 17.1 14.3801 17.03 14.2701C16.96 14.1601 16.81 14.1101 16.56 13.9901Z" fill="white"/>
+                                        </svg>
+                                    </button>
+                                </a>
+                            </div>
+                            <div class="m-3 ms-5 ps-5 pt-3 hover:bg-[#F1F1FF] hover:rounded-xl">
+                                <a href="/corporate-training">
+                                    <div class="flex flex-row">
+                                        <img style="width: 40px; height: 40px;" src="../assets/cor-training.svg" alt="">
+                                        <h3 class="text-[#4F4F4F] text-[16px] ms-2" style="font-weight: 700;">Corporate Training</h3>
+                                    </div>
+                                    <p class="text-[#4F4F4F] text-[13px] mb-2 ps-5" style="width: 230px; font-weight: 400;">
+                                        Be an extraordinary talent. Enrich your knowledge by taking part in collaborative development projects
+                                    </p>
+                                </a>
+                            </div>
+                            <div class="m-3 ms-5 ps-5 pt-3 hover:bg-[#F1F1FF] hover:rounded-xl">
+                                <!-- <a href="/public-training">
+                                    <div class="flex flex-row">
+                                        <img style="width: 40px; height: 40px;" src="../assets/public-training.svg" alt="">
+                                        <h3 class="text-[#4F4F4F] text-[16px] ms-2" style="font-weight: 700;">Public Training</h3>
+                                    </div>
+                                    <p class="text-[#4F4F4F] text-[13px] mb-2 ps-5" style="width: 230px; font-weight: 400;">
+                                        Be an extraordinary talent. Enrich your knowledge by taking part in collaborative development projects
+                                    </p>
+                                </a> -->
+                                <a>
+                                    <div class="flex flex-row">
+                                        <img style="width: 40px; height: 40px;" src="../assets/public-training.svg" alt="">
+                                        <h3 class="text-[#4F4F4F] text-[16px] ms-2" style="font-weight: 700;">Public Training</h3>
+                                    </div>
+                                    <p class="text-[#4F4F4F] text-[13px] mb-2 ps-5" style="width: 230px; font-weight: 400;">
+                                        Be an extraordinary talent. Enrich your knowledge by taking part in collaborative development projects
+                                    </p>
+                                </a>
+                            </div>
+                        </div>
+                    </ul>
+                </div>                    
+            </li>
+            <li>
+                <a href="dia" class="block py-2 px-3 rounded hover:text-[#FFD249] md:hover:bg-transparent md:p-0">Digital Innovation Academy</a>
+            </li>
+            <li>
+                <a href="upcoming-event"
+                    class="block py-2 px-3 rounded hover:text-[#FFD249] md:hover:bg-transparent md:p-0">Events</a>
+            </li>
+            <li>
+                <a href="/our-library"
+                    class="block py-2 px-3 rounded hover:text-[#FFD249] md:hover:bg-transparent md:p-0">Our
+                    Library</a>
+            </li>
+            <li>
+                <a href="/about"
+                    class="block py-2 px-3 rounded hover:text-[#FFD249] md:hover:bg-transparent md:p-0">About</a>
+            </li>
+            <li *ngIf="!authService.isLogin()">
+                <a href="/login">
+                    <button type="button" class="block py-2 px-3 btn btn-outline-light border-2 font-semibold">Login</button>
+                </a>
+            </li>
+            <li *ngIf="authService.isLogin()">
+                <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar1" class="flex items-center justify-between rounded hover:text-[#FFD249] md:hover:bg-transparent ps-3 md:ps-0 pt-2">
+                    <span>Hi, {{ userData.userFirstName }}</span>
+                    &nbsp;
+                    <span>{{ userData.userLastName }}</span>
+                    <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                    </svg>
+                </button>
+                <div id="dropdownNavbar1" class="z-10 hidden font-normal bg-white items-center divide-gray-100 shadow w-full">
+                    <ul class="py-2 text-sm text-gray-700 dark:text-gray-400 flex flex-col md:flex-row md:space-x-8">
+                        <div class="flex flex-col md:flex-row md:justify-between items-center bg-[#FFF] shadow-[0px 1px 4px 0px rgba(0, 0, 0, 0.15)] w-full">
+                            <a class="md:ps-16 py-3 text-[#303096] text-[18px] font-semibold" href="e-book">
+                                My E-Book
+                            </a>
+                            <a (click)="logout()" class="md:pe-12 py-3 flex items-center space-x-3 rtl:space-x-reverse" style="cursor: pointer;">
+                                <span class="self-center text-md font-semibold whitespace-nowrap text-[#828282] text-[16px]">Logout</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                    <path d="M5 5H11C11.55 5 12 4.55 12 4C12 3.45 11.55 3 11 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H11C11.55 21 12 20.55 12 20C12 19.45 11.55 19 11 19H5V5Z" fill="#828282"/>
+                                    <path d="M20.65 11.6486L17.86 8.85857C17.7905 8.78713 17.7012 8.73806 17.6036 8.71764C17.506 8.69723 17.4045 8.7064 17.3121 8.74399C17.2198 8.78158 17.1408 8.84586 17.0851 8.92863C17.0295 9.01139 16.9999 9.10887 17 9.20858V10.9986H10C9.45 10.9986 9 11.4486 9 11.9986C9 12.5486 9.45 12.9986 10 12.9986H17V14.7886C17 15.2386 17.54 15.4586 17.85 15.1386L20.64 12.3486C20.84 12.1586 20.84 11.8386 20.65 11.6486Z" fill="#828282"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </ul>
+                </div>                    
+            </li>
+        </ul>
     </div>
-    </div>
-  </nav>
+  </div>
+</nav>

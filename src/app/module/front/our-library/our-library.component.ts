@@ -71,10 +71,19 @@ export class OurLibraryComponent {
   }
 
   goToDetailBook() {
-    this.book.bookId;
-    this.router.navigate([`detail-book/${this.book.bookId}`]).then(() => {
-      window.location.reload();
-    });
+    this.bookService.getListBookPartly().subscribe(
+      (response) => {
+        this.homeModel.allListBook = response.data;
+        this.book = this.homeModel.allListBook;
+        this.book.bookId;
+        this.router.navigate([`detail-book/${this.book.bookId}`]).then(() => {
+          window.location.reload();
+        })
+      });
+    }
+
+  reloadPage() {
+    window.location.reload();
   }
 
   goToHome() {

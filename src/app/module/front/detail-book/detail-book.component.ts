@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { DetailBookModel } from './model/detail-book.model';
 import { ToastrService } from 'ngx-toastr';
 import { AbstractControl } from '@angular/forms';
 import { BookService } from 'src/app/services/book/book.service';
 import 'flowbite';
+import { AuthService } from 'src/app/services/auth/auth.service';
 
 @Component({
   selector: 'app-detail-book',
@@ -34,12 +35,12 @@ export class DetailBookComponent {
   currentRating: number = 0;
   stars: number[] = [];
 
-
   constructor(
     private readonly router: Router,
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
     private readonly bookService: BookService,
+    public authService: AuthService
   ) {
     this.stars = Array(this.maxRating).fill(0).map((x, i) => i + 1);
   }
@@ -72,11 +73,8 @@ export class DetailBookComponent {
           this.detailModel.formGroupEmail.controls['clientNumber'].setValue('62' + value);
         }
       });
-    this.activatedRoute.paramMap.subscribe((data: any ) => {
-      let id = data.params.id,
-        params = {
-          bookId: id,
-        }
+      this.activatedRoute.paramMap.subscribe((data: any ) => {
+       let id = data.params.id
         this.detailModel.formGroupEmail.controls['bookId'].setValue(id);
         this.bookService.submitEmail(this.detailModel.formGroupEmail.value).subscribe(
           (response) => {
@@ -96,23 +94,22 @@ export class DetailBookComponent {
     this.detailModel.formGroupRating.controls['bookReviewRating'].setValue(this.currentRating); // Mengatur nilai FormControl sesuai dengan bintang yang diklik
   }
 
-
-      submitRating() {
-      this.activatedRoute.paramMap.subscribe((data: any ) => {
-        let id = data.params.id
-          this.detailModel.formGroupRating.controls['bookId'].setValue(id);
-          this.bookService.addReview(this.detailModel.formGroupRating.value).subscribe(
-            (response) => {
-              this.toastr.success('Rating successfully created!', 'Success');
-              setTimeout(() => {
-                window.location.reload();
-              }, 2000); // Atur waktu delay sebelum reload halaman, dalam milidetik (di sini 2000ms atau 2 detik)
-            },
-            (error) => {
-            }
-            )
-          })
+  submitRating() {
+  this.activatedRoute.paramMap.subscribe((data: any ) => {
+    let id = data.params.id
+      this.detailModel.formGroupRating.controls['bookId'].setValue(id);
+      this.bookService.addReview(this.detailModel.formGroupRating.value).subscribe(
+        (response) => {
+          this.toastr.success('Rating successfully created!', 'Success');
+          setTimeout(() => {
+            window.location.reload();
+          }, 2000); // Atur waktu delay sebelum reload halaman, dalam milidetik (di sini 2000ms atau 2 detik)
+        },
+        (error) => {
         }
+        )
+      })
+    }
   
 
   goToLibrary() {
@@ -122,5 +119,39 @@ export class DetailBookComponent {
   get f(): { [key: string]: AbstractControl } {
     return this.detailModel.formGroupEmail.controls;
   }
+
+  routeToPaymentEbook() {
+    this.router.navigate(["transaction-checkout"])
+    setTimeout(() => {
+      window.location.reload();
+    }, 2000);
+  }
+
+  buyEbook() {
+    if (this.authService.isLogin()) {
+      let userData = this.authService.loadUserData();
+      this.activatedRoute.paramMap.subscribe((data: any) => {
+        let id = data.params.id;
+        this.detailModel.formBuyBook.controls['bookId'].setValue(id);
+        this.detailModel.formBuyBook.controls['userId'].setValue(userData.userId);
+        this.detailModel.formBuyBook.controls['bookQuantity'].setValue('1');
+        this.bookService.checkOutBook(this.detailModel.formBuyBook.value).subscribe(
+          (response: any) => {
+            // Simpan respons ke local storage
+            localStorage.setItem('checkoutResponse', JSON.stringify(response));
+            this.router.navigate(["transaction-checkout"]);
+            setTimeout(() => {
+              window.location.reload();
+            }, 500);
+          }
+        );
+      });
+    } else {
+      // Jika pengguna belum login, arahkan ke halaman login
+      this.router.navigate(['login']);
+    }
+  }
+  
+  
 
 }
