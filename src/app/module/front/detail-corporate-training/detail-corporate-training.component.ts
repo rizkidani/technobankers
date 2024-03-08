@@ -11,32 +11,33 @@ export class DetailCorporateTrainingComponent {
 
   slider: any;
   defaultTransform : any;
+  innerWidth: any;
   
   goNext() {
-  this.defaultTransform = this.defaultTransform - 398;
-  if (Math.abs(this.defaultTransform) >= this.slider.scrollWidth / 1.7) this.defaultTransform = 0;
-  this.slider.style.transform = "translateX(" + this.defaultTransform + "px)";
+    this.innerWidth = window.innerWidth;
+    this.defaultTransform = this.defaultTransform - 375;
+    if (Math.abs(this.defaultTransform) >= this.slider.scrollWidth / 1.7) this.defaultTransform = 0;
+    this.slider.style.transform = "translateX(" + this.defaultTransform + "px)";
   }
 
   goPrev() {
-    
-      if (Math.abs(this.defaultTransform) === 0) this.defaultTransform = 0;
-      else this.defaultTransform = this.defaultTransform + 398;
-      this.slider.style.transform = "translateX(" + this.defaultTransform + "px)";
+    if (Math.abs(this.defaultTransform) === 0) this.defaultTransform = 0;
+    else this.defaultTransform = this.defaultTransform + 375;
+    this.slider.style.transform = "translateX(" + this.defaultTransform + "px)";
   }
 
   slider2: any;
   defaultTransform2 : any;
   
   goNext2() {
-    this.defaultTransform2 = this.defaultTransform2 - 398;
+    this.defaultTransform2 = this.defaultTransform2 - 375;
     if (Math.abs(this.defaultTransform2) >= this.slider.scrollWidth / 1.7) this.defaultTransform2 = 0;
     this.slider2.style.transform = "translateX(" + this.defaultTransform2 + "px)";
     }
   goPrev2() {
     
       if (Math.abs(this.defaultTransform2) === 0) this.defaultTransform2 = 0;
-      else this.defaultTransform2 = this.defaultTransform2 + 398;
+      else this.defaultTransform2 = this.defaultTransform2 + 375;
       this.slider2.style.transform = "translateX(" + this.defaultTransform2 + "px)";
   }
 
