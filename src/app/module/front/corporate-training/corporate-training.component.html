@@ -204,37 +204,37 @@
                     </a>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mt-4">
-                    <div class="md:max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+                    <div *ngFor="let list of listTraining" class="md:max-w-md bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                         <div class="relative ...">
-                            <img class="md:w-290 w-full h-687" src="../../../../assets/img-grid-cor-training.png" alt="" />
+                            <img class="md:w-290 w-full h-687" src="https://technobanker.com/backend/training/corporate/{{ list.trainingBannerLandscape }}" alt="" />
                             <div class="absolute top-2 left-2">
-                              <p class="text-white font-semibold py-1 px-2 bg-[#2D9CDB] rounded-lg">Specialization</p>
+                              <p class="text-white font-semibold py-1 px-2 bg-[#2D9CDB] rounded-lg">{{ list.trainingType }}</p>
                             </div>
                         </div>
-                        <p class="bg-[#2D9CDB] text-[#14px] text-white font-semibold p-2">Programmer</p>
+                        <p class="bg-[#2D9CDB] text-[#14px] text-white font-semibold p-2">{{ list.trainingCategoryName }}</p>
                         <div class="p-3 mb-3">
                             <h5 class="mb-2 text-[16px] md:w-44 font-bold tracking-tight text-[#4F4F4F] dark:text-white">
-                                Mobile Android Development
+                                {{ list.trainingName }}
                             </h5>
                             <p class="font-normal text-[#4F4F4F] dark:text-gray-400 text-[14px]">
                                 5 Days | 8 hours/day
                             </p>
                             <p class="font-normal text-[#4F4F4F] dark:text-gray-400 text-[14px]">
-                                Onsite Training
+                                {{ list.trainingLocation }} Training
                             </p>
                             <div class="flex items-center mt-3">
                                 <p class="font-bold text-white text-[12px] bg-[#E55353] px-2 py-1 rounded-md w-46 h-26">
-                                    -10%
+                                    {{ list.trainingDiscount }}%
                                 </p>
                                 <p class="font-bold text-[#BDBDBD] text-[12px] ms-2 mt-2 line-through">
-                                    IDR 6.000.000
+                                    {{ list.trainingPrice | currency:'IDR ':'symbol':'3.0' }}
                                 </p>
                             </div>
                             <p class="font-semibold text-[#4F4F4F] text-[18px]">
-                                IDR 5.500.000
+                                {{ list.trainingPriceSpecial | currency:'IDR ':'symbol':'3.0' }}
                             </p>
                             <p class="font-normal text-[#4F4F4F] dark:text-gray-400 text-[11px]">
-                                Special price apply until 21 April 2024
+                                Special price apply until {{ list.trainingPriceEndDate | date: 'd MMMM yyyy' }}
                             </p>
                             <div class="text-center mt-3">
                                 <a href="/detail-corporate-training" type="button" class="text-white bg-[#303096] hover:bg-[#303096] focus:ring-4 focus:outline-none focus:ring-[#303096]
