@@ -112,9 +112,11 @@
             <div class="bg-[#FFF] shadow rounded-xl mt-4 px-4 py-4" style="border: 1px solid #EFEFFF;">
                 <div *ngIf="checkoutData.data.bookShippingStatus == 'No'" class="flex items-center justify-between">
                     <h5 class="w-full text-[#333] text-[20px] font-bold md:basis-1/2 basis-full">Shipping Address</h5>
-                    <button routerLink="/transaction-checkout-shipping" type="button" (click)="addShipping(checkoutData.data.bookTransactionId)" class="text-right md:basis-1/2 basis-full w-fit focus:outline-none bg-[#5656C6] hover:bg-[#43438a] text-white focus:ring-4 shadow text-[16px] font-medium rounded-xl text-sm px-4 py-2.5">
-                        Add Address
-                    </button>
+                    <div class="md:basis-1/2 basis-full text-right">
+                        <button routerLink="/transaction-checkout-shipping" type="button" (click)="addShipping(checkoutData.data.bookTransactionId)" class="w-fit focus:outline-none bg-[#5656C6] hover:bg-[#43438a] text-white focus:ring-4 shadow text-[16px] font-medium rounded-xl text-sm px-4 py-2.5">
+                            Add Address
+                        </button>
+                    </div>
                 </div>
                 <div *ngIf="checkoutData.data.bookShippingStatus == 'Yes'" class="flex flex-wrap items-center">
                     <div class="flex items-center justify-between w-full basis-full">
