@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
+import { BookService } from 'src/app/services/book/book.service';
 
 @Component({
   selector: 'app-payment-ebook',
@@ -10,9 +12,12 @@ export class PaymentEbookComponent {
 
   userData: any = {}
   checkoutData: any
+  bookTransactionId: any;
 
   constructor(
-    public authService: AuthService
+    private readonly router: Router,
+    public authService: AuthService,
+    public bookService: BookService
   ){}
 
   ngOnInit():void{
@@ -23,6 +28,17 @@ export class PaymentEbookComponent {
     let checkoutResponse = localStorage.getItem('checkoutResponse');
     if (checkoutResponse) {
       this.checkoutData = JSON.parse(checkoutResponse);
+    }
+    console.log(this.checkoutData);
+  }
+
+  addShipping(bookTransactionId: any) {
+    if (this.authService.isLogin()) {
+      localStorage.setItem('bookTransactionId', bookTransactionId);
+      this.router.navigate(["transaction-checkout-shipping"]);
+    } else {
+      // Jika pengguna belum login, arahkan ke halaman login
+      this.router.navigate(['login']);
     }
   }
 

@@ -108,6 +108,30 @@
                     </div>
                 </div>
             </div>
+
+            <div class="bg-[#FFF] shadow rounded-xl mt-4 px-4 py-4" style="border: 1px solid #EFEFFF;">
+                <div *ngIf="checkoutData.data.bookShippingStatus == 'No'" class="flex items-center justify-between">
+                    <h5 class="w-full text-[#333] text-[20px] font-bold md:basis-1/2 basis-full">Shipping Address</h5>
+                    <button routerLink="/transaction-checkout-shipping" type="button" (click)="addShipping(checkoutData.data.bookTransactionId)" class="text-right md:basis-1/2 basis-full w-fit focus:outline-none bg-[#5656C6] hover:bg-[#43438a] text-white focus:ring-4 shadow text-[16px] font-medium rounded-xl text-sm px-4 py-2.5">
+                        Add Address
+                    </button>
+                </div>
+                <div *ngIf="checkoutData.data.bookShippingStatus == 'Yes'" class="flex flex-wrap items-center">
+                    <div class="flex items-center justify-between w-full basis-full">
+                        <h5 class="w-full text-[#333] text-[20px] font-bold md:basis-1/2 basis-full">Shipping Address</h5>
+                        <span routerLink="/transaction-checkout-shipping" (click)="addShipping(checkoutData.data.bookTransactionId)" class="md:basis-1/2 basis-full text-right cursor-pointer text-[#2F80ED] text-[14px]">
+                            Change Address
+                        </span>
+                    </div>
+
+                    <div class="flex basis-full flex-col justify-start w-full mt-4 text-[14px]">
+                        <p class="font-bold mb-2">Receipt : {{ checkoutData.data.bookReceiptName }}</p>   
+                        <p>{{ checkoutData.data.bookShippingLabel }}</p>                     
+                        <p>{{ checkoutData.data.bookShippingAddress }}, {{ checkoutData.data.bookShippingVillage }}, {{ checkoutData.data.bookShippingSubdistrict }}, {{ checkoutData.data.bookShippingCity }}, {{ checkoutData.data.bookShippingProvince }}, {{ checkoutData.data.bookShippingCountry }} {{ checkoutData.data.bookShippingPostalcode }}</p>                     
+                    </div>
+
+                </div>
+            </div>
         </div>
         
         <div class="basis-full md:basis-1/2 pt-10">

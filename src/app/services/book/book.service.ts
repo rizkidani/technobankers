@@ -83,6 +83,25 @@ export class BookService {
 
     return this.http.post(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/book-checkout`, params)
   }
+
+  public checkOutBookShipping(bookTransactionId: any, body:any): Observable<any> {
+    const params = new HttpParams()
+    .set('bookTransactionId', bookTransactionId)
+    .set('bookReceiptName', body.bookReceiptName)
+    .set('bookReceiptPhone', body.bookReceiptPhone)
+    .set('bookReceiptEmail', body.bookReceiptEmail)
+    .set('bookShippingLabel', body.bookShippingLabel)
+    .set('bookShippingAddress', body.bookShippingAddress)
+    .set('bookShippingCountry', body.bookShippingCountry)
+    .set('bookShippingProvince', body.bookShippingProvince)
+    .set('bookShippingCity', body.bookShippingCity)
+    .set('bookShippingSubdistrict', body.bookShippingSubdistrict)
+    .set('bookShippingVillage', body.bookShippingVillage)
+    .set('bookShippingPostalcode', body.bookShippingPostalcode);
+
+    return this.http.patch(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/book-checkout-shipping`, params)
+  }
+
   public getEBook(body: any): Observable<unknown> {
     const params = new HttpParams()
       .set('userId', body.userId);

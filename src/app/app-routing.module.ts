@@ -23,6 +23,10 @@ const routes: Routes = [
     loadChildren: () => import('../app/module/front/payment-ebook/payment-ebook.module').then((x) => x.PaymentEbookModule)
   },
   {
+    path: 'transaction-checkout-shipping',
+    loadChildren: () => import('../app/module/front/payment-ebook-shipping/payment-ebook-shipping.module').then((x) => x.PaymentEbookShippingModule)
+  },
+  {
     path: 'register-invalid',
     loadChildren: () => import('../app/module/front/register-expired/register-expired.module').then((x) => x.RegisterExpiredModule)
   },
