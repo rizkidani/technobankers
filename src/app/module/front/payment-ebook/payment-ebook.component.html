@@ -63,23 +63,23 @@
       <div class="grid grid-cols-1 md:grid-cols-2 gap-4 justify-center py-12">
         <div class="basis-full md:basis-1/2">
             <p class="text-[#333] text-[16px] pb-3">
-                Please review the ebook in your order then click “Checkout” to continue.
+                Please review your order then click “Checkout” to continue.
             </p>
             <div class="bg-[#FFF] shadow rounded-xl" style="border: 1px solid #EFEFFF;">
-                <div class="flex w-full">
-                    <div class="p-4">
-                        <img class="w-48" src="../../../../assets/technobanker book.png" alt="">
+                <div class="flex flex-wrap w-full p-4">
+                    <div class="md:basis-1/4 basis-full md:pr-4 pr-0 flex justify-center">
+                        <img class="" src="../../../../assets/technobanker book.png" alt="">
                     </div>
-                    <div>
+                    <div class="md:basis-3/4 basis-full">
                         <h5 class="pt-4 w-full text-[#333] text-[20px] font-bold">
                            {{checkoutData.data.bookName}}
                         </h5>
                         <p class="text-[14px] text-[#333] pt-3">
-                            EBook
+                            Book
                         </p>
-                        <div class="md:flex pt-5">
-                            <h5 class="basis-2/5 text-[14px] text-[#333] font-bold pt-2">E-Book Price</h5>
-                            <div *ngIf="checkoutData.data.bookDiscount != 0" class="basis-3/5 flex items-center text-right pt-2 md:pt-0">
+                        <div class="md:flex pt-5 items-center">
+                            <h5 class="md:basis-2/5 basis-full text-[14px] text-[#333] font-bold pt-2 flex justify-start">Book Price</h5>
+                            <div *ngIf="checkoutData.data.bookDiscount != 0" class="md:basis-3/5 basis-full flex flex-wrap items-center justify-start md:justify-end pt-2 md:pt-0">
                                 <span class="bg-[#E55353] text-white text-xs font-medium me-2 px-2.5 py-1.5 rounded">
                                     {{checkoutData.data.bookDiscount}}%
                                 </span>
@@ -97,10 +97,10 @@
                     Notes : Special price valid until {{ formatDate(checkoutData.data.bookPriceEndDate) }}
                 </p>
                 <div class="bg-[#F5F6F8] rounded-b-xl">
-                    <div class="flex justify-between p-4">
-                        <h1 class="text-[#333] text-[16px] font-semibold">
+                    <div class="flex justify-between items-center p-4">
+                        <h1 class="text-[#333] text-[16px] font-bold">
                             Order Total 
-                            <span class="bg-[#FFD249] text-[12px] px-2 py-1 rounded-lg">Qty 1</span>
+                            <span class="bg-[#FFD249] text-[12px] px-2 py-1 rounded-md">Qty {{checkoutData.data.bookQuantity}}</span>
                         </h1>
                         <h1 class="text-[#333] text-[16px] font-bold">
                             IDR {{checkoutData.data.bookPriceTotal | currency:' ':'symbol':'1.0'}}
@@ -141,13 +141,17 @@
                 <h4 class="text-[#333] text-[18px] p-4 text-center font-bold">Purchase Summary</h4>
                 <div class="flex justify-between mx-3 p-3 bg-[#F5F6F8] rounded-md">
                     <p class="text-[#333] text-[16px] font-semibold">Order Type</p>
-                    <p class="text-[#303096] text-[16px]">EBook</p>
+                    <p class="text-[#303096] text-[16px] font-semibold">Book</p>
                 </div>
                 <div class="flex justify-between px-3 pt-4">
-                    <p class="text-[#333] text-[16px] font-semibold">Total Price : Qty 1</p>
+                    <p class="text-[#333] text-[16px] font-semibold">Total Price : Qty {{checkoutData.data.bookQuantity}}</p>
                     <p class="text-[#333] text-[16px] font-bold">IDR {{checkoutData.data.bookPrice | currency:' ':'symbol':'1.0'}}</p>
                 </div>
-                <div class="flex justify-between p-3">
+                <div class="flex justify-between px-3 pt-4">
+                    <p class="text-[#333] text-[16px] font-semibold">Delivery Cost</p>
+                    <p class="text-[#333] text-[16px] font-bold">IDR 0</p>
+                </div>
+                <div class="flex justify-between px-3 pt-4">
                     <p class="text-[#FF5656] text-[16px] font-semibold">Purchase Discount</p>
                     <p class="text-[#FF5656] text-[16px] font-bold">
                         -IDR {{ checkoutData.data.bookPrice * (checkoutData.data.bookDiscount / 100) | currency:' ':'symbol':'1.0'}}
@@ -158,10 +162,14 @@
                     <p class="text-[#333] text-[20px] font-bold">IDR {{checkoutData.data.bookPriceTotal | currency:' ':'symbol':'1.0'}}</p>
                 </div>
                 <div class="flex justify-center py-4">
-                    <button type="button" class="focus:outline-none bg-[#FFC439] hover:bg-yellow-400 focus:ring-4 shadow text-[16px]
+                    <button *ngIf="checkoutData.data.bookShippingStatus == 'Yes'" type="button" class="focus:outline-none bg-[#FFC439] hover:bg-yellow-400 focus:ring-4 shadow text-[16px]
                     focus:ring-yellow-300 font-medium rounded-xl text-sm px-4 py-2.5 me-2 mb-2">
-                    Checkout
-                </button>
+                        Checkout
+                    </button>
+                    <button disabled *ngIf="checkoutData.data.bookShippingStatus == 'No'" type="button" class="focus:outline-none bg-[#9DA5B1] focus:ring-4 shadow text-[16px] text-white
+                    font-medium rounded-xl text-sm px-4 py-2.5 me-2 mb-2">
+                        Checkout
+                    </button>
                 </div>
             </div>
         </div>
@@ -170,32 +178,7 @@
     </div>
   </div>
 
-
-  <!-- <div class="container">
-    <div class="flex flex-col">
-      <div class="basis-full flex flex-wrap justify-center py-12">
-        <div class="basis-full md:basis-1/2">
-            <p class="text-[#333] text-[16px] pb-3">
-                Please review the ebook in your order then click “Checkout” to continue.
-            </p>
-            <div class="bg-[#FFF] shadow rounded-xl grid grid-cols-2" style="border: 1px solid #EFEFFF;">
-                <div class="p-4">
-                    <img class="w-28" src="../../../../assets/technobanker book.png" alt="">
-                </div>
-                <h5 class="pt-4 w-96">
-                    Technobanker - Capabilities and Skills for the Next Generation of Digital Banking
-                </h5>
-            </div>
-        </div>
-        <div class="basis-full md:basis-1/2 mt-2">
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-
-
-  <!-- Footer -->
+<!-- Footer -->
 <div class="bg-[#1D1D27] text-[0.9rem] z-100" style="bottom: 0;">
     <div class="container">
         <div class="basis-full py-10 flex flex-row flex-wrap justify-evenly">
