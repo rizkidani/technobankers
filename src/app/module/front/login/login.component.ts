@@ -25,7 +25,7 @@ export class LoginComponent {
     this.authService.loginUser(this.registerModel.formGroupRegister.value).subscribe(
       (response) => {
         this.authService.saveUserData(response.data)
-        this.route.navigate(['e-book'])
+        this.route.navigate([''])
         .then(() => {
           setTimeout(() => {
             window.location.reload();

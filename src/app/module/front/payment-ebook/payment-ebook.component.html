@@ -90,6 +90,11 @@
                                     IDR {{checkoutData.data.bookPriceTotal | currency:' ':'symbol':'1.0'}}
                                 </p>
                             </div>
+                            <div *ngIf="checkoutData.data.bookDiscount == 0" class="md:basis-3/5 basis-full flex flex-wrap items-center justify-start md:justify-end pt-2 md:pt-0">
+                                <p class="text-[#333] font-bold text-[18px] ps-2">
+                                    IDR {{checkoutData.data.bookPriceTotal | currency:' ':'symbol':'1.0'}}
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
