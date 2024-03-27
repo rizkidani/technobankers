@@ -109,6 +109,14 @@ export class BookService {
     return this.http.patch(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/book-checkout-shipping`, params)
   }
 
+  public checkOutBookPaymentMethod(bookTransactionId: any, bookTransactionPaymentCountry: string, body:any): Observable<any> {
+    const params = new HttpParams()
+    .set('bookTransactionId', bookTransactionId)
+    .set('bookTransactionPaymentCountry', bookTransactionPaymentCountry)
+    .set('bookTransactionPaymentMethod', body.bookTransactionPaymentMethod);
+    return this.http.patch(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/book-checkout-payment-method`, params)
+  }
+
   public getEBook(body: any): Observable<unknown> {
     const params = new HttpParams()
       .set('userId', body.userId);

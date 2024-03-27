@@ -29,13 +29,22 @@ export class PaymentEbookComponent {
     if (checkoutResponse) {
       this.checkoutData = JSON.parse(checkoutResponse);
     }
-    console.log(this.checkoutData);
   }
 
   addShipping(bookTransactionId: any) {
     if (this.authService.isLogin()) {
       localStorage.setItem('bookTransactionId', bookTransactionId);
       this.router.navigate(["transaction-checkout-shipping"]);
+    } else {
+      // Jika pengguna belum login, arahkan ke halaman login
+      this.router.navigate(['login']);
+    }
+  }
+  
+  addPaymentMethod(bookTransactionId: any) {
+    if (this.authService.isLogin()) {
+      localStorage.setItem('bookTransactionId', bookTransactionId);
+      this.router.navigate(["transaction-checkout-payment"]);
     } else {
       // Jika pengguna belum login, arahkan ke halaman login
       this.router.navigate(['login']);

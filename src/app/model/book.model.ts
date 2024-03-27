@@ -14,4 +14,9 @@ export class BookModel {
         bookShippingVillage: new FormControl("", [Validators.required]),
         bookShippingPostalcode: new FormControl("", [Validators.required])
     });
+
+    formBookPayment = new FormGroup({
+        // bookTransactionPaymentCountry: new FormControl("", [Validators.required]),
+        bookTransactionPaymentMethod: new FormControl("", [Validators.required])
+    });
 }

@@ -126,7 +126,7 @@
                 <div *ngIf="checkoutData.data.bookShippingStatus == 'Yes'" class="flex flex-wrap items-center">
                     <div class="flex items-center justify-between w-full basis-full">
                         <h5 class="w-full text-[#333] text-[20px] font-bold md:basis-1/2 basis-full">Shipping Address</h5>
-                        <span routerLink="/transaction-checkout-shipping" (click)="addShipping(checkoutData.data.bookTransactionId)" class="md:basis-1/2 basis-full text-right cursor-pointer text-[#2F80ED] text-[14px]">
+                        <span routerLink="/transaction-checkout-shipping" (click)="addShipping(checkoutData.data.bookTransactionId)" class="md:basis-1/2 basis-full text-right cursor-pointer text-[#2F80ED] text-[14px] font-semibold">
                             Change Address
                         </span>
                     </div>
@@ -148,30 +148,50 @@
                     <p class="text-[#333] text-[16px] font-semibold">Order Type</p>
                     <p class="text-[#303096] text-[16px] font-semibold">Book</p>
                 </div>
-                <div class="flex justify-between px-3 pt-4">
+                <div class="flex justify-between px-3 pt-3">
                     <p class="text-[#333] text-[16px] font-semibold">Total Price : Qty {{checkoutData.data.bookQuantity}}</p>
                     <p class="text-[#333] text-[16px] font-bold">IDR {{checkoutData.data.bookPrice | currency:' ':'symbol':'1.0'}}</p>
                 </div>
-                <div class="flex justify-between px-3 pt-4">
+                <div class="flex justify-between px-3 pt-3">
                     <p class="text-[#333] text-[16px] font-semibold">Delivery Cost</p>
                     <p class="text-[#333] text-[16px] font-bold">IDR 0</p>
                 </div>
-                <div class="flex justify-between px-3 pt-4">
+                <div class="flex justify-between px-3 pt-3">
                     <p class="text-[#FF5656] text-[16px] font-semibold">Purchase Discount</p>
                     <p class="text-[#FF5656] text-[16px] font-bold">
                         -IDR {{ checkoutData.data.bookPrice * (checkoutData.data.bookDiscount / 100) | currency:' ':'symbol':'1.0'}}
                     </p>
                 </div>
-                <div class="flex justify-between pt-16 px-3">
+                <div class="flex justify-between pt-10 px-3">
                     <p class="text-[#333] text-[16px] font-bold">Total Charge</p>
                     <p class="text-[#333] text-[20px] font-bold">IDR {{checkoutData.data.bookPriceTotal | currency:' ':'symbol':'1.0'}}</p>
                 </div>
+
+                <div class="bg-[#FFF] rounded-xl mt-4 px-4 mx-3 py-4" style="border: 1px solid #EFEFFF;">
+                    <div *ngIf="checkoutData.data.bookTransactionPaymentStatus == 'No'" class="flex items-center justify-between">
+                        <h5 class="w-full text-[#333] text-[20px] font-bold md:basis-1/2 basis-full">Payment Method</h5>
+                        <div class="md:basis-1/2 basis-full text-right">
+                            <button routerLink="/transaction-checkout-shipping" type="button" (click)="addPaymentMethod(checkoutData.data.bookTransactionId)" class="w-fit focus:outline-none bg-[#5656C6] hover:bg-[#43438a] text-white focus:ring-4 shadow text-[16px] font-medium rounded-xl text-sm px-4 py-2.5">
+                                Select
+                            </button>
+                        </div>
+                    </div>
+                    <div *ngIf="checkoutData.data.bookTransactionPaymentStatus == 'Yes'" class="flex flex-wrap items-center">
+                        <div class="flex items-center justify-between w-full basis-full">
+                            <h5 class="w-full text-[#333] text-[20px] font-bold md:basis-1/2 basis-full">Payment Method</h5>
+                            <span routerLink="/transaction-checkout-shipping" (click)="addPaymentMethod(checkoutData.data.bookTransactionId)" class="md:basis-1/2 basis-full text-right cursor-pointer text-[#2F80ED] text-[14px] font-semibold">
+                                {{ checkoutData.data.bookTransactionPaymentMethod }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="flex justify-center py-4">
-                    <button *ngIf="checkoutData.data.bookShippingStatus == 'Yes'" type="button" class="focus:outline-none bg-[#FFC439] hover:bg-yellow-400 focus:ring-4 shadow text-[16px]
+                    <button *ngIf="checkoutData.data.bookShippingStatus == 'Yes' && checkoutData.data.bookTransactionPaymentStatus == 'Yes'" type="button" class="focus:outline-none bg-[#FFC439] hover:bg-yellow-400 focus:ring-4 shadow text-[16px]
                     focus:ring-yellow-300 font-medium rounded-xl text-sm px-4 py-2.5 me-2 mb-2">
                         Checkout
                     </button>
-                    <button disabled *ngIf="checkoutData.data.bookShippingStatus == 'No'" type="button" class="focus:outline-none bg-[#9DA5B1] focus:ring-4 shadow text-[16px] text-white
+                    <button disabled *ngIf="checkoutData.data.bookShippingStatus == 'No' || checkoutData.data.bookTransactionPaymentStatus == 'No'" type="button" class="focus:outline-none bg-[#9DA5B1] focus:ring-4 shadow text-[16px] text-white
                     font-medium rounded-xl text-sm px-4 py-2.5 me-2 mb-2">
                         Checkout
                     </button>
