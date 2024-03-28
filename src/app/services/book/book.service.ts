@@ -109,6 +109,10 @@ export class BookService {
     return this.http.patch(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/book-checkout-shipping`, params)
   }
 
+  public checkoutBookTransacion(body:any): Observable<any> {
+    return this.http.post(`${API_BASE_URL}/api/technobanker/v1/backoffice/transaction/payment/cc`, body)
+  }
+
   public checkOutBookPaymentMethod(bookTransactionId: any, bookTransactionPaymentCountry: string, body:any): Observable<any> {
     const params = new HttpParams()
     .set('bookTransactionId', bookTransactionId)

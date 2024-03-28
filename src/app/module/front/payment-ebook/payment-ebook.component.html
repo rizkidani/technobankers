@@ -180,14 +180,14 @@
                         <div class="flex items-center justify-between w-full basis-full">
                             <h5 class="w-full text-[#333] text-[20px] font-bold md:basis-1/2 basis-full">Payment Method</h5>
                             <span routerLink="/transaction-checkout-shipping" (click)="addPaymentMethod(checkoutData.data.bookTransactionId)" class="md:basis-1/2 basis-full text-right cursor-pointer text-[#2F80ED] text-[14px] font-semibold">
-                                {{ checkoutData.data.bookTransactionPaymentMethod }}
+                                {{ checkoutData.data.bookTransactionPaymentMethod.payment }}
                             </span>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex justify-center py-4">
-                    <button *ngIf="checkoutData.data.bookShippingStatus == 'Yes' && checkoutData.data.bookTransactionPaymentStatus == 'Yes'" type="button" class="focus:outline-none bg-[#FFC439] hover:bg-yellow-400 focus:ring-4 shadow text-[16px]
+                    <button (click)="checkoutTransaction(checkoutData.data.bookTransactionId)" *ngIf="checkoutData.data.bookShippingStatus == 'Yes' && checkoutData.data.bookTransactionPaymentStatus == 'Yes'" type="button" class="focus:outline-none bg-[#FFC439] hover:bg-yellow-400 focus:ring-4 shadow text-[16px]
                     focus:ring-yellow-300 font-medium rounded-xl text-sm px-4 py-2.5 me-2 mb-2">
                         Checkout
                     </button>

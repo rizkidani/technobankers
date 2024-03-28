@@ -1,7 +1,9 @@
+import { HttpParams } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { BookService } from 'src/app/services/book/book.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-payment-ebook',
@@ -13,6 +15,7 @@ export class PaymentEbookComponent {
   userData: any = {}
   checkoutData: any
   bookTransactionId: any;
+  bookTransactionData: any = {};
 
   constructor(
     private readonly router: Router,
@@ -52,6 +55,43 @@ export class PaymentEbookComponent {
       // Jika pengguna belum login, arahkan ke halaman login
       this.router.navigate(['login']);
     }
+  }
+
+  checkoutTransaction(bookTransactionId: any) {
+    this.bookService.getDetailBookTransaction(bookTransactionId).subscribe(
+      (response) => {
+        this.bookTransactionData = response.data;
+        if (this.bookTransactionData.bookShippingStatus == "Yes" && this.bookTransactionData.bookTransactionPaymentStatus == "Yes") {
+      
+          const params = new HttpParams()
+          .set('userId', 1111) // hardcode
+          .set('firstName', this.bookTransactionData.bookReceiptName)
+          .set('lastName', "")
+          .set('email', this.bookTransactionData.bookReceiptEmail)
+          .set('phoneNumber', this.bookTransactionData.bookReceiptPhone)
+          .set('bookTransactionCode', "TRX000" + this.bookTransactionData.bookTransactionId)
+          .set('amount', this.bookTransactionData.bookPriceTotal);
+
+          this.bookService.checkoutBookTransacion(params).subscribe(
+            (response) => {
+              window.location = response.data.url;
+             },
+            (error) => {
+              console.log("error 1");
+            }
+          )
+        } else {
+          Swal.fire({
+            title: "Shipping address or payment method required",
+            text: "Please fill the form.",
+            icon: "info"
+          });
+        }
+       },
+      (error) => {
+        console.log("error 2");
+      }
+    )
   }
 
   formatDate(dateString: string): string {
