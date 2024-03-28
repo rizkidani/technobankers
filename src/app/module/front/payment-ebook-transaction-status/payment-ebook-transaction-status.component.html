@@ -1,0 +1,94 @@
+<nav class="bg-[#1C1C28] sticky w-full z-20 top-0 start-0 border-b border-[#1C1C28] text-white">
+    <div class="flex flex-wrap items-center justify-between mx-auto px-4 pt-5 pb-4">
+        <a (click)="goBack()" class="flex items-center space-x-3 rtl:space-x-reverse md:ps-10 hover:text-yellow-300" style="cursor: pointer;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="11" height="16" viewBox="0 0 11 16" fill="none">
+                <path d="M8.4748 15.5L10.2373 13.7375L4.51231 8L10.2373 2.2625L8.4748 0.5L0.974805 8L8.4748 15.5Z" fill="white"/>
+              </svg>
+            <span class="self-center text-md font-semibold whitespace-nowrap hover:text-yellow-300">Transaction Checkout</span>
+        </a>
+        <div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <button data-collapse-toggle="navbar-sticky" type="button"
+                class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                aria-controls="navbar-sticky" aria-expanded="false">
+                <span class="sr-only">Open main menu</span>
+                <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 17 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M1 1h15M1 7h15M1 13h15" />
+                </svg>
+            </button>
+        </div>
+        <div class="md:flex hidden w-full md:w-auto md:order-2 md:space-x-0 rtl:space-x-reverse" id="navbar-sticky">
+            <ul class="md:pe-10 flex flex-col font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 text-white">
+                <li *ngIf="!authService.isLogin()">
+                    <a href="/login">
+                        <button type="button" class="block py-2 px-3 btn btn-outline-light border-2 font-semibold">Login</button>
+                    </a>
+                </li>
+                <li *ngIf="authService.isLogin()">
+                    <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar1" class="flex items-center justify-between
+                     rounded hover:text-[#FFD249] md:hover:bg-transparent ps-4 md:ps-0">
+                        <span> Hi, {{ userData.userFirstName }}</span>
+                        &nbsp;
+                        <span>{{ userData.userLastName }}</span>
+                        <svg class="w-2.5 h-2.5 ms-2.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                        </svg>
+                    </button>
+                    <div id="dropdownNavbar1" class="z-10 hidden font-normal bg-white items-center divide-gray-100 shadow w-full">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-400 flex flex-col md:flex-row md:space-x-8">
+                            <div class="flex flex-col md:flex-row md:justify-between items-center bg-[#FFF] shadow-[0px 1px 4px 0px rgba(0, 0, 0, 0.15)] w-full">
+                                <a class="md:ps-16 py-3 text-[#303096] text-[18px] font-semibold" href="e-book" target="_blank">
+                                    My E-Book
+                                </a>
+                                <a (click)="logout()" class="md:pe-12 py-3 flex items-center space-x-3 rtl:space-x-reverse" style="cursor: pointer;">
+                                    <span class="self-center text-md font-semibold whitespace-nowrap text-[#828282] text-[16px]">Logout</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                        <path d="M5 5H11C11.55 5 12 4.55 12 4C12 3.45 11.55 3 11 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H11C11.55 21 12 20.55 12 20C12 19.45 11.55 19 11 19H5V5Z" fill="#828282"/>
+                                        <path d="M20.65 11.6486L17.86 8.85857C17.7905 8.78713 17.7012 8.73806 17.6036 8.71764C17.506 8.69723 17.4045 8.7064 17.3121 8.74399C17.2198 8.78158 17.1408 8.84586 17.0851 8.92863C17.0295 9.01139 16.9999 9.10887 17 9.20858V10.9986H10C9.45 10.9986 9 11.4486 9 11.9986C9 12.5486 9.45 12.9986 10 12.9986H17V14.7886C17 15.2386 17.54 15.4586 17.85 15.1386L20.64 12.3486C20.84 12.1586 20.84 11.8386 20.65 11.6486Z" fill="#828282"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </ul>
+                    </div>                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="flex flex-wrap justify-center mx-auto my-8">
+        <div class="basis-full flex justify-center flex-wrap mb-5">
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 48 48" fill="none">
+                <path d="M34.1947 2.125C42.2655 5.94801 48 14.2312 48 24.0011C48 37.1692 37.1682 48.0011 24 48.0011C19.9647 48.0011 16.1416 46.9391 12.9558 45.24C14.2301 45.4524 15.7169 45.6648 16.9912 45.6648C24 45.6648 30.1593 42.9037 34.8319 38.2312C39.2921 33.771 42.0531 27.3993 42.0531 20.6029C42.0531 13.594 39.2921 7.43473 34.8319 2.76217C34.6195 2.54978 34.4071 2.33739 34.1947 2.125Z" fill="url(#paint0_linear_4770_16930)"/>
+                <path d="M38.6548 28.0359C37.3805 31.4342 35.6814 34.4076 33.1327 36.7439C29.0973 40.7793 23.3628 43.328 16.9911 43.328C13.5929 43.328 10.1947 42.6908 7.22123 41.2041C2.97345 37.1687 0.212389 31.4342 0 25.0625C0.849557 26.3368 1.69911 27.3988 2.76106 28.4607C7.22123 33.1333 13.5929 35.8944 20.6018 35.8944C27.3982 35.8944 33.7699 33.1333 38.2301 28.4607C38.4424 28.4607 38.4424 28.2483 38.6548 28.0359Z" fill="url(#paint1_linear_4770_16930)"/>
+                <path d="M24 0C24.8495 0 25.6991 0 26.5487 0C21.4513 1.06195 16.9911 3.39823 13.3805 7.00884C8.92035 11.469 6.15929 17.8407 6.15929 24.6371C6.15929 26.1239 6.15929 27.3982 6.58407 28.8849C5.73451 28.2478 5.09734 27.6106 4.24778 26.9734C2.54867 25.2743 1.27434 23.1504 0 21.0265C1.48672 9.13273 11.6814 0 24 0Z" fill="url(#paint2_linear_4770_16930)"/>
+                <defs>
+                  <linearGradient id="paint0_linear_4770_16930" x1="47.897" y1="47.8981" x2="30.3633" y2="25.2326" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#5656C6"/>
+                    <stop offset="1" stop-color="#303096"/>
+                  </linearGradient>
+                  <linearGradient id="paint1_linear_4770_16930" x1="19.2443" y1="43.1934" x2="3.54113e-07" y2="25.232" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#FFD249"/>
+                    <stop offset="1" stop-color="#F9B115"/>
+                  </linearGradient>
+                  <linearGradient id="paint2_linear_4770_16930" x1="0" y1="0" x2="10.4775" y2="13.2572" gradientUnits="userSpaceOnUse">
+                    <stop stop-color="#5656C6"/>
+                    <stop offset="1" stop-color="#303096"/>
+                  </linearGradient>
+                </defs>
+            </svg>
+            <span class="font-bold whitespace-nowrap text-[32px] ms-2">Technobanker</span>
+        </div>
+        
+        <div class="basis-full flex justify-center">
+            <img src="../../../../assets/pay-1.png" alt="">
+        </div>
+
+        <div class="basis-full text-center mt-3">
+            <h5 class="font-bold text-[28px] text-[#303096] mb-1">Payment {{ bookTransactionData.bookTransactionStatus }}</h5>
+            <p *ngIf="bookTransactionData.bookTransactionStatus == 'Completed'">Your order will be sent to your address</p>
+        </div>
+    </div>
+</div>

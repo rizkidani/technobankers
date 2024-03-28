@@ -31,6 +31,10 @@ const routes: Routes = [
     loadChildren: () => import('../app/module/front/payment-ebook-payment/payment-ebook-payment.module').then((x) => x.PaymentEbookPaymentModule)
   },
   {
+    path: 'transaction-checkout-status',
+    loadChildren: () => import('../app/module/front/payment-ebook-transaction-status/payment-ebook-transaction-status.module').then((x) => x.PaymentEbookTransactionStatusModule)
+  },
+  {
     path: 'register-invalid',
     loadChildren: () => import('../app/module/front/register-expired/register-expired.module').then((x) => x.RegisterExpiredModule)
   },
