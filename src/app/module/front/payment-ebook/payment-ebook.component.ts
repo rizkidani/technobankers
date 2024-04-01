@@ -66,10 +66,10 @@ export class PaymentEbookComponent {
           const params = new HttpParams()
           .set('userId', 1111) // hardcode
           .set('firstName', this.bookTransactionData.bookReceiptName)
-          .set('lastName', "")
+          .set('lastName', this.bookTransactionData.bookReceiptName)
           .set('email', this.bookTransactionData.bookReceiptEmail)
           .set('phoneNumber', this.bookTransactionData.bookReceiptPhone)
-          .set('bookTransactionCode', "TRX000" + this.bookTransactionData.bookTransactionId)
+          .set('bookTransactionCode', this.bookTransactionData.bookTransactionCode)
           .set('amount', this.bookTransactionData.bookPriceTotal);
 
           this.bookService.checkoutBookTransacion(params).subscribe(
