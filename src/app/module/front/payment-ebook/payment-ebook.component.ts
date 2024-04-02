@@ -37,7 +37,10 @@ export class PaymentEbookComponent {
   addShipping(bookTransactionId: any) {
     if (this.authService.isLogin()) {
       localStorage.setItem('bookTransactionId', bookTransactionId);
-      this.router.navigate(["transaction-checkout-shipping"]);
+      this.router.navigate(["transaction-checkout-shipping"])
+      .then(() => {
+        window.location.reload();
+      });
     } else {
       // Jika pengguna belum login, arahkan ke halaman login
       this.router.navigate(['login']);
