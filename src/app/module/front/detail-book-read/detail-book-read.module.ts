@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DetailBookReadRoutingModule } from './detail-book-read-routing.module';
 import { DetailBookReadComponent } from './detail-book-read.component';
 import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
+import { FlipBookModule } from '@labsforge/flipbook';
 
 @NgModule({
   declarations: [
@@ -12,7 +13,8 @@ import { NgxExtendedPdfViewerModule } from 'ngx-extended-pdf-viewer';
   imports: [
     CommonModule,
     DetailBookReadRoutingModule,
-    NgxExtendedPdfViewerModule
+    NgxExtendedPdfViewerModule,
+    FlipBookModule
   ]
 })
 export class DetailBookReadModule { }

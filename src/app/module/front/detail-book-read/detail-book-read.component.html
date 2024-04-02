@@ -1,2 +1,31 @@
-<ngx-extended-pdf-viewer [src]="'https://technobanker.com/backend/bookPdf/Technobanker_-_Capabilities_and_Skills_for_the_Next_Generation_of_Digital_Banking-oio.pdf'">
+<ngx-extended-pdf-viewer pageViewMode="book"
+                        [showBorders]="false"
+                        [zoom]="'page-fit'"
+                        src="/assets/pdfs/Technobanker_-_Capabilities_and_Skills_for_the_Next_Generation_of_Digital_Banking-oio.pdf"
+                        [showToolbar]="true"
+                        [showSidebarButton]="true"
+                        [showFindButton]="false"
+                        [showPagingButtons]="true"
+                        [showDrawEditor]="false"
+                        [showStampEditor]="false"
+                        [showTextEditor]="false"
+                        [showZoomButtons]="true"
+                        [showPresentationModeButton]="false"
+                        [showOpenFileButton]="false"
+                        [showPrintButton]="false"
+                        [showDownloadButton]="false"
+                        [showSecondaryToolbarButton]="false"
+                        [showRotateButton]="false"
+                        [showHandToolButton]="false"
+                        [showScrollingButton]="false"
+                        [showSpreadButton]="false"
+                        [showPropertiesButton]="false">
 </ngx-extended-pdf-viewer>
+
+<!-- <flipbook [model]="demoBook" [startAt]="startAt"></flipbook>
+<div class="controls">
+  <button (click)="onPrev()">prev</button>
+  <button (click)="onPlay()">play</button>
+  <button (click)="onPause()">pause</button>
+  <button (click)="onNext()">next</button>
+</div> -->
