@@ -71,7 +71,23 @@
                         <p class="text-[14px] text-[#333] pt-3">
                             Book
                         </p>
-                        <div class="md:flex pt-5 items-center">
+                        <div class="flex flex-wrap flex-row items-center pt-3">
+                            <p class="flex-initial text-[14px] text-[#27AE60] font-bold">In Stock</p>
+                            <div class="flex-initial relative flex items-center max-w-[8rem] pl-3">
+                                <button type="button" (click)="decreaseQuantity()" id="decrement-button" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-s-lg p-2 h-9 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                    <svg class="w-2 h-2 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                                    </svg>
+                                </button>
+                                <input type="text" [(ngModel)]="quantity" (click)="updateQuantity()" id="quantity-input" data-input-counter aria-describedby="helper-text-explanation" class="bg-gray-50 border-x-0 border-gray-300 h-9 text-center text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-12 py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required />
+                                <button type="button" (click)="increaseQuantity()" id="increment-button" class="bg-gray-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:border-gray-600 hover:bg-gray-200 border border-gray-300 rounded-e-lg p-2 h-9 focus:ring-gray-100 dark:focus:ring-gray-700 focus:ring-2 focus:outline-none">
+                                    <svg class="w-2 h-2 text-gray-900 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="md:flex pt-3 items-center">
                             <h5 class="md:basis-2/5 basis-full text-[14px] text-[#333] font-bold pt-2 flex justify-start">Book Price</h5>
                             <div *ngIf="checkoutData.data.bookDiscount != 0" class="md:basis-3/5 basis-full flex flex-wrap items-center justify-start md:justify-end pt-2 md:pt-0">
                                 <span class="bg-[#E55353] text-white text-xs font-medium me-2 px-2.5 py-1.5 rounded">
@@ -99,10 +115,10 @@
                     <div class="flex justify-between items-center p-4">
                         <h1 class="text-[#333] text-[16px] font-bold">
                             Order Total 
-                            <span class="bg-[#FFD249] text-[12px] px-2 py-1 rounded-md">Qty {{checkoutData.data.bookQuantity}}</span>
+                            <span class="bg-[#FFD249] text-[12px] px-2 py-1 rounded-md">Qty {{quantity}}</span>
                         </h1>
                         <h1 class="text-[#333] text-[16px] font-bold">
-                            IDR {{checkoutData.data.bookPriceTotal | currency:' ':'symbol':'1.0'}}
+                            IDR {{priceTotal | currency:' ':'symbol':'1.0'}}
                         </h1>
                     </div>
                 </div>
@@ -143,8 +159,8 @@
                     <p class="text-[#303096] text-[16px] font-semibold">Book</p>
                 </div>
                 <div class="flex justify-between px-3 pt-3">
-                    <p class="text-[#333] text-[16px] font-semibold">Total Price : Qty {{checkoutData.data.bookQuantity}}</p>
-                    <p class="text-[#333] text-[16px] font-bold">IDR {{checkoutData.data.bookPrice | currency:' ':'symbol':'1.0'}}</p>
+                    <p class="text-[#333] text-[16px] font-semibold">Total Price : Qty {{quantity}}</p>
+                    <p class="text-[#333] text-[16px] font-bold">IDR {{priceNormal | currency:' ':'symbol':'1.0'}}</p>
                 </div>
                 <div class="flex justify-between px-3 pt-3">
                     <p class="text-[#333] text-[16px] font-semibold">Delivery Cost</p>
@@ -158,7 +174,7 @@
                 </div>
                 <div class="flex justify-between pt-10 px-3">
                     <p class="text-[#333] text-[16px] font-bold">Total Charge</p>
-                    <p class="text-[#333] text-[20px] font-bold">IDR {{checkoutData.data.bookPriceTotal | currency:' ':'symbol':'1.0'}}</p>
+                    <p class="text-[#333] text-[20px] font-bold">IDR {{priceTotal | currency:' ':'symbol':'1.0'}}</p>
                 </div>
 
                 <div class="bg-[#FFF] rounded-xl mt-4 px-4 mx-3 py-4" style="border: 1px solid #EFEFFF;">

@@ -16,6 +16,9 @@ export class PaymentEbookComponent {
   checkoutData: any
   bookTransactionId: any;
   bookTransactionData: any = {};
+  quantity: number = 0;
+  priceTotal: number = 0;
+  priceNormal: number = 0;
 
   constructor(
     private readonly router: Router,
@@ -31,6 +34,9 @@ export class PaymentEbookComponent {
     let checkoutResponse = localStorage.getItem('checkoutResponse');
     if (checkoutResponse) {
       this.checkoutData = JSON.parse(checkoutResponse);
+      this.quantity = this.checkoutData.data.bookQuantity;
+      this.priceTotal = this.checkoutData.data.bookPriceTotal;
+      this.priceNormal = this.checkoutData.data.bookPrice;
     }
   }
 
@@ -127,6 +133,25 @@ export class PaymentEbookComponent {
     setTimeout(() => {
       window.location.reload();
     }, 500);
+  }
+
+  updateQuantity() {
+    console.log(this.quantity);
+  }
+
+  increaseQuantity() {
+    this.quantity++;
+    this.priceTotal = this.checkoutData.data.bookPriceTotal * this.quantity;
+    this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
+  }
+
+  decreaseQuantity() {
+    if (this.quantity > 1) {
+      this.quantity--;
+    }
+
+    this.priceTotal = this.checkoutData.data.bookPriceTotal * this.quantity;
+    this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
   }
 
 }
