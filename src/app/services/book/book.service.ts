@@ -127,4 +127,8 @@ export class BookService {
     return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/book-user`, { params: params });
   }
 
+  public getShippingAllCountries(): Observable<unknown> {
+    return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/transaction/countries`);
+  }
+
 }

@@ -17,6 +17,7 @@ export class PaymentEbookShippingComponent {
   userData: any = {};
   shippingData: any;
   checkoutData: any;
+  shippingCountry: any;
 
   constructor(
     private readonly router: Router,
@@ -50,6 +51,14 @@ export class PaymentEbookShippingComponent {
           bookShippingVillage: response.data.bookShippingVillage,
           bookShippingPostalcode: response.data.bookShippingPostalcode
         });
+       },
+      (error) => {
+      }
+    )
+
+    this.bookService.getShippingAllCountries().subscribe(
+      (response) => {
+        this.shippingCountry = response;
        },
       (error) => {
       }
