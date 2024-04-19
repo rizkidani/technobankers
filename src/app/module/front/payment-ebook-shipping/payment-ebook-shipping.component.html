@@ -129,7 +129,7 @@
 
                         <div class="mb-3">
                             <label for="bookShippingCountry" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Country</label>
-                            <select formControlName="bookShippingCountry" id="bookShippingCountry" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                            <select [(ngModel)]="selectedCountry" formControlName="bookShippingCountry" id="bookShippingCountry" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                 <option selected>Choose a country</option>
                                 <option *ngFor="let data of shippingCountry.countries" value="{{ data.countryCode }}">{{ data.countryName }}</option>
                             </select>
@@ -166,25 +166,27 @@
                             </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="bookShippingSubdistrict" class="block mb-2 text-[16px] font-medium text-[#000]">Sub-district</label>
-                            <input formControlName="bookShippingSubdistrict" type="text" id="bookShippingSubdistrict" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter sub-district" required />
-                            <div *ngIf="f['bookShippingSubdistrict'] && (f['bookShippingSubdistrict'].touched || f['bookShippingSubdistrict'].dirty) && !f['bookShippingSubdistrict'].valid">
-                                <div *ngIf="f['bookShippingSubdistrict'].errors">
-                                    <div class="text-three" *ngIf="!bookModel.formBookShipping.controls['bookShippingSubdistrict'].valid">
-                                        <span style="color: #EB5757;">A field is required</span>
+                        <div *ngIf="selectedCountry == 'ID'">
+                            <div class="mb-3">
+                                <label for="bookShippingSubdistrict" class="block mb-2 text-[16px] font-medium text-[#000]">Sub-district</label>
+                                <input formControlName="bookShippingSubdistrict" type="text" id="bookShippingSubdistrict" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter sub-district" required />
+                                <div *ngIf="f['bookShippingSubdistrict'] && (f['bookShippingSubdistrict'].touched || f['bookShippingSubdistrict'].dirty) && !f['bookShippingSubdistrict'].valid">
+                                    <div *ngIf="f['bookShippingSubdistrict'].errors">
+                                        <div class="text-three" *ngIf="!bookModel.formBookShipping.controls['bookShippingSubdistrict'].valid">
+                                            <span style="color: #EB5757;">A field is required</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="bookShippingVillage" class="block mb-2 text-[16px] font-medium text-[#000]">Urban Village/Village</label>
-                            <input formControlName="bookShippingVillage" type="text" id="bookShippingVillage" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter urban village/village" required />
-                            <div *ngIf="f['bookShippingVillage'] && (f['bookShippingVillage'].touched || f['bookShippingVillage'].dirty) && !f['bookShippingVillage'].valid">
-                                <div *ngIf="f['bookShippingVillage'].errors">
-                                    <div class="text-three" *ngIf="!bookModel.formBookShipping.controls['bookShippingVillage'].valid">
-                                        <span style="color: #EB5757;">A field is required</span>
+    
+                            <div class="mb-3">
+                                <label for="bookShippingVillage" class="block mb-2 text-[16px] font-medium text-[#000]">Urban Village/Village</label>
+                                <input formControlName="bookShippingVillage" type="text" id="bookShippingVillage" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter urban village/village" required />
+                                <div *ngIf="f['bookShippingVillage'] && (f['bookShippingVillage'].touched || f['bookShippingVillage'].dirty) && !f['bookShippingVillage'].valid">
+                                    <div *ngIf="f['bookShippingVillage'].errors">
+                                        <div class="text-three" *ngIf="!bookModel.formBookShipping.controls['bookShippingVillage'].valid">
+                                            <span style="color: #EB5757;">A field is required</span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -18,6 +18,7 @@ export class PaymentEbookShippingComponent {
   shippingData: any;
   checkoutData: any;
   shippingCountry: any;
+  selectedCountry: any;
 
   constructor(
     private readonly router: Router,
