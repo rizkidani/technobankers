@@ -97,12 +97,12 @@
                                     IDR {{checkoutData.data.bookPrice | currency:' ':'symbol':'1.0'}}
                                 </p>
                                 <p class="text-[#333] font-bold text-[18px] ps-2">
-                                    IDR {{checkoutData.data.bookPriceTotal | currency:' ':'symbol':'1.0'}}
+                                    IDR {{(priceNormal - priceDiscount) / quantity | currency:' ':'symbol':'1.0'}}
                                 </p>
                             </div>
                             <div *ngIf="checkoutData.data.bookDiscount == 0" class="md:basis-3/5 basis-full flex flex-wrap items-center justify-start md:justify-end pt-2 md:pt-0">
                                 <p class="text-[#333] font-bold text-[18px] ps-2">
-                                    IDR {{checkoutData.data.bookPriceTotal | currency:' ':'symbol':'1.0'}}
+                                    IDR {{priceNormal | currency:' ':'symbol':'1.0'}}
                                 </p>
                             </div>
                         </div>
@@ -118,7 +118,7 @@
                             <span class="bg-[#FFD249] text-[12px] px-2 py-1 rounded-md">Qty {{quantity}}</span>
                         </h1>
                         <h1 class="text-[#333] text-[16px] font-bold">
-                            IDR {{priceTotal | currency:' ':'symbol':'1.0'}}
+                            IDR {{priceNormal - priceDiscount | currency:' ':'symbol':'1.0'}}
                         </h1>
                     </div>
                 </div>
@@ -144,7 +144,8 @@
                     <div class="flex basis-full flex-col justify-start w-full mt-4 text-[14px]">
                         <p class="font-bold mb-2">Receipt : {{ checkoutData.data.bookReceiptName }}</p>   
                         <p>{{ checkoutData.data.bookShippingLabel }}</p>                     
-                        <p>{{ checkoutData.data.bookShippingAddress }}, {{ checkoutData.data.bookShippingVillage }}, {{ checkoutData.data.bookShippingSubdistrict }}, {{ checkoutData.data.bookShippingCity }}, {{ checkoutData.data.bookShippingProvince }}, {{ checkoutData.data.bookShippingCountry }} {{ checkoutData.data.bookShippingPostalcode }}</p>                     
+                        <p *ngIf="checkoutData.data.bookShippingCountry == 'INDONESIA'">{{ checkoutData.data.bookShippingAddress }}, {{ checkoutData.data.bookShippingVillage }}, {{ checkoutData.data.bookShippingSubdistrict }}, {{ checkoutData.data.bookShippingCity }}, {{ checkoutData.data.bookShippingProvince }}, {{ checkoutData.data.bookShippingCountry }} {{ checkoutData.data.bookShippingPostalcode }}</p>                     
+                        <p *ngIf="checkoutData.data.bookShippingCountry != 'INDONESIA'">{{ checkoutData.data.bookShippingAddress }}, {{ checkoutData.data.bookShippingCity }}, {{ checkoutData.data.bookShippingProvince }}, {{ checkoutData.data.bookShippingCountry }} {{ checkoutData.data.bookShippingPostalcode }}</p>                     
                     </div>
 
                 </div>

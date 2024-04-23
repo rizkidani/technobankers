@@ -38,9 +38,10 @@ export class PaymentEbookComponent {
       this.checkoutData = JSON.parse(checkoutResponse);
       this.quantity = this.checkoutData.data.bookQuantity;
       this.priceShipping = this.checkoutData.data.bookPriceShipping;
-      this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100);
-      this.priceNormal = this.checkoutData.data.bookPrice;
-      this.priceTotal = this.checkoutData.data.bookPriceTotal - this.priceDiscount;
+      this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
+      this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
+      this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping ;
+
     }
   }
 
@@ -145,10 +146,10 @@ export class PaymentEbookComponent {
 
   increaseQuantity() {
     this.quantity++;
-    this.priceShipping = this.checkoutData.data.bookPriceShipping * this.quantity;
+    this.priceShipping = this.checkoutData.data.bookPriceShipping;
     this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
     this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
-    this.priceTotal = (this.checkoutData.data.bookPriceTotal * this.quantity) - this.priceDiscount;
+    this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping ;
   }
 
   decreaseQuantity() {
@@ -156,10 +157,10 @@ export class PaymentEbookComponent {
       this.quantity--;
     }
 
-    this.priceShipping = this.checkoutData.data.bookPriceShipping * this.quantity;
+    this.priceShipping = this.checkoutData.data.bookPriceShipping;
     this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
     this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
-    this.priceTotal = (this.checkoutData.data.bookPriceTotal * this.quantity) - this.priceDiscount;
+    this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping;
   }
 
 }
