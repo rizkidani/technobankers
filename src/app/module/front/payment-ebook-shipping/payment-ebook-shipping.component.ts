@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AbstractControl } from '@angular/forms';
+import { AbstractControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { BookModel } from 'src/app/model/book.model';
 import { AuthService } from 'src/app/services/auth/auth.service';
@@ -52,6 +52,17 @@ export class PaymentEbookShippingComponent {
           bookShippingVillage: response.data.bookShippingVillage,
           bookShippingPostalcode: response.data.bookShippingPostalcode
         });
+
+        if (this.selectedCountry == 'INDONESIA') {
+          this.bookModel.formBookShipping.controls['bookShippingSubdistrict'].setValidators([Validators.required]);
+          this.bookModel.formBookShipping.controls['bookShippingVillage'].setValidators([Validators.required]);
+        } else {
+          this.bookModel.formBookShipping.controls['bookShippingSubdistrict'].clearValidators();
+          this.bookModel.formBookShipping.controls['bookShippingVillage'].clearValidators();
+        }
+
+        this.bookModel.formBookShipping.controls['bookShippingSubdistrict'].updateValueAndValidity();
+        this.bookModel.formBookShipping.controls['bookShippingVillage'].updateValueAndValidity();
        },
       (error) => {
       }
@@ -94,6 +105,19 @@ export class PaymentEbookShippingComponent {
   get f(): { [key: string]: AbstractControl } {
     return this.bookModel.formBookShipping.controls;
   }
+
+  onChangeCountry(selected: string) {
+    console.log(selected);
+    if (selected == 'INDONESIA') {
+      this.bookModel.formBookShipping.controls['bookShippingSubdistrict'].setValidators([Validators.required]);
+      this.bookModel.formBookShipping.controls['bookShippingVillage'].setValidators([Validators.required]);
+    } else {
+      this.bookModel.formBookShipping.controls['bookShippingSubdistrict'].clearValidators();
+      this.bookModel.formBookShipping.controls['bookShippingVillage'].clearValidators();
+    }
+    this.bookModel.formBookShipping.controls['bookShippingSubdistrict'].updateValueAndValidity();
+    this.bookModel.formBookShipping.controls['bookShippingVillage'].updateValueAndValidity();
+}
 
   logout() {
     this.authService.logOut()

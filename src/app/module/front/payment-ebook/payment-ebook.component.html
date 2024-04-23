@@ -164,12 +164,12 @@
                 </div>
                 <div class="flex justify-between px-3 pt-3">
                     <p class="text-[#333] text-[16px] font-semibold">Delivery Cost</p>
-                    <p class="text-[#333] text-[16px] font-bold">IDR 0</p>
+                    <p class="text-[#333] text-[16px] font-bold">IDR {{priceShipping | currency:' ':'symbol':'1.0'}}</p>
                 </div>
                 <div class="flex justify-between px-3 pt-3">
                     <p class="text-[#FF5656] text-[16px] font-semibold">Purchase Discount</p>
                     <p class="text-[#FF5656] text-[16px] font-bold">
-                        -IDR {{ checkoutData.data.bookPrice * (checkoutData.data.bookDiscount / 100) | currency:' ':'symbol':'1.0'}}
+                        -IDR {{priceDiscount | currency:' ':'symbol':'1.0'}}
                     </p>
                 </div>
                 <div class="flex justify-between pt-10 px-3">

@@ -19,6 +19,8 @@ export class PaymentEbookComponent {
   quantity: number = 0;
   priceTotal: number = 0;
   priceNormal: number = 0;
+  priceShipping: number = 0;
+  priceDiscount: number = 0;
 
   constructor(
     private readonly router: Router,
@@ -35,8 +37,10 @@ export class PaymentEbookComponent {
     if (checkoutResponse) {
       this.checkoutData = JSON.parse(checkoutResponse);
       this.quantity = this.checkoutData.data.bookQuantity;
-      this.priceTotal = this.checkoutData.data.bookPriceTotal;
+      this.priceShipping = this.checkoutData.data.bookPriceShipping;
+      this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100);
       this.priceNormal = this.checkoutData.data.bookPrice;
+      this.priceTotal = this.checkoutData.data.bookPriceTotal - this.priceDiscount;
     }
   }
 
@@ -73,13 +77,13 @@ export class PaymentEbookComponent {
         if (this.bookTransactionData.bookShippingStatus == "Yes" && this.bookTransactionData.bookTransactionPaymentStatus == "Yes") {
       
           const params = new HttpParams()
-          .set('userId', 1111) // hardcode
+          .set('userId', this.bookTransactionData.userId)
           .set('firstName', this.bookTransactionData.bookReceiptName)
           .set('lastName', this.bookTransactionData.bookReceiptName)
           .set('email', this.bookTransactionData.bookReceiptEmail)
           .set('phoneNumber', this.bookTransactionData.bookReceiptPhone)
           .set('bookTransactionCode', this.bookTransactionData.bookTransactionCode)
-          .set('amount', this.bookTransactionData.bookPriceTotal);
+          .set('amount', this.priceTotal);
 
           this.bookService.checkoutBookTransacion(params).subscribe(
             (response) => {
@@ -141,8 +145,10 @@ export class PaymentEbookComponent {
 
   increaseQuantity() {
     this.quantity++;
-    this.priceTotal = this.checkoutData.data.bookPriceTotal * this.quantity;
+    this.priceShipping = this.checkoutData.data.bookPriceShipping * this.quantity;
+    this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
     this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
+    this.priceTotal = (this.checkoutData.data.bookPriceTotal * this.quantity) - this.priceDiscount;
   }
 
   decreaseQuantity() {
@@ -150,8 +156,10 @@ export class PaymentEbookComponent {
       this.quantity--;
     }
 
-    this.priceTotal = this.checkoutData.data.bookPriceTotal * this.quantity;
+    this.priceShipping = this.checkoutData.data.bookPriceShipping * this.quantity;
+    this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
     this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
+    this.priceTotal = (this.checkoutData.data.bookPriceTotal * this.quantity) - this.priceDiscount;
   }
 
 }
