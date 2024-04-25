@@ -130,8 +130,8 @@
                         <div class="mb-3">
                             <label for="bookShippingCountry" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select Country</label>
                             <select [(ngModel)]="selectedCountry" (ngModelChange)="onChangeCountry($event)" formControlName="bookShippingCountry" id="bookShippingCountry" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                <option selected>Choose a country</option>
-                                <option *ngFor="let data of shippingCountry.countries" value="{{ data.country }}">{{ data.country }}</option>
+                                <option selected>Choose a Country</option>
+                                <option *ngFor="let data of shippingCountry" value="{{ data.country }}">{{ data.country }}</option>
                             </select>
                             <div *ngIf="f['bookShippingCountry'] && (f['bookShippingCountry'].touched || f['bookShippingCountry'].dirty) && !f['bookShippingCountry'].valid">
                                 <div *ngIf="f['bookShippingCountry'].errors">
@@ -144,7 +144,11 @@
 
                         <div class="mb-3">
                             <label for="bookShippingProvince" class="block mb-2 text-[16px] font-medium text-[#000]">Province</label>
-                            <input formControlName="bookShippingProvince" type="text" id="bookShippingProvince" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter province" required />
+                            <input *ngIf="selectedCountry != 'INDONESIA'" formControlName="bookShippingProvince" type="text" id="bookShippingProvince" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter province" required />
+                            <select *ngIf="selectedCountry == 'INDONESIA'" [(ngModel)]="selectedProvince" (ngModelChange)="onChangeProvince($event)" formControlName="bookShippingProvince" id="bookShippingProvince" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected>Choose a Province</option>
+                                <option *ngFor="let data of shippingProvince" value="{{ data.provinceName }}">{{ data.provinceName }}</option>
+                            </select>
                             <div *ngIf="f['bookShippingProvince'] && (f['bookShippingProvince'].touched || f['bookShippingProvince'].dirty) && !f['bookShippingProvince'].valid">
                                 <div *ngIf="f['bookShippingProvince'].errors">
                                     <div class="text-three" *ngIf="!bookModel.formBookShipping.controls['bookShippingProvince'].valid">
@@ -156,7 +160,11 @@
 
                         <div class="mb-3">
                             <label for="bookShippingCity" class="block mb-2 text-[16px] font-medium text-[#000]">City/Regency</label>
-                            <input formControlName="bookShippingCity" type="text" id="bookShippingCity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter city/regency" required />
+                            <input *ngIf="selectedCountry != 'INDONESIA'" formControlName="bookShippingCity" type="text" id="bookShippingCity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter city/regency" required />
+                            <select *ngIf="selectedCountry == 'INDONESIA'" [(ngModel)]="selectedCity" (ngModelChange)="onChangeCity($event)" formControlName="bookShippingCity" id="bookShippingCity" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <option selected>Choose a City</option>
+                                <option *ngFor="let data of shippingCity" value="{{ data.cityName }}">{{ data.cityName }}</option>
+                            </select>
                             <div *ngIf="f['bookShippingCity'] && (f['bookShippingCity'].touched || f['bookShippingCity'].dirty) && !f['bookShippingCity'].valid">
                                 <div *ngIf="f['bookShippingCity'].errors">
                                     <div class="text-three" *ngIf="!bookModel.formBookShipping.controls['bookShippingCity'].valid">
@@ -168,8 +176,11 @@
 
                         <div *ngIf="selectedCountry == 'INDONESIA'">
                             <div class="mb-3">
-                                <label for="bookShippingSubdistrict" class="block mb-2 text-[16px] font-medium text-[#000]">Sub-district</label>
-                                <input formControlName="bookShippingSubdistrict" type="text" id="bookShippingSubdistrict" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter sub-district" required />
+                                <label for="bookShippingSubdistrict" class="block mb-2 text-[16px] font-medium text-[#000]">Sub-district (Kecamatan)</label>
+                                <select [(ngModel)]="selectedDistrict" (ngModelChange)="onChangeDistrict($event)" formControlName="bookShippingSubdistrict" id="bookShippingSubdistrict" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option selected>Choose a Sub-district</option>
+                                    <option *ngFor="let data of shippingDistrict" value="{{ data.districtName }}">{{ data.districtName }}</option>
+                                </select>
                                 <div *ngIf="f['bookShippingSubdistrict'] && (f['bookShippingSubdistrict'].touched || f['bookShippingSubdistrict'].dirty) && !f['bookShippingSubdistrict'].valid">
                                     <div *ngIf="f['bookShippingSubdistrict'].errors">
                                         <div class="text-three" *ngIf="!bookModel.formBookShipping.controls['bookShippingSubdistrict'].valid">
@@ -180,8 +191,11 @@
                             </div>
     
                             <div class="mb-3">
-                                <label for="bookShippingVillage" class="block mb-2 text-[16px] font-medium text-[#000]">Urban Village/Village</label>
-                                <input formControlName="bookShippingVillage" type="text" id="bookShippingVillage" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter urban village/village" required />
+                                <label for="bookShippingVillage" class="block mb-2 text-[16px] font-medium text-[#000]">Urban Village/Village (Kelurahan/Desa)</label>
+                                <select [(ngModel)]="selectedSubDistrict" (ngModelChange)="onChangeSubDistrict($event)" formControlName="bookShippingVillage" id="bookShippingVillage" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option selected>Choose a Village</option>
+                                    <option *ngFor="let data of shippingSubDistrict" [ngValue]="data">{{ data.subDistrictName }}</option>
+                                </select>
                                 <div *ngIf="f['bookShippingVillage'] && (f['bookShippingVillage'].touched || f['bookShippingVillage'].dirty) && !f['bookShippingVillage'].valid">
                                     <div *ngIf="f['bookShippingVillage'].errors">
                                         <div class="text-three" *ngIf="!bookModel.formBookShipping.controls['bookShippingVillage'].valid">
@@ -194,7 +208,7 @@
 
                         <div class="mb-3">
                             <label for="bookShippingPostalcode" class="block mb-2 text-[16px] font-medium text-[#000]">Postal Code</label>
-                            <input formControlName="bookShippingPostalcode" type="number" id="bookShippingPostalcode" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter postal code" required />
+                            <input formControlName="bookShippingPostalcode" type="number" id="bookShippingPostalcode" [readonly]="selectedCountry == 'INDONESIA'" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Enter postal code" required />
                             <div *ngIf="f['bookShippingPostalcode'] && (f['bookShippingPostalcode'].touched || f['bookShippingPostalcode'].dirty) && !f['bookShippingPostalcode'].valid">
                                 <div *ngIf="f['bookShippingPostalcode'].errors">
                                     <div class="text-three" *ngIf="!bookModel.formBookShipping.controls['bookShippingPostalcode'].valid">

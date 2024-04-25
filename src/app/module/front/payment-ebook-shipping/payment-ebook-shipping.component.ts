@@ -17,8 +17,17 @@ export class PaymentEbookShippingComponent {
   userData: any = {};
   shippingData: any;
   checkoutData: any;
+
   shippingCountry: any;
   selectedCountry: any;
+  shippingProvince: any;
+  selectedProvince: any;
+  shippingCity: any;
+  selectedCity: any;
+  shippingDistrict: any;
+  selectedDistrict: any;
+  shippingSubDistrict: any;
+  selectedSubDistrict: any;
 
   constructor(
     private readonly router: Router,
@@ -50,19 +59,23 @@ export class PaymentEbookShippingComponent {
           bookShippingCity: response.data.bookShippingCity,
           bookShippingSubdistrict: response.data.bookShippingSubdistrict,
           bookShippingVillage: response.data.bookShippingVillage,
+          bookShippingVillagePost: response.data.bookShippingVillage,
           bookShippingPostalcode: response.data.bookShippingPostalcode
         });
 
         if (this.selectedCountry == 'INDONESIA') {
           this.bookModel.formBookShipping.controls['bookShippingSubdistrict'].setValidators([Validators.required]);
           this.bookModel.formBookShipping.controls['bookShippingVillage'].setValidators([Validators.required]);
+          this.bookModel.formBookShipping.controls['bookShippingVillagePost'].setValidators([Validators.required]);
         } else {
           this.bookModel.formBookShipping.controls['bookShippingSubdistrict'].clearValidators();
           this.bookModel.formBookShipping.controls['bookShippingVillage'].clearValidators();
+          this.bookModel.formBookShipping.controls['bookShippingVillagePost'].clearValidators();
         }
 
         this.bookModel.formBookShipping.controls['bookShippingSubdistrict'].updateValueAndValidity();
         this.bookModel.formBookShipping.controls['bookShippingVillage'].updateValueAndValidity();
+        this.bookModel.formBookShipping.controls['bookShippingVillagePost'].updateValueAndValidity();
        },
       (error) => {
       }
@@ -71,6 +84,7 @@ export class PaymentEbookShippingComponent {
     this.bookService.getShippingAllCountries().subscribe(
       (response) => {
         this.shippingCountry = response;
+        this.shippingCountry = this.shippingCountry.countries;
        },
       (error) => {
       }
@@ -80,6 +94,7 @@ export class PaymentEbookShippingComponent {
   addShippingBook() {
     this.bookModel.formBookShipping.markAllAsTouched();
     if (this.bookModel.formBookShipping.valid) {
+
       this.bookService.checkOutBookShipping(this.bookTransactionId, this.bookModel.formBookShipping.value).subscribe(
         (response) => {
           // Simpan respons ke local storage
@@ -107,17 +122,82 @@ export class PaymentEbookShippingComponent {
   }
 
   onChangeCountry(selected: string) {
-    console.log(selected);
     if (selected == 'INDONESIA') {
       this.bookModel.formBookShipping.controls['bookShippingSubdistrict'].setValidators([Validators.required]);
       this.bookModel.formBookShipping.controls['bookShippingVillage'].setValidators([Validators.required]);
+      this.bookModel.formBookShipping.controls['bookShippingVillagePost'].setValidators([Validators.required]);
+
+      this.bookService.getShippingProvince().subscribe(
+        (response) => {
+          this.shippingProvince = response;
+          this.shippingProvince = this.shippingProvince.data;
+         },
+        (error) => {
+        }
+      )
+
     } else {
       this.bookModel.formBookShipping.controls['bookShippingSubdistrict'].clearValidators();
       this.bookModel.formBookShipping.controls['bookShippingVillage'].clearValidators();
+      this.bookModel.formBookShipping.controls['bookShippingVillagePost'].clearValidators();
     }
     this.bookModel.formBookShipping.controls['bookShippingSubdistrict'].updateValueAndValidity();
     this.bookModel.formBookShipping.controls['bookShippingVillage'].updateValueAndValidity();
-}
+    this.bookModel.formBookShipping.controls['bookShippingVillagePost'].updateValueAndValidity();
+
+    this.bookModel.formBookShipping.controls['bookShippingProvince'].setValue("");
+    this.bookModel.formBookShipping.controls['bookShippingCity'].setValue("");
+    this.bookModel.formBookShipping.controls['bookShippingSubdistrict'].setValue("");
+    this.bookModel.formBookShipping.controls['bookShippingVillage'].setValue("");
+    this.bookModel.formBookShipping.controls['bookShippingVillagePost'].setValue("");
+    this.bookModel.formBookShipping.controls['bookShippingPostalcode'].setValue("");
+  }
+
+  onChangeProvince(selected: string) {
+    if (this.selectedCountry == 'INDONESIA') {
+      this.bookService.getShippingCity(selected).subscribe(
+        (response) => {
+          this.shippingCity = response;
+          this.shippingCity = this.shippingCity.data;
+         },
+        (error) => {
+        }
+      )
+    }
+  }
+
+  onChangeCity(selected: string) {
+    if (this.selectedCountry == 'INDONESIA') {
+      this.bookService.getShippingDistrict(this.selectedProvince, selected).subscribe(
+        (response) => {
+          this.shippingDistrict = response;
+          this.shippingDistrict = this.shippingDistrict.data;
+         },
+        (error) => {
+        }
+      )
+    }
+  }
+
+  onChangeDistrict(selected: string) {
+    if (this.selectedCountry == 'INDONESIA') {
+      this.bookService.getShippingSubDistrict(this.selectedProvince, this.selectedCity, selected).subscribe(
+        (response) => {
+          this.shippingSubDistrict = response;
+          this.shippingSubDistrict = this.shippingSubDistrict.data;
+         },
+        (error) => {
+        }
+      )
+    }
+  }
+
+  onChangeSubDistrict(selected: any) {
+    if (this.selectedCountry == 'INDONESIA') {
+      this.bookModel.formBookShipping.controls['bookShippingVillagePost'].setValue(selected.subDistrictName);
+      this.bookModel.formBookShipping.controls['bookShippingPostalcode'].setValue(selected.zipCode);
+    }
+  }
 
   logout() {
     this.authService.logOut()

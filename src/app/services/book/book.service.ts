@@ -103,7 +103,7 @@ export class BookService {
     .set('bookShippingProvince', body.bookShippingProvince)
     .set('bookShippingCity', body.bookShippingCity)
     .set('bookShippingSubdistrict', body.bookShippingSubdistrict)
-    .set('bookShippingVillage', body.bookShippingVillage)
+    .set('bookShippingVillage', body.bookShippingVillagePost)
     .set('bookShippingPostalcode', body.bookShippingPostalcode);
 
     return this.http.patch(`${API_BASE_URL}/api/technobanker/v1/backoffice/book/book-checkout-shipping`, params)
@@ -129,6 +129,31 @@ export class BookService {
 
   public getShippingAllCountries(): Observable<unknown> {
     return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/transaction/shipping/countries`);
+  }
+
+  public getShippingProvince(): Observable<unknown> {
+    return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/transaction/shipping/local/provinces`);
+  }
+
+  public getShippingCity(provinceName: string): Observable<unknown> {
+    const params = new HttpParams()
+      .set('provinceName', provinceName);
+    return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/transaction/shipping/local/cities`, { params: params });
+  }
+
+  public getShippingDistrict(provinceName: string, cityName: string): Observable<unknown> {
+    const params = new HttpParams()
+      .set('provinceName', provinceName)
+      .set('cityName', cityName);
+    return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/transaction/shipping/local/districts`, { params: params });
+  }
+
+  public getShippingSubDistrict(provinceName: string, cityName: string, districtName: string): Observable<unknown> {
+    const params = new HttpParams()
+      .set('provinceName', provinceName)
+      .set('cityName', cityName)
+      .set('districtName', districtName);
+    return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/transaction/shipping/local/sub-districts`, { params: params });
   }
 
 }

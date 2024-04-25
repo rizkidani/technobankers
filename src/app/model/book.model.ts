@@ -12,6 +12,7 @@ export class BookModel {
         bookShippingCity: new FormControl("", [Validators.required]),
         bookShippingSubdistrict: new FormControl("", [Validators.required]),
         bookShippingVillage: new FormControl("", [Validators.required]),
+        bookShippingVillagePost: new FormControl("", [Validators.required]),
         bookShippingPostalcode: new FormControl("", [Validators.required])
     });
 
