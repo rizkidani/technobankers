@@ -145,7 +145,9 @@ export class PaymentEbookComponent {
   }
 
   increaseQuantity() {
-    this.quantity++;
+    if (this.quantity < 100) {
+      this.quantity++;
+    }
     this.priceShipping = this.checkoutData.data.bookPriceShipping;
     this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
     this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;

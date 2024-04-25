@@ -28,6 +28,7 @@ export class PaymentEbookShippingComponent {
   selectedDistrict: any;
   shippingSubDistrict: any;
   selectedSubDistrict: any;
+  selectedTarifJNE: string = "";
 
   constructor(
     private readonly router: Router,
@@ -95,7 +96,7 @@ export class PaymentEbookShippingComponent {
     this.bookModel.formBookShipping.markAllAsTouched();
     if (this.bookModel.formBookShipping.valid) {
 
-      this.bookService.checkOutBookShipping(this.bookTransactionId, this.bookModel.formBookShipping.value).subscribe(
+      this.bookService.checkOutBookShipping(this.bookTransactionId, this.selectedTarifJNE, this.bookModel.formBookShipping.value).subscribe(
         (response) => {
           // Simpan respons ke local storage
           localStorage.setItem('checkoutResponse', JSON.stringify(response));
@@ -196,6 +197,7 @@ export class PaymentEbookShippingComponent {
     if (this.selectedCountry == 'INDONESIA') {
       this.bookModel.formBookShipping.controls['bookShippingVillagePost'].setValue(selected.subDistrictName);
       this.bookModel.formBookShipping.controls['bookShippingPostalcode'].setValue(selected.zipCode);
+      this.selectedTarifJNE = selected.tariffCode;
     }
   }
 
