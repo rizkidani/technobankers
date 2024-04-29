@@ -157,4 +157,22 @@ export class BookService {
     return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/transaction/shipping/local/sub-districts`, { params: params });
   }
 
+  public getShippingRateJNEInternational(transactionId: string, countryId: string, countryName: string, packageWeight: any): Observable<unknown> {
+    const params = new HttpParams()
+      .set('transactionId', transactionId)
+      .set('countryId', countryId)
+      .set('countryName', countryName)
+      .set('packageWeight', packageWeight);
+    return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/transaction/shipping/jne/rate`, { params: params });
+  }
+
+  public getShippingRateJNELocal(bookTransactionCode: string, tariffCode: string, countryName: string, packageWeight: string): Observable<unknown> {
+    const params = new HttpParams()
+      .set('bookTransactionCode', bookTransactionCode)
+      .set('tariffCode', tariffCode)
+      .set('countryName', countryName)
+      .set('packageWeight', packageWeight);
+    return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/transaction/shipping/local/rates/regular`, { params: params });
+  }
+
 }

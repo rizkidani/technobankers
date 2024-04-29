@@ -139,6 +139,7 @@ export class DetailBookComponent {
           (response: any) => {
             // Simpan respons ke local storage
             localStorage.setItem('checkoutResponse', JSON.stringify(response));
+            localStorage.setItem('checkoutQuantityResponse', JSON.stringify(1));
             this.router.navigate(["transaction-checkout"]);
             setTimeout(() => {
               window.location.reload();

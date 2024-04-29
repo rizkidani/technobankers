@@ -14,6 +14,13 @@ import Swal from 'sweetalert2';
 export class PaymentEbookPaymentComponent {
   bookModel = new BookModel;
   bookTransactionId: any;
+  priceTotal: number = 0;
+  priceNormal: number = 0;
+  priceShipping: number = 0;
+  priceDiscount: number = 0;
+  quantity: number = 0;
+
+  checkoutData: any
   userData: any = {};
   bookTransactionData: any = {};
 
@@ -28,8 +35,26 @@ export class PaymentEbookPaymentComponent {
       this.userData = this.authService.loadUserData()
     }
 
+    let checkoutQuantityResponse = localStorage.getItem('checkoutQuantityResponse');
+    if (checkoutQuantityResponse) {
+      this.quantity = Number(checkoutQuantityResponse);
+    } else {
+      this.quantity = 1;
+    }
+
+    let checkoutResponse = localStorage.getItem('checkoutResponse');
+    if (checkoutResponse) {
+      this.checkoutData = JSON.parse(checkoutResponse);
+  
+      this.priceShipping = this.checkoutData.data.bookPriceShipping;
+      this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
+      this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
+      this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping ;
+    }
+
     // get respons from local storage
     let bookTransactionId = localStorage.getItem('bookTransactionId');
+
     if (bookTransactionId) {
       this.bookTransactionId = JSON.parse(bookTransactionId);
     }

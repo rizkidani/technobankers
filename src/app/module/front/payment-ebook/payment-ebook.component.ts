@@ -17,6 +17,9 @@ export class PaymentEbookComponent {
   bookTransactionId: any;
   bookTransactionData: any = {};
   quantity: number = 0;
+  quantityWeight: number = 0;
+  bookWeight: number = 0.25;
+  shippingVendor: string = "";
   priceTotal: number = 0;
   priceNormal: number = 0;
   priceShipping: number = 0;
@@ -36,12 +39,17 @@ export class PaymentEbookComponent {
     let checkoutResponse = localStorage.getItem('checkoutResponse');
     if (checkoutResponse) {
       this.checkoutData = JSON.parse(checkoutResponse);
-      this.quantity = this.checkoutData.data.bookQuantity;
+      let checkoutQuantityResponse = localStorage.getItem('checkoutQuantityResponse');
+      if (checkoutQuantityResponse) {
+        this.quantity = Number(checkoutQuantityResponse);
+      } else {
+        this.quantity = 1;
+      }
       this.priceShipping = this.checkoutData.data.bookPriceShipping;
       this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
       this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
       this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping ;
-
+      this.shippingVendor = this.checkoutData.data.bookShippingVendor;
     }
   }
 
@@ -141,14 +149,26 @@ export class PaymentEbookComponent {
   }
 
   updateQuantity() {
-    console.log(this.quantity);
   }
 
   increaseQuantity() {
     if (this.quantity < 100) {
       this.quantity++;
+      this.quantityWeight = 0;
+      localStorage.setItem('checkoutQuantityResponse', JSON.stringify(this.quantity));
     }
-    this.priceShipping = this.checkoutData.data.bookPriceShipping;
+
+    if (this.shippingVendor == "jne-local") {
+      this.quantityWeight = this.bookWeight * this.quantity;
+    } else if (this.shippingVendor == "jne-international") {
+      if (this.quantity % 2 == 0) {
+        this.quantityWeight = this.bookWeight * this.quantity;
+      } else {
+        this.quantityWeight = (this.bookWeight * this.quantity) + 0.25;
+      }
+      this.getShippingRateJNEInternational();
+    }
+
     this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
     this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
     this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping ;
@@ -157,12 +177,44 @@ export class PaymentEbookComponent {
   decreaseQuantity() {
     if (this.quantity > 1) {
       this.quantity--;
+      this.quantityWeight = 0;
+      localStorage.setItem('checkoutQuantityResponse', JSON.stringify(this.quantity));
     }
 
-    this.priceShipping = this.checkoutData.data.bookPriceShipping;
+    if (this.shippingVendor == "jne-local") {
+      this.quantityWeight = this.bookWeight * this.quantity;
+    } else if (this.shippingVendor == "jne-international") {
+      if (this.quantity % 2 == 0) {
+        this.quantityWeight = this.bookWeight * this.quantity;
+      } else {
+        this.quantityWeight = (this.bookWeight * this.quantity) + 0.25;
+      }
+      this.getShippingRateJNEInternational();
+    }
+
     this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
     this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
     this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping;
+  }
+
+  getShippingRateJNEInternational() {
+    this.bookService.getShippingRateJNEInternational(this.checkoutData.data.bookTransactionCode, "1", this.checkoutData.data.bookShippingCountry, this.quantityWeight).subscribe(
+      (response: any) => {
+        this.priceShipping = response.rate.rates;
+       },
+      (error) => {
+      }
+    )
+  }
+
+  getShippingRateJNELocal() {
+    // this.bookService.getShippingRateJNELocal(this.bookTransactionId, this.checkoutData.data.bookShippingCountry, this.quantityWeight).subscribe(
+    //   (response) => {
+
+    //     },
+    //   (error) => {
+    //   }
+    // )
   }
 
 }
