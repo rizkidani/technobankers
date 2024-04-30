@@ -45,11 +45,31 @@ export class PaymentEbookComponent {
       } else {
         this.quantity = 1;
       }
-      this.priceShipping = this.checkoutData.data.bookPriceShipping;
-      this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
-      this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
-      this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping ;
+
       this.shippingVendor = this.checkoutData.data.bookShippingVendor;
+      if (this.shippingVendor == "jne-local") {
+        this.quantityWeight = this.bookWeight * this.quantity;
+
+        this.getShippingRateJNELocal();
+
+        // this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
+        // this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
+        // this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping;
+
+      } else if (this.shippingVendor == "jne-international") {
+        if (this.quantity % 2 == 0) {
+          this.quantityWeight = this.bookWeight * this.quantity;
+        } else {
+          this.quantityWeight = (this.bookWeight * this.quantity) + 0.25;
+        }
+        this.getShippingRateJNEInternational();
+      } else {
+        this.quantityWeight = this.bookWeight * this.quantity;
+        this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
+        this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
+        this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping;
+      }
+      localStorage.setItem('checkoutPriceTotalResponse', JSON.stringify(this.priceTotal));
     }
   }
 
@@ -160,6 +180,7 @@ export class PaymentEbookComponent {
 
     if (this.shippingVendor == "jne-local") {
       this.quantityWeight = this.bookWeight * this.quantity;
+      this.getShippingRateJNELocal();
     } else if (this.shippingVendor == "jne-international") {
       if (this.quantity % 2 == 0) {
         this.quantityWeight = this.bookWeight * this.quantity;
@@ -172,6 +193,7 @@ export class PaymentEbookComponent {
     this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
     this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
     this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping ;
+    localStorage.setItem('checkoutPriceTotalResponse', JSON.stringify(this.priceTotal));
   }
 
   decreaseQuantity() {
@@ -183,6 +205,7 @@ export class PaymentEbookComponent {
 
     if (this.shippingVendor == "jne-local") {
       this.quantityWeight = this.bookWeight * this.quantity;
+      this.getShippingRateJNELocal();
     } else if (this.shippingVendor == "jne-international") {
       if (this.quantity % 2 == 0) {
         this.quantityWeight = this.bookWeight * this.quantity;
@@ -195,26 +218,51 @@ export class PaymentEbookComponent {
     this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
     this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
     this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping;
+    localStorage.setItem('checkoutPriceTotalResponse', JSON.stringify(this.priceTotal));
   }
 
   getShippingRateJNEInternational() {
     this.bookService.getShippingRateJNEInternational(this.checkoutData.data.bookTransactionCode, "1", this.checkoutData.data.bookShippingCountry, this.quantityWeight).subscribe(
       (response: any) => {
         this.priceShipping = response.rate.rates;
-       },
+        this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
+        this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
+        this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping;
+        localStorage.setItem('checkoutPriceTotalResponse', JSON.stringify(this.priceTotal));
+      },
       (error) => {
+        Swal.fire({
+          title: "Failed get data shipping",
+          text: "Please try again.",
+          icon: "info"
+        }).then((result) => {
+          window.location.reload();
+        });
       }
     )
   }
 
   getShippingRateJNELocal() {
-    // this.bookService.getShippingRateJNELocal(this.bookTransactionId, this.checkoutData.data.bookShippingCountry, this.quantityWeight).subscribe(
-    //   (response) => {
+    let tarifCodeJNELocal = localStorage.getItem('tarifCodeJNELocal')?.slice(1,-1);
 
-    //     },
-    //   (error) => {
-    //   }
-    // )
+    this.bookService.getShippingRateJNELocal(this.checkoutData.data.bookTransactionCode, tarifCodeJNELocal, this.checkoutData.data.bookShippingCountry, this.quantityWeight).subscribe(
+      (response: any) => {
+        this.priceShipping = response.data.price;
+        this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
+        this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
+        this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping;
+        localStorage.setItem('checkoutPriceTotalResponse', JSON.stringify(this.priceTotal));
+        },
+      (error) => {
+        Swal.fire({
+          title: "Failed get data shipping",
+          text: "Please try again.",
+          icon: "info"
+        }).then((result) => {
+          window.location.reload();
+        });
+      }
+    )
   }
 
 }

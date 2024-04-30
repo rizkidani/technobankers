@@ -45,18 +45,13 @@ export class PaymentEbookPaymentComponent {
     let checkoutResponse = localStorage.getItem('checkoutResponse');
     if (checkoutResponse) {
       this.checkoutData = JSON.parse(checkoutResponse);
+      let checkoutPriceTotalResponse = localStorage.getItem('checkoutPriceTotalResponse');
   
+      this.bookTransactionId = this.checkoutData.data.bookTransactionId;
       this.priceShipping = this.checkoutData.data.bookPriceShipping;
       this.priceDiscount = this.checkoutData.data.bookPrice * (this.checkoutData.data.bookDiscount / 100) * this.quantity;
       this.priceNormal = this.checkoutData.data.bookPrice * this.quantity;
-      this.priceTotal = (this.checkoutData.data.bookPrice * this.quantity) - this.priceDiscount + this.priceShipping ;
-    }
-
-    // get respons from local storage
-    let bookTransactionId = localStorage.getItem('bookTransactionId');
-
-    if (bookTransactionId) {
-      this.bookTransactionId = JSON.parse(bookTransactionId);
+      this.priceTotal = Number(checkoutPriceTotalResponse);
     }
 
     this.bookService.getDetailBookTransaction(this.bookTransactionId).subscribe(

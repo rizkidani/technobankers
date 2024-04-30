@@ -100,6 +100,7 @@ export class PaymentEbookShippingComponent {
         (response) => {
           // Simpan respons ke local storage
           localStorage.setItem('checkoutResponse', JSON.stringify(response));
+          localStorage.setItem('tarifCodeJNELocal', JSON.stringify(this.selectedTarifJNE));
           this.router.navigate(["transaction-checkout"]);
           setTimeout(() => {
             window.location.reload();

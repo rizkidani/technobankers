@@ -166,7 +166,7 @@ export class BookService {
     return this.http.get(`${API_BASE_URL}/api/technobanker/v1/backoffice/transaction/shipping/jne/rate`, { params: params });
   }
 
-  public getShippingRateJNELocal(bookTransactionCode: string, tariffCode: string, countryName: string, packageWeight: string): Observable<unknown> {
+  public getShippingRateJNELocal(bookTransactionCode: string, tariffCode: any, countryName: string, packageWeight: any): Observable<unknown> {
     const params = new HttpParams()
       .set('bookTransactionCode', bookTransactionCode)
       .set('tariffCode', tariffCode)
