@@ -112,6 +112,11 @@ export class PaymentEbookComponent {
           .set('email', this.bookTransactionData.bookReceiptEmail)
           .set('phoneNumber', this.bookTransactionData.bookReceiptPhone)
           .set('bookTransactionCode', this.bookTransactionData.bookTransactionCode)
+          .set('quantity', this.quantity)
+          .set('quantityWeight', this.quantityWeight)
+          .set('priceNormal', this.priceNormal)
+          .set('priceShipping', this.priceShipping)
+          .set('priceDiscount', this.priceDiscount)
           .set('amount', this.priceTotal);
 
           this.bookService.checkoutBookTransacion(params).subscribe(
