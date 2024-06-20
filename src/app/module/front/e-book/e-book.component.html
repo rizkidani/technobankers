@@ -14,7 +14,7 @@
     <div class="container">
         <div class="p-4">
             <h3 class="text-[#303096] text-[32px] font-bold">My E-Books</h3>
-            <p class="text-[#4F4F4F] text-[16px] font-normal pt-3">2 books found</p>
+            <p class="text-[#4F4F4F] text-[16px] font-normal pt-3">{{ dataEbook.length }} books found</p>
             <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
                 <div *ngFor="let ebook of dataEbook" class="pt-3 flex flex-col justify-center">
                     <img [src]="ebook.bookImage" class="rounded-2xl" alt="">
